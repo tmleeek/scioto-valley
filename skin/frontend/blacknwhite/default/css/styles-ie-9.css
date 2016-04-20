@@ -1,0 +1,6 @@
+@media only screen  and (max-width: 764px){
+    .col2-left-layout .grid-3-columns.products-grid li.item {
+        top: auto !important;
+    }
+}
+

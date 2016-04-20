@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Interactone_Cms>
+            <version>0.1.0</version>
+        </Interactone_Cms>
+    </modules>
+    <global>
+        <models>
+            <cms>
+                <rewrite>
+                    <wysiwyg_images_storage>Interactone_Cms_Model_Wysiwyg_Images_Storage</wysiwyg_images_storage>
+                </rewrite>
+            </cms>
+        </models>
+        <helpers>
+            <cms>
+                <rewrite>
+                    <wysiwyg_images>Interactone_Cms_Helper_Wysiwyg_Images</wysiwyg_images>
+                </rewrite>
+            </cms>
+        </helpers>
+    </global>
+</config>

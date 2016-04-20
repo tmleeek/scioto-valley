@@ -1,0 +1,59 @@
+<?php
+$location = Mage::getSingleton('mwgeoip/geoip')->getCurrentLocation();
+$countries = Mage::helper('storeswitcher')->getSwitchableCountries();
+
+if (count($countries) > 0): ?>
+
+<?php if (Mage::helper('storeswitcher')->getSwitcherDisplayMode() == MageWorx_StoreSwitcher_Model_System_Config_Source_Mode::DISPLAY_MODE_NAMES_FLAGS): ?>
+<?php /* Disaply mode: Flags + Names */ ?>
+
+    <div class="form-language">
+        <?php /*Delete comment tag to see current store code  ?>
+        <div style="color: #fff"><?php echo Mage::app()->getStore()->getCode() ?></div>
+        <?php */ ?>
+        <label for="select-country"><?php echo $this->__('Your Country:') ?></label>
+        <?php if(!Mage::helper('storeswitcher')->getForceStoreView()): ?>
+            <select id="select-country" class="replacemeselect" title="<?php echo $this->__('Your Country') ?>">
+                <?php foreach ($countries as $country): ?>
+                <option <?php if($country['value'] == $location->getCode()){ echo 'selected="selected"'; } ?> value="<?php echo $country['value'] ?>" imgsrc="<?php echo Mage::helper('mwgeoip')->getFlagPath($country['value']); ?>"><?php echo $country['label'] ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <script type="text/javascript">
+                var selreplace = new SelectReplace('select-country', {}, '<?php echo Mage::helper('storeswitcher')->getCountryUrl();  ?>');
+            </script>
+        <?php else: ?>
+            <span class="geoip-country"><img src="<?php echo Mage::helper('mwgeoip')->getFlagPath($location->getCode()); ?>" /><?php echo $location->getCountry(); ?></span>
+        <?php endif; ?>
+    </div>
+
+<?php elseif (Mage::helper('storeswitcher')->getSwitcherDisplayMode() == MageWorx_StoreSwitcher_Model_System_Config_Source_Mode::DISLPAY_MODE_NAMES): ?>
+<?php /* Display mode: Names */ ?>
+
+    <div class="form-language">
+        <?php /* Delete comment tag to see current store code  ?>
+        <div style="color: #fff"><?php echo Mage::app()->getStore()->getCode() ?></div>
+        <?php  */ ?>
+        <label for="select-country"><?php echo $this->__('Your Country:') ?></label>
+        <?php if(!Mage::helper('storeswitcher')->getForceStoreView()): ?>
+            <select id="select-country" class="replacemeselect" title="<?php echo $this->__('Your Country') ?>">
+                <?php foreach ($countries as $country): ?>
+                <option <?php if($country['value'] == $location->getCode()){ echo 'selected="selected"'; } ?> value="<?php echo $country['value'] ?>"><?php echo $country['label'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <script type="text/javascript">
+                $('select-country').observe('change', function(event){
+                    countryCode = $('select-country').value;
+                    onChangeUrl = '<?php echo Mage::helper('storeswitcher')->getCountryUrl();  ?>';
+                    url = onChangeUrl.replace('%geoip_code%', countryCode);
+                    setLocation(url);
+                    event.stop();
+                })
+            </script>
+        <?php else: ?>
+            <span class="geoip-country"><?php echo $location->getCountry(); ?></span>
+        <?php endif; ?>
+    </div>
+
+<?php endif; ?>
+<?php endif; ?>

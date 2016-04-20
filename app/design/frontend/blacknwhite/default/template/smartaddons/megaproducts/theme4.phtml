@@ -1,0 +1,182 @@
+<?php  
+/*------------------------------------------------------------------------
+ # Smartaddons Mega Products  - Version 1.0
+ # Copyright (C) 2010-2011 The YouTech Company. All Rights Reserved.
+ # @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ # Author: The YouTech Company
+ # Websites: http://www.smartaddons.com
+ -------------------------------------------------------------------------*/
+?>
+<?php 
+if($browser->Name=='msie' && floor($browser->Version)==7) {
+
+	$width_category = $width_category - 1;
+
+}	
+?>
+<?php if(!empty($items)){?>
+    <div id="yt-mega-news" class="yt_mega_news">	
+        <div id="ytc_tabs" class="theme4">
+		  <?php    	      					
+						   if(!empty($items)){	$ij=1;	$counttotal = count($items);  
+						   foreach ($items as $key=>$value) {    		   
+		 
+		 if ($ij==1) {
+		 ?>
+		  <div style="width:<?php echo $width_module;?>%; float:left"> <?php }?>
+		   <div class="box" style="width:<?php echo ($width_category);?>%"> 			
+			 	<div class="tabs" >			   
+					<div class="category_title_right">&nbsp;&nbsp;&nbsp; </div>
+					<div class="category_title_center">
+						<div class="category_name">
+						<?php if ($sub_category_link==1) { ?>
+								<a href="<?php echo ($value->url);?>" <?php echo $target;?>>
+									<?php echo strtoupper($value->title) ; ?>
+								</a>
+						<?php } else {
+										echo strtoupper($value->title);
+								}
+						?>
+						</div>
+					</div>
+					<div class="category_title_left">&nbsp;</div>					
+			    </div> <!--end tabs-->
+                  <div class="box-wrapper">
+					<?php 
+                    $j=1;                    
+                    $firstVal = current($value->child); 
+					?>
+                    <div class="content-box <?php if($j==1) echo "current";?>">
+					<div class="normal-content">	
+					    <div class="col-one col">					
+                            <?php if($show_title ==1){
+									if ($product_title_linkable==1) {
+							?>
+										<a href="<?php echo $firstVal->url;?>" <?php echo $target;?>>
+											<?php echo $firstVal->title;?> 
+										</a>
+                            <?php 	} else {
+										echo $firstVal->title;
+									}
+								}
+                            ?>
+                     
+						</div>	
+						<br >
+						<?php if ($options->product_price_disp ==1 ) { ?>
+							<div class="megaproducts_price" style="left: 0px; text-align: left; position: absolute; ">
+								<?php echo $firstVal->price_html; ?>
+							</div>
+						<?php } ?>
+						<?php if ($options->product_reviews_disp ==1 ) { ?>
+							<div class="megaproducts_reviews">
+								<?php echo $firstVal->review_html;?>
+							</div>
+						<?php } ?>
+						<?php if ($options->product_stock_disp ==1 ) { ?>
+							<div class="megaproducts_stock">
+								<?php echo $firstVal->stock_html;?>
+							</div>
+						<?php } ?>
+						<div class="col-two col">
+						<?php if (($show_image == 1) && ($firstVal->image!='')){ ?>
+                            <div class="image"> 
+							<?php                                     
+							
+							 if($link_image ==1) {?>
+							
+							<a href="<?php echo $firstVal->url;?>" <?php echo $target;?>>
+							<img src="<?php echo $firstVal->image?>" /><br>
+							</a>
+							
+							<?php  } 
+							else 
+							{?>
+							<img src="<?php echo $firstVal->image?>"/>
+							<?php } ?>
+							</div>
+							<?php } ?>
+							<div class="sub_content">							
+								<?php if (($show_description == 1)&& ($firstVal->description!='')) {?>
+								<div class="article_desc" style="line-height: 1.5; overflow: hidden">
+								<?php echo $firstVal->description;?>
+								</div>
+								<?php }?>
+								<?php if (($show_read_more_link == 1) && ($firstVal->description!='')) {?>   
+								<div class="read_more"> 
+								<a href="<?php echo $firstVal->url;?>" <?php echo $target;?>><?php echo $read_more_text;?>
+								</a>
+								</div>
+								<?php }?>
+                            </div>
+
+						</div>
+                     
+					    <div class="col-three col">
+						<div style="position:relative;overflow:hidden;clear:both;">
+							<div style="float:left;"><a class="plus" href="#more" onclick="javascript:plus_minus('plus',<?php echo $value->id; ?>)"></a><a class="minus" href="#less" onclick="javascript:plus_minus('minus',<?php echo $value->id; ?>)"></a></div><div style=" color:#7a7a7b; font-weight: bold; float:right;right:27px;position:relative;"> MORE: </div>
+						</div>	
+							<?php //var_dump($value); die; ?>
+						  <div class="link">
+						  <ul id="<?php echo $value->id; ?>"> <?php $i=1; $j=1; foreach($value->child as $key1=>$value1){ if($i!=1){?>
+							<?php if($j <= 3){ ?>
+							<li id="<?php echo $value->id."_".$j; ?>">
+							<?php }else{ ?>
+								<li id="<?php echo $value->id."_".$j; ?>" style="display:none;">
+								<?php } $j++;?>
+							<div class="arrow">&nbsp;&nbsp;</div>	
+							<a href="<?php echo $value1->url?>" <?php echo $target; ?>><?php echo $value1->title?></a></li>
+							 <?php }; $i++; }?>                            
+                            </ul>
+					      </div>	
+						
+					      <ul class="link_category"> <?php if ($show_all_articles ==1) { ?>
+						  <li>
+						  <div class="arrow1"> &nbsp;</div>   
+						  <a href="<?php echo ($value->url);?>" <?php echo $target;?>><?php echo $view_all;?></a></li>
+						   <?php }?>                      
+                          </ul>		
+						  
+                        </div>  
+						</div> <!--end normal-content-->  		
+					
+			</div> <!--end content-box-->  							
+            </div> <!-- END Box Wrapper -->			  
+				 </div> <!--end box-->  	
+				 <?php if(($counttotal) == $ij){?>
+                        </div><?php } else {?>
+                        <?php if($ij%$numcols ==0) {?> </div><div style="width:<?php echo $width_module;?>%; float:left"> <?php }?>
+                        <?php }?>                             
+                        <?php $j++; $ij++;}} ?>                              
+                          
+							</div> 
+     
+    </div>   
+  <?php } else { echo $this->__('Has no content to show!');}?>
+  <script>
+	function plus_minus(operation,cat_id){	
+		var ul_content = $jsmart('#'+cat_id).children('li');
+		var li_display = 0;
+		var leng = ul_content.length;
+		$jsmart.each(ul_content,function(key,value){
+			if($jsmart(value).css('display')!='none'){
+				++li_display;
+			}
+		})
+		
+		if(li_display<leng || (li_display==leng && operation=='minus') || ((li_display<leng && li_display>0) && operation=='minus'))
+		{
+			if(operation=='plus')
+			{
+				var display_li = li_display;
+				ul_content.eq(display_li).show();		
+			}
+			
+			if(operation=='minus' && li_display>0)
+			{ 
+				var display_li = li_display-1;
+				ul_content.eq(display_li).hide();		
+			}
+		}
+	}
+  </script>

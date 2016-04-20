@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Watsons_Exportorders>
+            <version>0.1.0</version>
+        </Watsons_Exportorders>
+    </modules>
+    <global>
+        <models>
+            <exportorders>
+                <class>Watsons_Exportorders_Model</class>
+            </exportorders>
+        </models>
+        <helpers>
+            <exportorders>
+                <class>Watsons_Exportorders_Helper</class>
+            </exportorders>
+        </helpers>
+        <blocks>
+            <exportorders>
+                <class>Watsons_Exportorders_Block</class>
+            </exportorders>
+        </blocks>
+    </global>
+    <crontab>
+        <jobs>       
+            <watsons_sync_export_orders>
+                <schedule><cron_expr>0 * * * *</cron_expr></schedule>
+                <run><model>exportorders/observer::exportOrders</model></run>
+            </watsons_sync_export_orders>
+        </jobs>
+    </crontab>
+    <admin>
+        <routers>
+            <exportorders>
+                <use>admin</use>
+                <args>
+                    <module>Watsons_Exportorders</module>
+                    <frontName>exportorders</frontName>
+                </args>
+            </exportorders>
+        </routers>
+    </admin>
+<!-- admin -->
+    <adminhtml>
+        
+        <menu>
+            <watsons_menu translate="title" module="adminhtml">
+                <title>Watsons</title> 
+                <sort_order>9999</sort_order>
+                <children>
+                    <sync translate="title" module="adminhtml">
+                        <title>Synchronize</title>
+                        <sort_order>20</sort_order>
+                        <children>
+                            <orders translate="title">
+                                <title>Export Orders</title>
+                                <action>exportorders/adminhtml_order</action>
+                                <sort_order>10</sort_order>
+                            </orders>
+                        </children>
+                    </sync>
+                </children>
+            </watsons_menu>
+        </menu>
+        
+    </adminhtml>
+<!-- default settings -->
+    <default>
+        <exportorders_section>
+            <settings>
+                <enabled>1</enabled>
+                <log_enabled>1</log_enabled>
+            </settings>
+        </exportorders_section>
+    </default>
+</config> 

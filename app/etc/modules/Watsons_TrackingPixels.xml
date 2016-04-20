@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Watsons_TrackingPixels>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Watsons_TrackingPixels>
+    </modules>
+</config>

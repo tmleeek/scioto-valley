@@ -1,0 +1,44 @@
+/*  */
+.postWrapper{margin:0;padding:0;margin-bottom:10px;width:100%;}
+.postWrapper .content_test{background:#fff;}
+.div_top{background:url(../../images/testimonial/div_top.gif) no-repeat;height:25px;}
+.div_middle{background:url(../../images/testimonial/div_md.gif) repeat-y;height:200px;}
+#slideshow{height:110px;}
+h2.title_test{color:#e31837;font-family:'Lato', sans-serif ;font-size:20px;text-transform: uppercase;}
+.icon_bt{text-align:right;}
+.div_bt{}
+.div_bt h6{text-align:right;padding-top:20px;margin-right:90px;}
+.div_bt h6 a{color:#e31837;font-weight:normal;font-size:11px;text-decoration:underline;}
+.div_bt_box h6{text-align:right;padding:10px 0px;margin-right:10px;}
+.div_bt_box h6 a{color:#e31837;font-weight:normal;font-size:11px;text-decoration:underline;}
+/*create nguyen  thi van 30/9/2009*/
+.div_middle_content{padding:0px 10px;}
+.div_testimonial_L{}
+.div_testimonial_L .div_testimonial_R{}
+.div_testimonial_L .div_testimonial_R  .div_testimonial_main_B{height: 109px;}
+.div_testimonial_L .div_testimonial_R  .div_testimonial_main_B .div_testimonial_main_BL{}
+.div_testimonial_L .div_testimonial_R  .div_testimonial_main_B .div_testimonial_main_BL  .div_testimonial_main_T{}
+.div_testimonial_L .div_testimonial_R  .div_testimonial_main_B .div_testimonial_main_BL  .div_testimonial_main_T  .div_testimonial_main_TL{}
+.div_testimonial_L .div_testimonial_R  .div_testimonial_main_B .div_testimonial_main_BL  .div_testimonial_main_T  .div_testimonial_main_TL .div_testimonial_main_TR{}
+.mw_testimonial_content{color: #e31837; margin:10px;}
+.div_testimonial_main_C{padding:0px 10px 10px; }
+.div_submit{float:left;}
+.div_submit_content{float:left;margin-right:10px;}
+.mw_tt_a-right{ text-align:right !important;}
+.mw_testimonial_me {float:left; margin-right:10px;}
+
+table.mw_tt_pager select{ font-size:0.95em; margin:0 3px; }
+table.mw_tt_pager select { width:50px; }
+
+table.mw_tt_pager { background:url("images/pager_bg.gif") repeat-x scroll 0 100% #FFFFFF; font-size:0.95em; width:100%;}
+table.mw_tt_pager td { border-top:1px solid #DDDDDD; padding:4px 8px; vertical-align:middle; width:33%; }
+
+table.mw_tt_pager td.pages { padding:4px 0; text-align:center; white-space:nowrap;}
+table.mw_tt_pager ol, table.mw_tt_pager li { display:inline; }
+table.mw_tt_pager li { padding:0 2px; }
+.mw_clear{clear:both;width:100%;font-size:4px;}
+.clear_both{clear:both; height:1px; display: block; overflow: hidden;}
+
+.mw_testimonial_media{text-align: center; margin-top: 5px;}
+
+

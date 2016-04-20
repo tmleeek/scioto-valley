@@ -1,0 +1,295 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Category left navigation
+ *
+ * @see Mage_Catalog_Block_Navigation
+ */
+?>
+<?php //if (!Mage::registry('current_category')) return ?>
+<?php //$_categories = $this->getCurrentChildCategories() ?>
+<?php //$_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
+<?php //if($_count): ?>
+
+<?php // Lets add the toolbar here! ?>
+<?php //echo $this->getChildHtml('toolbar_only') ?>
+<?php //if (!Mage::registry('current_category')) return ?>
+<?php //$_helper = Mage::helper('catalog/category') ?>
+<?php $cat_id = '389'; ?>
+<?php //$_categories = $_helper->getStoreCategories($categoryid) ?>
+<?php $currentCategoryyy = Mage::registry('current_category');	
+	  $_categories = Mage::getModel('catalog/category')->getCategories($cat_id);
+?>
+<?php
+		  $cnchild = $currentCategoryyy->getId(); 
+		  $ccchild = $currentCategoryyy->getParentId($cnchild);
+		  
+		   $parentId = Mage::getModel('catalog/category')->load($ccchild)->getParentId();
+		   $mparent = $currentCategoryyy->getParentId($ccchild);
+		  //echo $cat_idd = $this->getCurrentCategory()->getParentCategory()->getId(); 
+?>
+<?php //$_categories = $this->getCurrentChildCategories() ?>
+<?php $_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
+<?php if($_count): ?>
+
+<div class="block block-layered-nav"> 
+  <!-- <div class="block-title">
+        <strong><span><?php echo $this->__('Browse By') ?></span></strong>
+    </div> -->
+  <div class="block-content">
+    <dl id="narrow-by-list2">
+      <dt><?php echo $this->__('') ?></dt>
+      <dd>
+        <ol>
+          <?php foreach ($_categories as $_category): ?>
+          <?php if($_category->getIsActive()): ?>
+          <li class="parcat">
+           
+            <a class="parcatss" href="<?php echo $this->getCategoryUrl($_category) ?>"><?php echo $this->escapeHtml($_category->getName()) ?> <!-- (<?php echo $_category->getProductCount() ?>) --></a>
+            <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+            <?php $_subcategories = $_category->getChildrenCategories(); //print_r($_subcategories); ?>
+            
+           <?php if(( $_category->getId() == $ccchild  ) || ( $_category->getId() == $parentId )) { ?>
+            <style>
+           .parcathh.fa.fa-caret-down {
+    display: block !important;
+    float: left;
+}
+           </style>
+          <!--  <div class=" parcathh fa fa-caret-right"></div>-->
+            <div class=" parcathh fa fa-caret-down"></div>
+          
+            <ul class="childcatd">
+            <?php foreach($_subcategories as $_subcategory): ?>
+            <li class="parcat">
+             <?php if (($_subcategory->getId() == $cnchild) || ($_subcategory->getId() == $ccchild) ) {?>  
+              <a class="childcatchild" href="<?php echo $this->getCategoryUrl($_subcategory) ?>" <?php if ($_subcategory->getId() == $cnchild) : ?> style="color:#F00;" <?php endif; ?>> <?php echo $_subcategory->getName() ?> </a>
+             <!-- <div class=" parcathh fa fa-caret-right"></div>-->
+              <div class=" parcathh fa fa-caret-down"></div>
+              <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+            <?php if (count($_subsubcategories) > 0): ?>
+            
+            <ul  class="childcatd"  style="display:block !important">
+              <?php foreach($_subsubcategories as $_subsubcategory): ?>
+              <li> <a  href="<?php echo $this->getCategoryUrl($_subsubcategory) ?>" <?php if ($_subsubcategory->getId() == $cnchild) : ?> style="color:#F00;" <?php endif; ?>> <?php echo $_subsubcategory->getName() ?> </a>
+              <li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+            
+            <?php } else { ?>
+            
+            <a  href="<?php echo $this->getCategoryUrl($_subcategory) ?>"> <?php echo $_subcategory->getName() ?> </a>
+              <div class=" parcathh fa fa-caret-right"></div>
+             <!-- <div class=" parcathh fa fa-caret-down"></div>-->
+              <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+            <?php if (count($_subsubcategories) > 0): ?>
+            
+            <ul  class="childcat <?php if($_subcategory->getId() == '402') { ?> spnhot <?php } elseif($_subcategory->getId() == '401') { ?> posu <?php } elseif($_subcategory->getId() == '415') { ?>fingy<?php } elseif($_subcategory->getId() == '412') { ?>ponbi<?php } elseif($_subcategory->getId() == '413') { ?>gata<?php } elseif($_subcategory->getId() == '420') { ?>grac<?php }else { ?> <?php }?>" >
+              <?php foreach($_subsubcategories as $_subsubcategory): ?>
+              <li> <a  href="<?php echo $this->getCategoryUrl($_subsubcategory) ?>"> <?php echo $_subsubcategory->getName() ?> </a>
+              <li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+            
+             <?php } ?>
+              </li>
+            
+            <?php endforeach; ?>
+          </ul>
+          
+          <?php }else { ?>
+             <div class=" parcathh fa fa-caret-right"></div>
+          <!--  <div class=" parcathh fa fa-caret-down"></div>-->
+          <ul class="childcat">
+            <?php foreach($_subcategories as $_subcategory): ?>
+            <li class="parcat">
+             <?php if ($_subcategory->getId() == $cnchild ) {?>  
+              <a href="<?php echo $this->getCategoryUrl($_subcategory) ?>" style="color:#F00;"> <?php echo $_subcategory->getName() ?> </a>
+              <div class=" parcathh fa fa-caret-right"></div>
+             <!-- <div class=" parcathh fa fa-caret-down"></div>-->
+              <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+            <?php if (count($_subsubcategories) > 0): ?>
+            
+            <ul  class="childcatd"  style="display:block !important">
+              <?php foreach($_subsubcategories as $_subsubcategory): ?>
+              <li> <a href="<?php echo $this->getCategoryUrl($_subsubcategory) ?>"> <?php echo $_subsubcategory->getName() ?> </a>
+              <li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+            
+            <?php } else { ?>
+            
+            <a  href="<?php echo $this->getCategoryUrl($_subcategory) ?>"> <?php echo $_subcategory->getName() ?> </a>
+              <div class=" parcathh fa fa-caret-right"></div>
+             <!-- <div class=" parcathh fa fa-caret-down"></div>-->
+              <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+            <?php if (count($_subsubcategories) > 0): ?>
+            
+            <ul  class="childcat <?php if($_subcategory->getId() == '402') { ?> spnhot <?php } elseif($_subcategory->getId() == '401') { ?> posu <?php } elseif($_subcategory->getId() == '415') { ?>fingy<?php } elseif($_subcategory->getId() == '412') { ?>ponbi<?php } elseif($_subcategory->getId() == '413') { ?>gata<?php } elseif($_subcategory->getId() == '420') { ?>grac<?php }else { ?> <?php }?>" >
+              <?php foreach($_subsubcategories as $_subsubcategory): ?>
+              <li> <a  href="<?php echo $this->getCategoryUrl($_subsubcategory) ?>"> <?php echo $_subsubcategory->getName() ?> </a>
+              <li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+            
+             <?php } ?>
+              </li>
+            
+            <?php endforeach; ?>
+          </ul>
+          <?php  } ?>
+          </li>
+                    
+          <?php endif; ?>
+          <?php endforeach ?>
+        </ol>
+      </dd>
+    </dl>
+    <script type="text/javascript">decorateDataList('narrow-by-list2')</script> 
+    <script type="text/javascript">
+		jQuery(document).ready(function(){
+		 //hide the all of the element with class msg_body
+		 jQuery(".childcat").hide();
+		 //toggle the componenet with class msg_body
+		 jQuery(".parcathh").click(function(){
+		  jQuery(this).next(".childcat").slideToggle();
+		  jQuery(this).next(".childcatd").slideToggle();
+		   jQuery(this).toggleClass( "fa-caret-down" );
+		    jQuery(this).toggleClass( "fa-caret-right" );
+		  jQuery(this).toggleClass( "bounce" )	;	   
+		 });
+		});		
+		</script> 
+        
+<style>
+
+.parcathh {
+    float: left;
+}
+
+.childcatd {
+    margin-left: 30px;
+}
+.childcatchild {
+    font-size: 14px !important;
+}
+/*.childcat.ponsa,.childcat.ouen,.childcat.inen {
+    display: block !important;
+}*/
+
+
+</style>
+  </div>
+</div>
+<?php endif; ?>
+<!--<div class="block block-layered-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Browse By') ?></span></strong>
+    </div>
+    <div class="block-content">
+        <dl id="narrow-by-list2">
+            <dt><?php echo $this->__('Category') ?></dt>
+            <dd>
+                <ol>
+                <?php foreach ($_categories as $_category): ?>
+                    <?php if($_category->getIsActive()): ?>
+                    <li class="parcat">
+                       <div class=" parcathh fa fa-caret-right"></div>
+                        <div class=" parcathh fa fa-caret-down"></div>
+                    
+                       <a class="parcatss" href="<?php echo $this->getCategoryUrl($_category) ?>"><?php echo $this->escapeHtml($_category->getName()) ?> (<?php echo $_category->getProductCount() ?>)</a>
+                        
+                   <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+                <?php $_subcategories = $_category->getChildrenCategories() ?>
+                <?php if (count($_subcategories) > 0): ?>
+             
+                   
+                <?php endif; ?>
+               
+                    </li>
+                    <ul class="childcat">
+                        <?php foreach($_subcategories as $_subcategory): ?>
+                          <li class="parcat">   <div class=" parcathh fa fa-caret-right"></div>
+                          <div class=" parcathh fa fa-caret-down"></div>
+                     <a class="childcatchild" href="<?php echo $this->getCategoryUrl($_subcategory) ?>">
+                                    <?php echo $_subcategory->getName() ?>
+                                </a></li>
+                                
+                                <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+                              <?php if (count($_subsubcategories) > 0): ?>
+                             <ul class="childcat">
+                             <?php foreach($_subsubcategories as $_subsubcategory): ?>
+                             <li>
+                             <a  href="<?php echo $this->getCategoryUrl($_subsubcategory) ?>">
+                                    <?php echo $_subsubcategory->getName() ?>
+                                </a>
+                             <li>
+                             <?php endforeach; ?>
+                             </ul>
+                              <?php endif; ?>
+                            
+                        <?php endforeach; ?>
+                   </ul>
+                    <?php endif; ?>
+                <?php endforeach ?>
+                </ol>
+            </dd>
+        </dl>
+        <script type="text/javascript">decorateDataList('narrow-by-list2')</script>
+        <script type="text/javascript">
+
+
+jQuery(document).ready(function(){
+ 
+ //hide the all of the element with class msg_body
+ jQuery(".childcat").hide();
+ //toggle the componenet with class msg_body
+ jQuery(".parcat").click(function(){
+	 
+	 
+  
+ 
+ 
+  jQuery(this).next(".childcat").slideToggle();
+  
+  jQuery(this).toggleClass( "bounce" )
+  
+ 
+  
+  
+   
+ });
+});
+
+</script>
+    </div>
+</div>-->
+<?php //endif; ?>

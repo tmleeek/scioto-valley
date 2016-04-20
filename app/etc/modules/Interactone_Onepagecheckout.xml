@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Interactone_Onepagecheckout>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Interactone_Onepagecheckout>
+    </modules>
+
+    <global>
+        <models>
+            <onepagecheckout>
+                <rewrite>
+                    <type_geo>Interactone_Onepagecheckout_Model_Type_Geo</type_geo>
+                </rewrite>
+            </onepagecheckout>
+        </models>
+    </global>
+
+</config>

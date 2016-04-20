@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Watsons_Catalog>
+            <version>0.1.0</version>
+        </Watsons_Catalog>
+    </modules>
+    <global>
+        <blocks>
+            <watsons_catalog>
+                <class>Watsons_Catalog_Block</class>
+            </watsons_catalog>
+        </blocks>
+    </global>
+</config>

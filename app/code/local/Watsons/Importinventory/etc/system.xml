@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <watsons translate="label" module="importinventory">
+            <label>Watsons</label>
+            <!--<sort_order>0</sort_order>-->
+        </watsons>
+    </tabs>
+    <sections>
+        <importinventory_section  translate="label" module="importinventory">                    
+            <label>Import Inventory</label>
+            <tab>watsons</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>0</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>            
+            <groups>
+                <settings translate="label">
+                    <label>Settings</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Module Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </enabled>   
+                        <log_enabled translate="label">
+                            <label>Log Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </log_enabled>
+                        <outofstock_limit translate="label">
+                            <label>Minimum Qty in the Stock</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>If qty at or below this value set out of stock.</comment>
+                        </outofstock_limit>
+                    </fields>
+                </settings>
+            </groups>
+        </importinventory_section>
+    </sections>
+</config>

@@ -1,0 +1,115 @@
+<?php
+/*------------------------------------------------------------------------
+ # Yt Mega Products II - Version 1.0
+ # Copyright (C) 2009-2011 The YouTech Company. All Rights Reserved.
+ # @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ # Author: The YouTech Company
+ # Websites: http://www.ytcvn.com
+ -------------------------------------------------------------------------*/
+
+$options	= $this->getConfigObject();
+$data		= $this->getProducts();
+$smarthelper= Mage::helper('megaproductsii/utils');
+$instance	= rand().time();
+$tooltips	= array();
+$hasData	= count($data)>0;
+
+if($hasData):
+	echo $this->getScriptTags();
+endif;
+?>
+<style type="text/css">
+	<?php if (!empty($options->module_width)): ?>
+	#megaii_<?php echo $instance; ?> div.yt_introtex,
+	#megaii_<?php echo $instance; ?> div.yt_footertext{
+		width: <?php echo $options->module_width; ?>px;
+	}
+	<?php endif; ?>
+	<?php if (!empty($options->product_thumbnail_width) && !empty($options->product_thumbnail_height)): ?>
+	#megaii_<?php echo $instance; ?> div.yt_item_image{
+		width: <?php echo $options->product_thumbnail_width ?>px;
+		height: <?php echo $options->product_thumbnail_height ?>px;
+	}
+	#megaii_<?php echo $instance; ?> div.yt_item_image img{
+		width: <?php echo $options->product_thumbnail_width ?>px;
+		height: <?php echo $options->product_thumbnail_height ?>px;
+	}
+	<?php endif; ?>
+	
+	#megaii_<?php echo $instance; ?> .rating-links,
+	#megaii_<?php echo $instance; ?> .no-rating{
+		text-align: right;
+	}
+	#megaii_<?php echo $instance; ?> .price-box,
+	#megaii_<?php echo $instance; ?> .ratings,
+	#megaii_<?php echo $instance; ?> .no-rating{
+		padding-right: 5px;
+	}
+</style>
+
+<?php
+$mod_width = intval($options->module_width);
+$mod_style_width = $mod_width>0 ? "style=\"width:{$mod_width}px;\"" : ""
+?>
+
+<?php if (!empty( $options->title )): ?>
+<h3><?php echo $options->title; ?></h3>
+<?php endif; ?>
+
+<?php if (!empty( $options->pretext )): ?>
+<div class="yt_introtext" <?php echo $mod_style_width; ?>><?php echo $options->pretext; ?></div>
+<?php endif; ?>
+
+<?php if (!empty($data)): ?>
+<div id="megaii_<?php echo $instance; ?>" class="yt_megaii <?php echo $options->theme; ?>" <?php echo $mod_style_width; ?>>
+	<div class="yt_module_inner">
+		<?php foreach ($data as $i => $section): ?>
+		<div class="yt_section_wrap">
+			<div class="yt_section_inner">
+				<?php include $options->theme . '.phtml'; ?>
+			</div>
+		</div>
+		<?php endforeach; ?>
+	</div>
+</div>
+<?php else: ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php endif; ?>
+
+<?php if (count($tooltips)>0){ ?>
+<div id="tooltip_megaii_<?php echo $instance; ?>" style="position: absolute; width: 1px; height: 1px; top: -999em; visibility: hidden; float: none;">
+	<?php
+	$tooltip_width = $options->tooltip_width > 0 ? $options->tooltip_width : '400';
+	$tooltip_image_width = intval($options->tooltip_image_maxwidth);
+	$tooltip_image_width = $tooltip_image_width>0 ? $tooltip_image_width : '100';
+	$tooltip_image_style = " style=\"width: {$tooltip_image_width}px;\"";
+	foreach ($tooltips as $tip){
+		$attrs = "style=\"width:{$tooltip_width}px;\" class=\"yt_tooltip_element megaii__{$tip['id']}\"";
+		$tip['item']->title = Mage::helper('core/string')->escapeHtml($tip['item']->title);
+	?>
+		<div <?php echo $attrs; ?>>
+			<div class="yt_item_wrap">
+				<div class="yt_item_inner yt_clearfix">
+					<div class="yt_item_title">
+						<span><?php echo $tip['item']->title; ?></span>
+					</div>
+					<?php if ($tip['item']->image): ?>
+					<div class="yt_item_image yt_clearfix">
+						<img src="<?php echo $tip['item']->image; ?>" alt="<?php echo $tip['item']->title; ?>" <?php echo $tooltip_image_style; ?>/>
+					</div>
+					<?php endif; ?>
+					<div class="yt_item_description"><?php echo $tip['item']->description; ?></div>
+				</div>
+			</div>
+		</div>
+	<?php } ?>
+</div>
+<?php } ?>
+<?php if (!empty( $options->posttext )): ?>
+<div class="yt_footertext" <?php echo $mod_style_width; ?>><?php echo $options->posttext; ?></div>
+<?php endif; ?>
+<script type="text/javascript">
+	$jsmart(document).ready(function($){
+		$('#megaii_<?php echo $instance; ?>').megaii();
+	});
+</script>

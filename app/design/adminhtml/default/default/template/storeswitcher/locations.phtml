@@ -1,0 +1,91 @@
+<?php
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   design_default
+ * @package    MageWorx_StoreSwitcher
+ * @copyright  Copyright (c) 2009 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Store Auto Switcher extension
+ *
+ * @category   design_default
+ * @package    MageWorx_StoreSwitcher
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+
+$_htmlId      = $this->getElement()->getHtmlId();
+$_htmlClass   = $this->getElement()->getClass();
+$_htmlName    = $this->getElement()->getName();
+$_readonly    = $this->getElement()->getReadonly();
+?>
+<tr>
+    <td colspan="11" class="label"><?php echo $this->getElement()->getLabel() ?></td>
+    <td colspan="11" class="value">
+        <script type="text/javascript">
+            <!--
+            __tglR = function(e) {
+                if (e.checked) {
+                    if ($(e.id+'-regions')) $(e.id+'-regions').show();
+                    //$(e).up().setStyle({backgroundColor: '#900'});
+                } else {
+                    if ($(e.id+'-regions')) $(e.id+'-regions').hide();
+                }
+            }
+            __chkAll = function(css) {
+                $$(css).each(function(e){e.checked = true; __tglR(e)});
+            }
+            __unchkAll = function(css) {
+                $$(css).each(function(e){e.checked = false; __tglR(e)});
+            }
+            __invChk = function(css) {
+                $$(css).each(function(e){e.checked = !e.checked; __tglR(e)});
+            }
+            __selAll = function(e) {
+                $A($(e).options).each(function(e){e.selected = true});
+            }
+            __unselAll = function(e) {
+                $A($(e).options).each(function(e){e.selected = false});
+            }
+            __invSel = function(e) {
+                $A($(e).options).each(function(e){e.selected = !e.selected});
+            }
+            //-->
+        </script>
+        <a href="#" onclick="__chkAll('input.contries-list'); return false"><?php echo $this->__('Select All') ?></a> | <a href="#" onclick="__unchkAll('input.contries-list'); return false"><?php echo $this->__('Unselect All') ?></a> | <a href="#" onclick="__invChk('input.contries-list'); return false"><?php echo $this->__('Invert Selection') ?></a><br />
+        <?php $countries = $this->getLocations() ?>
+        <?php $savedCountries = $this->getSavedLocations() ?>
+        <?php foreach ($countries as $country): if (empty($country['value'])) continue ?>
+        <?php $countryChecked = false; if (isset($savedCountries[$country['value']])) $countryChecked = true ?>
+        <label for="country-<?php echo $country['value'] ?>"><input type="checkbox" class="contries-list" id="country-<?php echo $country['value'] ?>" name="store[geoip_country_code][<?php echo $country['value'] ?>]" value="<?php echo $country['value'] ?>"<?php if ($countryChecked): ?> checked="checked"<?php endif ?> onclick="__tglR(this)" /> <?php echo $country['label'] ?></label><br />
+        <?php if (!empty($country['regions'])): ?>
+            <div id="country-<?php echo $country['value'] ?>-regions" style="margin: 0 0 15px 15px;<?php if (!$countryChecked): ?> display: none;<?php endif ?>">
+                <span class="small"><a href="#" class="small" onclick="__selAll('regions-<?php echo $country['value'] ?>'); return false"><?php echo $this->__('Select All') ?></a> | <a href="#" class="small" onclick="__unselAll('regions-<?php echo $country['value'] ?>'); return false"><?php echo $this->__('Unselect All') ?></a> | <a href="#" class="small" onclick="__invSel('regions-<?php echo $country['value'] ?>'); return false"><?php echo $this->__('Invert Selection') ?></a></span><br />
+                <select id="regions-<?php echo $country['value'] ?>" name="store[geoip_country_code][<?php echo $country['value'] ?>][]" class="select multiselect" size="10" multiple="multiple" class="select">
+                    <?php foreach ($country['regions'] as $regionId => $regionName): ?><option value="<?php echo $regionId?>"<?php if (isset($savedCountries[$country['value']]) && is_array($savedCountries[$country['value']]) && array_search($regionId, $savedCountries[$country['value']]) !== false): ?> selected="selected"<?php endif ?>><?php echo $regionName?></option><?php endforeach ?>
+                </select>
+            </div>
+            <?php endif ?>
+        <?php endforeach ?>
+    </td>
+</tr>

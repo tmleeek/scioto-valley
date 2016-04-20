@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <MageWorx_CurrencySwitcher>
+            <active>true</active>
+            <codePool>local</codePool>
+            <extension_name><![CDATA[Currency Auto Switcher]]></extension_name>
+            <depends>
+                <MageWorx_GeoIP />
+                <MageWorx_StoreSwitcher />
+            </depends>
+        </MageWorx_CurrencySwitcher>
+    </modules>
+</config>

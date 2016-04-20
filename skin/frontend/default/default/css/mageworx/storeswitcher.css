@@ -1,0 +1,127 @@
+.selreplace_scroll {
+	display: block;
+	width: 26px;
+}
+
+.selreplace_scrollinner {
+	background-color: #eaeaea;
+	width: 26px;
+	display: block;
+	height: 10px;
+	overflow: hidden;
+}
+
+.selreplace_scrollhandle {
+	cursor: move;
+	height: 26px;
+	width: 26px;
+	display: block;
+}
+
+.selreplace_scrollbuttonup,.selreplace_scrollbuttondown {
+	display: block;
+	width: 26px;
+	height: 26px;
+}
+
+.selreplace_scrollbuttondown {
+}
+
+.selreplace_scrollbuttonup {
+}
+
+.selreplace_select {
+    color: #EBBC58;
+    display: block;
+    overflow: hidden;
+    height: 15px;
+    text-align: left;
+    z-index: 999999;
+    min-width: 130px;
+    cursor: pointer;
+}
+
+.selreplace_select:hover {
+    text-decoration: underline;
+}
+
+.selreplace_select.top-opened {
+    color: #000;
+    display: block;
+    overflow: hidden;
+    background-color: #fff;
+    height: 15px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #aaa;
+    text-align: left;
+    z-index: 999999;
+    min-width: 130px;
+}
+
+.selreplace_select.top-opened:hover {
+    text-decoration: none;
+}
+
+.selreplace_selectbutton {
+	display: block;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    right:0px;
+    top:0px;
+}
+
+.selreplace_optionsel {
+    height: 10px;
+	padding: 5px;
+	display: block;
+    font-weight: bold;
+    font-style: italic;
+    min-width: 130px;
+}	
+
+.selreplace_optionimg{
+	float: left;
+    padding-right: 5px;
+    padding-top: 3px;
+    height: 12px;
+}
+
+.selreplace_option {
+    height: 10px;
+	padding: 5px;
+	display: block;
+    cursor: pointer;
+    min-width: 130px;
+    overflow: hidden;
+}
+
+.selreplace_option:hover {
+    background-color: #E0FFFF;
+}
+
+.selreplace_selectinner{
+	margin: 1px 0 1px 3px;
+}
+
+.selreplace_selectbox {
+	background-color: #ffffff;
+    z-index: 1000000;
+	overflow: hidden;
+    text-align: left;
+    min-width: 130px;
+    padding-bottom: 7px;
+    border: 1px solid #aaa;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.form-language .geoip-country {
+    color: #EBBC58;
+}
+
+.form-language .geoip-country img {
+    padding-right: 5px;
+    padding-top: 3px;
+    height: 12px;
+}

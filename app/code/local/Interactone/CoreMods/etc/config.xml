@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Interactone_CoreMods>
+            <version>0.1.0</version>
+        </Interactone_CoreMods>
+    </modules>
+    <global>
+        <blocks>
+            <interactone_coremods>
+                <class>Interactone_CoreMods_Block</class>
+            </interactone_coremods>
+            <adminhtml>
+                <rewrite>
+                    <catalog_helper_form_wysiwyg_content>Interactone_CoreMods_Block_Adminhtml_Catalog_Helper_Form_Wysiwyg_Content</catalog_helper_form_wysiwyg_content>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <page>
+            <layouts>
+                <home_page module="page" translate="label">
+                    <label>Watsons Home Page</label>
+                    <template>page/1column-home.phtml</template>
+                    <layout_handle>page_one_column_home</layout_handle>
+                    <is_default>1</is_default>
+                </home_page>
+            </layouts>
+        </page>
+    </global>
+</config>

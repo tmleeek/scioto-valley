@@ -1,0 +1,153 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     meigeetheme_default
+ * @copyright   Copyright (c) 2012 MeigeeTeam. (http://www.meigeeteam.com)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php
+	$meigee_blacknwhite_general = MAGE::helper('ThemeOptionsBlacknwhite')->getThemeOptionsBlacknwhite('meigee_blacknwhite_general');
+	$customlogo = $meigee_blacknwhite_general['customlogo'];
+	$mediaurl = MAGE::helper('ThemeOptionsBlacknwhite')->getThemeOptionsBlacknwhite('mediaurl');
+	$loginAjaxStatus = $meigee_blacknwhite_general['loginajax']['status'];
+	$customer = Mage::getSingleton('customer/session');
+	$siteLayout = $meigee_blacknwhite_general['layout']['sitelayout'];
+	$stickyClose = $meigee_blacknwhite_general['header']['floatingheader_close'];
+	$stickyTime = $meigee_blacknwhite_general['header']['floatingheader_time'];
+	$stickyCookie = Mage::getModel('core/cookie')->get("blacknwhiteSticky");
+?>
+<div class="header-wrapper">
+	<header id="header">
+		<div class="container_12">
+			<div class="grid_12">
+
+                <div class="olsheadernew">
+                    <div class="grid_3 alpha">
+                        <div class="olshl">
+                            <span class="olsheaderphone"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('ols_header_phone')->toHtml() ?></span>
+                            <?php //echo Mage::app()->getLayout()->createBlock('zblocks/block')->setPosition('product_right')->toHtml(); ?>
+                            <div style="clear: both;"></div>
+                         <span class="btms"><a href="http://www.watsons.com"><span class="btmsa">&#9665;&nbsp;&nbsp;Back to Main Site</span></a></span>
+                        </div>
+                    </div>
+                    <div class="grid_3">
+                        <?php if ($customlogo['logo_status'] == 0): ?>
+                            <h2 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="http://www.watsons.com/default/online-store" title="Watson's Online Store" class="logo"><img src="<?php echo $this->getSkinUrl('images/watsons-online-store.png'); ?>" <?php echo MAGE::helper('ThemeOptionsBlacknwhite/Retina')->getRetinaData('logo'); ?> alt="Watson's Online Store" /></a></h2>
+                        <?php else:?>
+                            <h2 class="logo"><strong><?php echo $customlogo['logo_alt']; ?></strong><a href="http://www.watsons.com/default/online-store" title="Watson's Online Store" class="logo"><img src="<?php echo $this->getSkinUrl('images/watsons-online-store.png'); ?>" <?php echo MAGE::helper('ThemeOptionsBlacknwhite/Retina')->getRetinaData('logo_custom'); ?> alt="Watson's Online Store" /></a></h2>
+                        <?php endif; ?>
+                    </div>
+                    <div class="grid_3 omega">
+                        <div class="olshr">
+                            <div class="header-top-right">
+                                <div class="quick-access">
+                                    <?php if (Mage::getSingleton('customer/session')->isLoggedIn()==0): ?>
+                                    <span class="customer-name signin"><span class="user"><a href="<?php echo Mage::helper('customer')->getLoginUrl(); ?>">Sign in</a></span></span>
+                                    
+                                    <?php else:
+									echo '<div class="logout"><a href="'.Mage::helper('customer')->getLogoutUrl().'">Logout</a></div>';
+									$lastname = $customer->getCustomer()->getLastname(); $lastnam =  substr($lastname, 1);
+                                        echo '<span class="customer-name"><span class="user">'. MAGE::helper('ThemeOptionsBlacknwhite')->getIcon('account') .'</span>Welcome, '  . $customer->getCustomer()->getFirstname() . '&nbsp' .$lastname[0].'.'. '<span class="arrow"><i class="fa fa-caret-down"></i></span></span>';
+                                    endif; ?>
+                                </div>
+                            </div>
+                            <div class="olscart">
+                                <?php echo $this->getChildHtml('cart_sidebar') ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+					</div>
+					<div class="clear"></div>
+					<div class="">
+                        <div class="shsbar">
+                            <div class="olsheadersearch">
+                                <?php echo $this->getChildHtml('topSearch') ?>
+                            </div>
+                        </div>
+                    </div>
+			<div class="clear"></div>
+
+		<div class="topline<?php if($stickyClose){echo ' sticky-close-box';} ?>">
+			<?php if($siteLayout == 0 and $stickyClose): ?>
+			<a href="javascript:void(0);" class="sticky-close"><i class="fa fa-times"></i></a>
+			<?php endif; ?>
+			<div class="container_12">
+				<div class="grid_12">
+					<?php if ($customlogo['small_logo_status'] == 0): ?>
+						<h2 class="small_logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="http://www.watsons.com/online-store" title="Watson's Online Store" class="small-logo"><img src="<?php echo $this->getSkinUrl('images/small_logo.png') ?>" <?php echo MAGE::helper('ThemeOptionsBlacknwhite/Retina')->getRetinaData('small_logo'); ?> alt="Watson's Online Store" /></a></h2>
+						<?php else:?>
+						<h2 class="small_logo"><strong><?php echo $customlogo['logo_alt']; ?></strong><a href="http://www.watsons.com/online-store" title="Watson's Online Store" class="small-logo"><img src="<?php echo $mediaurl.$customlogo['small_logo']; ?>" <?php echo MAGE::helper('ThemeOptionsBlacknwhite/Retina')->getRetinaData('small_logo_custom'); ?> alt="Watson's Online Store" /></a></h2>
+					<?php endif; ?>
+					<!-- <?php echo $this->getChildHtml('topMenu') ?> -->
+					<div class="menu-button"><?php echo MAGE::helper('ThemeOptionsBlacknwhite')->getIcon('mobilemenu'); ?><span><?php echo $this->__('Menu'); ?></span></div>
+
+					<?php if($siteLayout == 1 and $stickyClose): ?>
+					<a href="javascript:void(0);" class="sticky-close"><i class="fa fa-times"></i></a>
+					<?php endif; ?>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+        </div>
+	</header>
+</div>
+<?php if (Mage::getSingleton('cms/page')->getIdentifier() == 'home' && Mage::app()->getFrontController()->getRequest()->getRouteName() == 'cms'): ?>
+    <!-- remove? <div class="container_12">
+        <div class="grid_12">
+            <div class="homeSlider">
+                <?php echo $this->getLayout()->createBlock('flexslider/view')->setTemplate('flexslider/template.phtml')->setCode('homepage')->toHtml(); ?>
+            </div>
+        </div> -->
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+<?php endif; ?>
+<?php if($this->getChildHtml('topContainer')): ?>
+<div class="container_12 header-position">
+	<div class="grid_12">
+		<?php echo $this->getChildHtml('topContainer'); ?>
+	</div>
+	<div class="clear"></div>
+</div>
+<?php endif; ?>
+<?php if($loginAjaxStatus): ?>
+	<script type="text/javascript">
+		/* Login ajax */
+		jQuery('.top-link-login').on('click', function(){
+			ajaxLogin("<?php echo $this->getUrl('meigeeactions/login/') ?>", false);
+			return false;
+		});
+	</script>
+<?php endif; ?>
+<?php if($stickyClose and !$stickyCookie): ?>
+<script type="text/javascript">
+jQuery('.sticky-close').on('click', function(){
+	sticky.hide();
+	jQuery(window).off('scroll.sticky');
+	
+	jQuery.cookie('blacknwhiteSticky', 'true', {
+		expires: <?php echo $stickyTime; ?>,
+		path: '/'
+	});
+});
+</script>
+<?php endif; ?>
+<?php if($stickyCookie): ?>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	sticky.hide();
+	jQuery(window).off('scroll.sticky');
+});
+</script>
+<?php endif; ?>
+

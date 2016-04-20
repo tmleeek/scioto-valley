@@ -1,0 +1,5 @@
+<?php $honeypot = 'field_'.Mage::helper('webforms')->randomAlphaNum();?>
+<style>.<?php echo $honeypot;?>{position:absolute;left:-999999px;}</style>
+<div class="<?php echo $honeypot;?>">
+    <input type="text" name="message" value=""/>
+</div>

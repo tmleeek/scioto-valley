@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Interactone_CoreMods>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Interactone_CoreMods>
+    </modules>
+</config>

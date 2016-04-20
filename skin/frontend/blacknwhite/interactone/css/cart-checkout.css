@@ -1,0 +1,123 @@
+.product-essential .product-image .img-holder{
+    border:none;
+}
+
+.more-views li {
+    border: 2px solid #dcdddf;
+}
+
+.product-view .product-shop .product-name h1 {
+    font-weight:400;
+}
+
+.special-price .price {
+    color: #ff1341 !important;
+}
+
+div.block-related-product .aw-arp-item {
+    background: none !important;
+    border: 2px solid #dcdddf;
+}
+.aw-arp-block-content .prodGridd {
+    top: 0 !important;
+    border-top: 2px solid #dcdddf;
+    padding:10px 0;
+}
+
+div.block-related-product .aw-arp-item {
+    width: 23% !important;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 229px !important;
+}
+
+.product-collateral .box-collateral {
+    border: 0px solid #dcdddf;
+    margin-bottom: 15px;
+}
+
+.product-collateral h2, .related{
+    font-weight:400;
+}
+
+.product-view-tabs{
+    background:transparent;
+}
+.short-description{
+    font-weight:300;
+}
+
+.catalog-product-view .grid_5.product-shop {
+    width: 47%;
+    float: right;
+}
+
+.catalog-product-view .container_12 .grid_5 {
+    width: 48%;
+    float: left;
+    margin-right: 0 ;
+    margin-left: 0 !important;
+}
+
+.aw-pq2-list__no-questions {
+    font-style: italic;
+    font-size: .875em;
+    line-height: 18px;
+    margin-top: 10px;
+}
+.form-add{
+    background-color: #3B5B67;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: 'Open Sans', san-serif;
+    color: #ffffff;
+}
+
+.box-collateral.aw-pq2-question-list-wrapper {
+     top: 0px !important;
+}
+
+.catalog-product-view .product-collateral h2 {
+    background: none;
+    font-family: 'Lato', sans-serif;
+}
+.product-collateral .box-collateral .form-add h2{
+    color:#ffffff;
+    margin-top:15px;
+}
+
+.product-collateral .box-collateral .form-add {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    height:100%;
+    outline: 2px solid white;
+    outline-offset: -20px;
+    min-height: 120px;
+    height: 100%;
+}
+p#review-form {
+    padding-bottom: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+    .box-collateral.aw-pq2-question-list-wrapper {
+        position: relative;
+        top: -20px;
+        width: 48.5%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .catalog-product-view .container_12 .grid_5,.catalog-product-view .container_12 .grid_5 {
+    width:100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}

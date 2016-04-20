@@ -1,0 +1,18 @@
+<?php
+/**
+ * Layered Navigation Pro
+ *
+ * @category:    AdjustWare
+ * @package:     AdjustWare_Nav
+ * @version      2.5.4
+ * @license:     yc4tx3fdyujjEs5czyndvhoc8zpLrKl3OCuGehtGvM
+ * @copyright:   Copyright (c) 2014 AITOC, Inc. (http://www.aitoc.com)
+ */
+if ('ajax' != Mage::app()->getRequest()->getControllerName()) : ?>
+    <script>adjnavToolbar.init();</script>
+    <?php if(Mage::helper('adjnav')->isPageAutoload()):?>
+        <script type="text/javascript">
+            page_autoload.init();
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

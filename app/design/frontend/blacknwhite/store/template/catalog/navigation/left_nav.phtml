@@ -1,0 +1,190 @@
+<?php // Lets add the toolbar here! ?>
+<?php //echo $this->getChildHtml('toolbar_only') ?>
+<?php //if (!Mage::registry('current_category')) return ?>
+<?php //$_helper = Mage::helper('catalog/category') ?>
+<?php $cat_id = '389'; ?>
+<?php //$_categories = $_helper->getStoreCategories($categoryid) ?>
+<?php $currentCategoryyy = Mage::registry('current_category');	
+	  $_categories = Mage::getModel('catalog/category')->getCategories($cat_id);
+?>
+<?php
+		  $cnchild = $currentCategoryyy->getId(); 
+		  $ccchild = $currentCategoryyy->getParentId($cnchild);
+		  
+		   $parentId = Mage::getModel('catalog/category')->load($ccchild)->getParentId();
+		   $mparent = $currentCategoryyy->getParentId($ccchild);
+		  //echo $cat_idd = $this->getCurrentCategory()->getParentCategory()->getId(); 
+?>
+<?php //$_categories = $this->getCurrentChildCategories() ?>
+<?php $_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
+<?php if($_count): ?>
+
+<!--<div class="block block-layered-nav"> 
+ 
+  <div class="block-content">
+    <dl id="narrow-by-list2">
+      <dt><?php echo $this->__('') ?></dt>
+      <dd>
+        <ol>
+          <?php foreach ($_categories as $_category): ?>
+          <?php if($_category->getIsActive()): ?>
+          <li class="parcat">
+           
+            <a class="parcatss" href="<?php echo $this->getCategoryUrl($_category) ?>"><?php echo $this->escapeHtml($_category->getName()) ?> </a>
+            <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+            <?php $_subcategories = $_category->getChildrenCategories(); //print_r($_subcategories); ?>
+            
+           <?php if(( $_category->getId() == $ccchild  ) || ( $_category->getId() == $parentId )) { ?>
+            <style>
+           .parcathh.fa.fa-caret-down {
+    display: block !important;
+    float: left;
+}
+           </style>
+     
+            <div class=" parcathh fa fa-caret-down"></div>
+          
+            <ul class="childcatd">
+            <?php foreach($_subcategories as $_subcategory): ?>
+            <li class="parcat">
+             <?php if (($_subcategory->getId() == $cnchild) || ($_subcategory->getId() == $ccchild) ) {?>  
+              <a class="childcatchild" href="<?php echo $this->getCategoryUrl($_subcategory) ?>" <?php if ($_subcategory->getId() == $cnchild) : ?> style="color:#F00;" <?php endif; ?>> <?php echo $_subcategory->getName() ?> </a>
+        
+              <div class=" parcathh fa fa-caret-down"></div>
+              <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+            <?php if (count($_subsubcategories) > 0): ?>
+            
+            <ul  class="childcatd"  style="display:block !important">
+              <?php foreach($_subsubcategories as $_subsubcategory): ?>
+              <li> <a  href="<?php echo $this->getCategoryUrl($_subsubcategory) ?>" <?php if ($_subsubcategory->getId() == $cnchild) : ?> style="color:#F00;" <?php endif; ?>> <?php echo $_subsubcategory->getName() ?> </a>
+              <li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+            
+            <?php } else { ?>
+            
+            <a  href="<?php echo $this->getCategoryUrl($_subcategory) ?>"> <?php echo $_subcategory->getName() ?> </a>
+              <div class=" parcathh fa fa-caret-right"></div>
+          
+              <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+            <?php if (count($_subsubcategories) > 0): ?>
+            
+            <ul  class="childcat <?php if($_subcategory->getId() == '402') { ?> spnhot <?php } elseif($_subcategory->getId() == '401') { ?> posu <?php } elseif($_subcategory->getId() == '415') { ?>fingy<?php } elseif($_subcategory->getId() == '412') { ?>ponbi<?php } elseif($_subcategory->getId() == '413') { ?>gata<?php } elseif($_subcategory->getId() == '420') { ?>grac<?php }else { ?> <?php }?>" >
+              <?php foreach($_subsubcategories as $_subsubcategory): ?>
+              <li> <a  href="<?php echo $this->getCategoryUrl($_subsubcategory) ?>"> <?php echo $_subsubcategory->getName() ?> </a>
+              <li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+            
+             <?php } ?>
+              </li>
+            
+            <?php endforeach; ?>
+          </ul>
+          
+          <?php }else { ?>
+             <div class=" parcathh fa fa-caret-right"></div>
+       
+          <ul class="childcat">
+            <?php foreach($_subcategories as $_subcategory): ?>
+            <li class="parcat">
+             <?php if ($_subcategory->getId() == $cnchild ) {?>  
+              <a href="<?php echo $this->getCategoryUrl($_subcategory) ?>" style="color:#F00;"> <?php echo $_subcategory->getName() ?> </a>
+              <div class=" parcathh fa fa-caret-right"></div>
+          
+              <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+            <?php if (count($_subsubcategories) > 0): ?>
+            
+            <ul  class="childcatd"  style="display:block !important">
+              <?php foreach($_subsubcategories as $_subsubcategory): ?>
+              <li> <a href="<?php echo $this->getCategoryUrl($_subsubcategory) ?>"> <?php echo $_subsubcategory->getName() ?> </a>
+              <li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+            
+            <?php } else { ?>
+            
+            <a  href="<?php echo $this->getCategoryUrl($_subcategory) ?>"> <?php echo $_subcategory->getName() ?> </a>
+              <div class=" parcathh fa fa-caret-right"></div>
+            
+              <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+            <?php if (count($_subsubcategories) > 0): ?>
+            
+            <ul  class="childcat <?php if($_subcategory->getId() == '402') { ?> spnhot <?php } elseif($_subcategory->getId() == '401') { ?> posu <?php } elseif($_subcategory->getId() == '415') { ?>fingy<?php } elseif($_subcategory->getId() == '412') { ?>ponbi<?php } elseif($_subcategory->getId() == '413') { ?>gata<?php } elseif($_subcategory->getId() == '420') { ?>grac<?php }else { ?> <?php }?>" >
+              <?php foreach($_subsubcategories as $_subsubcategory): ?>
+              <li> <a  href="<?php echo $this->getCategoryUrl($_subsubcategory) ?>"> <?php echo $_subsubcategory->getName() ?> </a>
+              <li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+            
+             <?php } ?>
+              </li>
+            
+            <?php endforeach; ?>
+          </ul>
+          <?php  } ?>
+          </li>
+                    
+          <?php endif; ?>
+          <?php endforeach ?>
+        </ol>
+      </dd>
+    </dl>
+    <script type="text/javascript">decorateDataList('narrow-by-list2')</script> 
+    <script type="text/javascript">
+		jQuery(document).ready(function(){
+		 //hide the all of the element with class msg_body
+		 jQuery(".childcat").hide();
+		 //toggle the componenet with class msg_body
+		 jQuery(".parcathh").click(function(){
+		  jQuery(this).next(".childcat").slideToggle();
+		  jQuery(this).next(".childcatd").slideToggle();
+		   jQuery(this).toggleClass( "fa-caret-down" );
+		    jQuery(this).toggleClass( "fa-caret-right" );
+		  jQuery(this).toggleClass( "bounce" )	;	   
+		 });
+		});		
+		</script> 
+        
+<style>
+
+.parcathh {
+    float: left;
+}
+
+.childcatd {
+    margin-left: 30px;
+}
+.childcatchild {
+    font-size: 14px !important;
+}
+/*.childcat.ponsa,.childcat.ouen,.childcat.inen {
+    display: block !important;
+}*/
+
+
+</style>
+  </div>
+</div>-->
+<?php endif; ?>
+<?php
+	$meigee_blacknwhite_sidebar = MAGE::helper('ThemeOptionsBlacknwhite')->getThemeOptionsBlacknwhite('meigee_blacknwhite_sidebar');
+    $block_categories = $meigee_blacknwhite_sidebar['block_categories']; 
+?>
+<?php $_menu = $this->renderCategoriesMenuHtml(0,'level-top') ?>
+<?php if($_menu): ?>
+<div class="block block-vertical-nav"> 
+  <!-- <div class="block-title">
+        <strong><span><?php echo $this->__('1. Choose a Category') ?></span></strong>
+    </div> -->
+  <div class="block-content">
+    <ul <?php if ($block_categories['option_2'] == 1): ?> class="closed-default"<?php endif; if ($block_categories['option'] == 1): ?> id="categories-accordion" <?php endif; ?> >
+      <?php echo $_menu ?>
+    </ul>
+  </div>
+</div>
+<?php endif ?>

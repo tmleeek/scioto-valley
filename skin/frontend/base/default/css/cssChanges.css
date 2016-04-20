@@ -1,0 +1,95 @@
+header#header .welcome-msg {
+  padding: 2px 4px 1px 4px!important;
+  font-size: .91em;
+}
+
+a.websiteSwitcher span {
+  padding: 0 5px 0 0;
+  font-size: .91em;
+}
+
+header#header .links li a {
+  padding: 0.6em 6px;
+}
+
+#nav .nav-6 {
+  margin: 0 0 0 64px !important;
+}
+
+#nav .nav-7 {
+  margin: 0 !important;
+}
+
+.homeBottom {
+  width: 960px;
+}
+
+.footerLinks {
+  width: 960px;
+}
+
+.container_12 {
+  width: 1010px;
+}
+
+.headerPhone {
+  display: inline-block;
+  line-height: 19px;
+}
+
+header#header .top-cart .block-title .title-cart {
+  display: block;
+  line-height: 20px;
+}
+
+header#header .top-cart .block-title {
+  height: 20px;
+  overflow: hidden;
+}
+
+header#header .top-cart .block-title:before {
+  margin-top: -10px;
+  height: 20px;
+}
+
+header#header .top-cart .block-title i {
+  position: relative;
+  top: -1px;
+}
+
+header#header .top-cart .cart-divider {
+  top: 4px;
+}
+
+.fa-search:before {
+  font-size: 16px;
+}
+
+header#header .form-search button span {
+  height: 20px;
+}
+
+header#header .form-search button span i {
+  position: relative;
+  top: -4px;
+}
+
+header#header .form-search input {
+  color: #FFFFFF;
+  font-family: Lato, sans-serif;
+  padding: 0 !important;
+}
+
+header#header .header-top-right {
+  position: relative;
+  left: -10px;
+}
+
+div.grid_12.navContainer {
+  position: relative;
+  left: -5px;
+}
+
+a.websiteSwitcher div.hoverOver span {
+  background: #fff url("../images/locations.png") 13px 9px no-repeat;
+}

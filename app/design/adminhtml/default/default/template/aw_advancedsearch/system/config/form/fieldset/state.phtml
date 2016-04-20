@@ -1,0 +1,37 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Advancedsearch
+ * @version    1.4.8
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php
+$state = $this->getData('state');
+$stringState = $state === null ? 'n/a' : ($state ? 'started' : 'stopped');
+?>
+<p><?php echo $this->__('Current state:') ?> <span class="<?php echo $state ? 'awas_state_good' : 'awas_state_bad' ?>"><?php echo $this->__($stringState) ?></span></p>
+<?php if(!(null === $state)) : ?>
+    <?php if($state) : ?>
+<button class="scalable delete" onclick="awas_config.runDaemon(true);return false;"><span><?php echo $this->__('Stop searchd') ?></span></button>
+    <?php else : ?>
+<button class="scalable save" onclick="awas_config.runDaemon();return false;"><span><?php echo $this->__('Start searchd') ?></span></button>
+    <?php endif ?>
+<?php endif ?>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <exportskus_section translate="title" module="exportskus">
+                                        <title>Watsons Section</title>
+                                        <sort_order>0</sort_order>
+                                    </exportskus_section>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <watsons_menu translate="title" module="adminhtml">
+            <title>Watsons</title>
+            <sort_order>9999</sort_order>
+            <children>
+                <sync translate="title" module="adminhtml">
+                    <title>Synchronize</title>
+                    <sort_order>20</sort_order>
+                    <children>
+                        <exportskus translate="title">
+                            <title>Export Product SKUs</title>
+                            <action>sync/adminhtml_index/exportskus</action>
+                            <sort_order>15</sort_order>
+                        </exportskus>
+                    </children>
+                </sync>
+            </children>
+        </watsons_menu>
+    </menu>
+</config>

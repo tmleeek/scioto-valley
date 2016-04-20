@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Mage
+ * @package     Mage_Contacts
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+    <menu>
+        <FME module="jobs">
+            <title>FME Extensions</title>
+            <sort_order>71</sort_order>               
+            <children>
+                <jobs module="jobs">
+                    <title>Jobs</title>
+                    <sort_order>71</sort_order>               
+                    <children>
+                        <jobs module="jobs">
+                            <title>Manage Jobs</title>
+                            <sort_order>10</sort_order>
+                            <action>adminjobs/adminhtml_jobs</action>
+                        </jobs>
+                        <jobtype module="jobs">
+                            <title>Manage Job Types</title>
+                            <sort_order>19</sort_order>
+                            <action>adminjobs/adminhtml_jobtype</action>
+                        </jobtype>
+                        <store module="jobs">
+                            <title>Manage Locations</title>
+                            <sort_order>20</sort_order>
+                            <action>adminjobs/adminhtml_store</action>
+                        </store>
+                        <department module="jobs">
+                            <title>Manage Departments</title>
+                            <sort_order>30</sort_order>
+                            <action>adminjobs/adminhtml_department</action>
+                        </department>
+                        <applications module="jobs">
+                            <title>Manage Applications</title>
+                            <sort_order>40</sort_order>
+                            <action>adminjobs/adminhtml_applications</action>
+                        </applications>
+                        <settings module="jobs">
+                            <title>Configurations</title>
+                            <sort_order>100</sort_order>
+                            <action>adminhtml/system_config/edit/section/jobs</action>
+                        </settings>
+                    </children>
+                </jobs>
+            </children>
+        </FME>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <jobs translate="title" module="jobs">
+                                        <title>jobs Section</title>
+                                    </jobs>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    
+                    <FME module="jobs">
+                        <title>FME Extensions</title>
+                        <sort_order>71</sort_order>               
+                        <children>
+                            <jobs module="jobs">
+                                <title>Jobs</title>
+                                <sort_order>71</sort_order>               
+                                <children>
+                                    <jobs module="jobs">
+                                        <title>Manage Jobs</title>
+                                        <sort_order>10</sort_order>
+                                        <action>adminjobs/adminhtml_jobs</action>
+                                    </jobs>
+                                    <jobtype module="jobs">
+                                        <title>Manage Job Types</title>
+                                        <sort_order>19</sort_order>
+                                        <action>adminjobs/adminhtml_jobtype</action>
+                                    </jobtype>
+                                    <store module="jobs">
+                                        <title>Manage Locations</title>
+                                        <sort_order>20</sort_order>
+                                        <action>adminjobs/adminhtml_store</action>
+                                    </store>
+                                    <department module="jobs">
+                                        <title>Manage Departments</title>
+                                        <sort_order>30</sort_order>
+                                        <action>adminjobs/adminhtml_department</action>
+                                    </department>
+                                    <applications module="jobs">
+                                        <title>Manage Applications</title>
+                                        <sort_order>40</sort_order>
+                                        <action>adminjobs/adminhtml_applications</action>
+                                    </applications>
+                                    <settings module="jobs">
+                                        <title>Configurations</title>
+                                        <sort_order>100</sort_order>
+                                        <action>adminhtml/system_config/edit/section/jobs</action>
+                                    </settings>
+                                </children>
+                            </jobs>
+                        </children>
+                    </FME>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <structure>
+            <children>
+                <sync translate="title" module="adminhtml">
+                    <title>Synchronize</title>
+                    <sort_order>20</sort_order>
+                    <children>
+                        <orders translate="title">
+                            <title>Export Orders</title>
+                            <action>sync/adminhtml_order</action>
+                            <sort_order>10</sort_order>
+                        </orders>
+                        <inventory translate="title">
+                            <title>Import Product Inventory</title>
+                            <action>sync/adminhtml_import/upload_form/type/inventory</action>
+                            <sort_order>30</sort_order>
+                        </inventory>
+                        <ordernumbers translate="title">
+                            <title>Import Retail Order Numbers</title>
+                            <action>sync/adminhtml_import/upload_form/type/order_numbers</action>
+                            <sort_order>40</sort_order>
+                        </ordernumbers>
+                        <exportskus translate="title">
+                            <title>Export Product SKUs</title>
+                            <action>sync/adminhtml_index/exportskus</action>
+                            <sort_order>15</sort_order>
+                        </exportskus>
+                        <product_copy translate="title">
+                            <title>Copy Products Website-To-Website</title>
+                            <action>sync/adminhtml_products/copy_form</action>
+                            <sort_order>50</sort_order>
+                        </product_copy>
+                    </children>
+                </sync>
+            </children>
+        </structure>
+    </menu>
+</config>

@@ -1,0 +1,15 @@
+ #awas_config_container {
+     width: 100%;
+ }
+ #awas_config_loader {
+     text-align: center;
+ }
+ .awas_state_bad {
+     color: red;
+     font-weight: bold;
+ }
+ .awas_state_good {
+     color: green;
+     font-weight: bold;
+ }
+ 

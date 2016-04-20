@@ -1,0 +1,93 @@
+.olsheaderphone {
+  float: none;
+  margin: 0 0 5px 0;
+  display: block;
+}
+
+.olsheaderphone p:last-child {
+  width: 164px;
+  display: block;
+  background: none repeat scroll 0 0 #e31837;
+}
+
+.olsheadernew .headerPhone {
+  display: inline;
+  line-height: inherit;
+  background: none;
+}
+
+.olsheadernew .btms {
+  display: block;
+  text-align: center;
+  padding: 0;
+}
+
+header#header .olsheadernew .btms a {
+  height: 24px;
+  display: block;
+  font-size: 12px;
+  line-height: 23px !important;
+}
+
+.olsheadernew .btmsa {
+  padding: 0;
+  vertical-align: baseline;
+}
+
+header#header .olsheadernew .header-top-right {
+  left: 0;
+  display: block;
+}
+
+header#header .olsheadernew .quick-access {
+  height: 24px;
+  overflow: hidden;
+}
+
+header#header .olsheadernew .customer-name {
+  display: inline-block;
+  padding: 0 !important;
+  height: 24px;
+  width: 120px;
+  text-align: center;
+  margin: 0 !important;
+}
+
+header#header .olsheadernew .top-cart .block-title:before {
+  border: none;
+}
+
+header#header .olsheadernew .top-cart .block-title .title-cart {
+  padding: 0 !important;
+  text-align: center;
+  line-height: 23px;
+}
+
+header#header .olsheadernew .top-cart .block-title a {
+  width: 120px;
+}
+
+header#header .olsheadernew .top-cart .block-title.cart-button {
+  height: 24px;
+}
+
+header#header .olsheadernew .top-cart .block-title i {
+  top: 1px;
+}
+
+header#header .olsheadernew .top-cart .cart-divider {
+  top: 6px;
+}
+
+.shsbar .headersearch {
+  padding: 8px 1px 6px 3px;
+}
+
+header#header .shsbar .form-search input {
+  padding: 0 0 2px 10px !important;
+}
+
+header#header .shsbar .form-search button span i {
+  top: -1px;
+  margin: 0 0 0 5px;
+}

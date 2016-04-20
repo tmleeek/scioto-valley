@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   MageWorx
+ * @package    MageWorx_StoreSwitcher
+ * @copyright  Copyright (c) 2013 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Store Auto Switcher extension
+ * Exception class
+ *
+ * @category   MageWorx
+ * @package    MageWorx_StoreSwitcher
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+ -->
+<config>
+    <modules>
+        <MageWorx_StoreSwitcher>
+            <version>1.1.4.2</version>
+        </MageWorx_StoreSwitcher>
+    </modules>
+
+    <frontend>
+        <translate>
+            <modules>
+                <MageWorx_StoreSwitcher>
+                    <files>
+                        <default>MageWorx_StoreSwitcher.csv</default>
+                    </files>
+                </MageWorx_StoreSwitcher>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <storeswitcher>
+                    <file>storeswitcher.xml</file>
+                </storeswitcher>
+            </updates>
+        </layout>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <storeswitcher>
+                        <class>storeswitcher/observer</class>
+                        <method>geoipAutoswitcher</method>
+                    </storeswitcher>
+                </observers>
+            </controller_action_predispatch>
+            <enterprise_fpc_predispatch>
+                <observers>
+                    <storeswitcher>
+                        <class>storeswitcher/observer</class>
+                        <method>geoipAutoswitcher</method>
+                    </storeswitcher>
+                </observers>
+            </enterprise_fpc_predispatch>
+            <tax_rate_data_fetch>
+                <observers>
+                    <geoip_prepare_tax>
+                        <type>singleton</type>
+                        <class>storeswitcher/observer</class>
+                        <method>prepareDefaultTaxRate</method>
+                    </geoip_prepare_tax>
+                </observers>
+            </tax_rate_data_fetch>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <geoip_autoselect>
+                        <type>singleton</type>
+                        <class>storeswitcher/observer</class>
+                        <method>autoSelectCountry</method>
+                    </geoip_autoselect>
+                </observers>
+            </core_block_abstract_to_html_before>
+            <core_locale_set_locale>
+                <observers>
+                    <storeswitcher>
+                        <class>storeswitcher/observer</class>
+                        <method>switchLocale</method>
+                    </storeswitcher>
+                </observers>
+            </core_locale_set_locale>
+        </events>
+    </frontend>
+
+    <global>
+        <blocks>
+            <storeswitcher>
+                <class>MageWorx_StoreSwitcher_Block</class>
+            </storeswitcher>
+            <adminhtml>
+                <rewrite>
+                    <system_store_edit_form>MageWorx_StoreSwitcher_Block_Adminhtml_Store_Edit_Form</system_store_edit_form>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <storeswitcher>
+                <class>MageWorx_StoreSwitcher_Helper</class>
+            </storeswitcher>
+        </helpers>
+        <models>
+            <storeswitcher>
+                <class>MageWorx_StoreSwitcher_Model</class>
+                <resourceModel>storeswitcher_mysql4</resourceModel>
+            </storeswitcher>
+            <storeswitcher_mysql4>
+                <class>MageWorx_StoreSwitcher_Model_Mysql4</class>
+            </storeswitcher_mysql4>
+        </models>
+        <resources>
+            <storeswitcher_setup>
+                <setup>
+                    <module>MageWorx_StoreSwitcher</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </storeswitcher_setup>
+            <storeswitcher_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </storeswitcher_write>
+            <storeswitcher_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </storeswitcher_read>
+        </resources>
+    </global>
+
+    <adminhtml>
+        <events>
+            <enterprise_fpc_predispatch>
+                <observers>
+                    <before_fpc>
+                        <class>storeswitcher/observer</class>
+                        <method>saveStoreCountries</method>
+                    </before_fpc>
+                </observers>
+            </enterprise_fpc_predispatch>
+            <store_save_before>
+                <observers>
+                    <geoip_save_store>
+                        <class>storeswitcher/observer</class>
+                        <method>saveStoreCountries</method>
+                    </geoip_save_store>
+                </observers>
+            </store_save_before>
+            <store_load_after>
+                <observers>
+                    <geoip_load_store>
+                        <class>storeswitcher/observer</class>
+                        <method>loadStoreCountries</method>
+                    </geoip_load_store>
+                </observers>
+            </store_load_after>
+            <adminhtml_store_edit_form_prepare_form>
+                <observers>
+                    <geoip_store_edit_form>
+                        <class>storeswitcher/observer</class>
+                        <method>storeEditForm</method>
+                    </geoip_store_edit_form>
+                </observers>
+            </adminhtml_store_edit_form_prepare_form>
+            <adminhtml_cache_flush_all>
+                <observers>
+                    <storeswitcher>
+                        <class>storeswitcher/observer</class>
+                        <method>refreshStoreSwitcherCache</method>
+                    </storeswitcher>
+                </observers>
+            </adminhtml_cache_flush_all>
+            <adminhtml_cache_refresh_type>
+                <observers>
+                    <storeswitcher>
+                        <class>storeswitcher/observer</class>
+                        <method>refreshStoreSwitcherCache</method>
+                    </storeswitcher>
+                </observers>
+            </adminhtml_cache_refresh_type>
+        </events>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mageworx_customers>
+                                            <children>
+                                                <storeswitcher translate="title" module="storeswitcher">
+                                                    <title>Store Auto Switcher</title>
+                                                </storeswitcher>
+                                            </children>
+                                        </mageworx_customers>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <default>
+        <mageworx_customers>
+            <storeswitcher>
+                <enable_store_switcher>1</enable_store_switcher>
+                <force_store_view>0</force_store_view>
+                <store_switcher_scope>0</store_switcher_scope>
+                <disable_store_switcher_key>off</disable_store_switcher_key>
+                <enable_billing_country>0</enable_billing_country>
+                <enable_shipping_country>0</enable_shipping_country>
+                <enable_address_country>0</enable_address_country>
+                <replace_switcher>0</replace_switcher>
+                <user_agent_list>googlebot*
+                    yahoo*
+                    msnbot*
+                    facebook*
+                </user_agent_list>
+            </storeswitcher>
+        </mageworx_customers>
+    </default>
+</config>

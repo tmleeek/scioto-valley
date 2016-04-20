@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<action method="setCanLoadExtJs"><flag>1</flag></action>
+			<action method="setCanLoadTinyMce"><flag>1</flag></action>
+			<action method="addJs"><script>mage/adminhtml/variables.js</script></action>
+			<action method="addJs"><script>mage/adminhtml/wysiwyg/widget.js</script></action>
+			<action method="addJs"><script>lib/flex.js</script></action>
+			<action method="addJs"><script>lib/FABridge.js</script></action>
+			<action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+			<action method="addJs"><script>mage/adminhtml/browser.js</script></action>
+			<action method="addJs"><script>prototype/window.js</script></action>
+			<action method="addJs"><script>prototype/prototype.js</script></action>
+			<action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+			<action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+			<action method="addCss"><name>lib/prototype/windows/themes/magento.css</name></action>
+		</reference>
+	</default>
+
+    <mbimageslider_adminhtml_mbimageslider_index>
+        <reference name="content">
+            <block type="mbimageslider/adminhtml_mbimageslider" name="mbimageslider" />
+        </reference>
+    </mbimageslider_adminhtml_mbimageslider_index>	
+	
+	<mbimageslider_adminhtml_mbimageslider_edit>
+       <reference name="head">
+			<action method="addJs"><script>magebassi/mbimageslider/slidertype.js</script></action>
+	   </reference>
+    </mbimageslider_adminhtml_mbimageslider_edit>
+	
+	<mbimageslider_adminhtml_mbmanagegroups_edit>
+       <reference name="head">
+			<action method="addJs"><script>magebassi/mbimageslider/slidertype.js</script></action>
+			<action method="addJs"><script>magebassi/mbimageslider/selector.js</script></action>
+	   </reference>
+    </mbimageslider_adminhtml_mbmanagegroups_edit>
+	
+	<mbimageslider_adminhtml_mbmanagegroups_index>
+        <reference name="content">
+            <block type="mbimageslider/adminhtml_mbmanagegroups" name="mbmanagegroups" />
+        </reference>
+    </mbimageslider_adminhtml_mbmanagegroups_index>	
+	
+	<mbimageslider_adminhtml_mbmanagegroups_groupbannersgrid>
+       <block type="core/text_list" name="root" output="toHtml">
+           <block type="mbimageslider/adminhtml_mbmanagegroups_edit_tab_grid" name="bgroup.grid"/>
+           <block type="adminhtml/widget_grid_serializer" name="grid_serializer">
+               <reference name="grid_serializer">
+                   <action method="initSerializerBlock">
+                       <grid_block_name>bgroup.grid</grid_block_name>
+                       <data_callback>getSelectedBgroups</data_callback>
+                       <hidden_input_name>links[banners_bglist]</hidden_input_name>
+                       <reload_param_name>banners_bglist</reload_param_name>
+                   </action>
+                   <action method="addColumnInputName">
+                       <input_name>position</input_name>
+                   </action>                 
+               </reference>
+           </block>
+       </block>
+   </mbimageslider_adminhtml_mbmanagegroups_groupbannersgrid>
+   
+   <mbimageslider_adminhtml_mbmanagegroups_groupbannersgridsec>
+		<block type="core/text_list" name="root" output="toHtml">
+			<block type="mbimageslider/adminhtml_mbmanagegroups_edit_tab_grid" name="bgroup.grid"/>
+		</block>
+   </mbimageslider_adminhtml_mbmanagegroups_groupbannersgridsec>
+   
+   <mbimageslider_adminhtml_mbmanagegroups_productsgrid>
+		<block type="core/text_list" name="root" output="toHtml">
+           <block type="mbimageslider/adminhtml_mbmanagegroups_edit_tab_products" name="products.grid"/>
+           <block type="adminhtml/widget_grid_serializer" name="grid_serializer">
+               <reference name="grid_serializer">
+                   <action method="initSerializerBlock">
+                       <grid_block_name>products.grid</grid_block_name>
+                       <data_callback>getSelectedProducts</data_callback>
+                       <hidden_input_name>product[products_list]</hidden_input_name>
+                       <reload_param_name>products_list</reload_param_name>
+                   </action>                                  
+               </reference>
+           </block>
+       </block>
+   </mbimageslider_adminhtml_mbmanagegroups_productsgrid>
+   
+   <mbimageslider_adminhtml_mbmanagegroups_productsgridsec>
+		<block type="core/text_list" name="root" output="toHtml">
+			<block type="mbimageslider/adminhtml_mbmanagegroups_edit_tab_products" name="products.grid"/>
+		</block>
+   </mbimageslider_adminhtml_mbmanagegroups_productsgridsec>
+	
+</layout>

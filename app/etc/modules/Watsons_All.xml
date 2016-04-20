@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        
+        <!--
+        
+        We will eventurally need to enable these all as on live!
+        
+        -->
+        
+<!--        <Watsons_Location>
+			<codePool>local</codePool>
+			<active>true</active>
+			<depends>
+				<Mage_Adminhtml />
+				<Mage_Core />
+			</depends>
+		</Watsons_Location>
+		<Watsons_Catalog>
+				<active>false</active>
+				<codePool>local</codePool>
+		</Watsons_Catalog>
+		<Watsons_Poolschool>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Watsons_Poolschool>
+		<Watsons_Sales>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Watsons_Sales>
+		<Watsons_Extension>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<Mage_Core />
+			</depends>
+		</Watsons_Extension>
+		<Watsons_Review>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Watsons_Review>
+		<Watsons_Cms>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Watsons_Cms>
+		<Watsons_Customer>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Watsons_Customer>-->
+        
+        <!--
+        Need to enable for nav etc
+        -->
+        
+		<Watsons_Sync>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Watsons_Sync>
+<!--		<Watsons_Affiliates>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Watsons_Affiliates>-->
+    </modules>
+</config>

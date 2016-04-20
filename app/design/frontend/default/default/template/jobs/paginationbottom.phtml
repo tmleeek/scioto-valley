@@ -1,0 +1,61 @@
+<!--
+    /////////////////////////////////////////////////////////////////////////////////
+    \\\\\\\\\\\\\\\\\\\\\\\\\    Jobs extension \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    /////////////////////////////////////////////////////////////////////////////////
+    \\\\\\\\\\\\\\\\\\\\\\\\\ NOTICE OF LICENSE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    ///////                                                                   ///////
+    \\\\\\\ This source file is subject to the Open Software License (OSL 3.0)\\\\\\\
+    ///////   that is bundled with this package in the file LICENSE.txt.      ///////
+    \\\\\\\   It is also available through the world-wide-web at this URL:    \\\\\\\
+    ///////          http://opensource.org/licenses/osl-3.0.php               ///////
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    ///////                      * @category   FME                            ///////
+    \\\\\\\                      * @package    Jobs                           \\\\\\\
+    ///////    * @author     Malik Tahir Mehmood <malik.tahir786@gmail.com>   ///////
+    \\\\\\\                                                                   \\\\\\\
+    /////////////////////////////////////////////////////////////////////////////////
+    \\* @copyright  Copyright 2010 © free-magentoextensions.com All right reserved\\\
+    /////////////////////////////////////////////////////////////////////////////////
+-->
+<?php $paginator = $this->getPaginator(); ?>
+
+<?php if ($paginator->pageCount && $paginator->pageCount > 1): ?>
+<div class="bottom_pagination">
+			
+	<?php
+	    $url=$this->helper('jobs')->manageUrl('page');
+	?>
+	    <?php if ($paginator->pageCount): ?>
+	   
+	    <!-- Previous page link -->
+		<?php if (isset($paginator->previous)): ?>
+		  <a class="next i-next" href="<?php echo $url . 'page=' . $paginator->previous; ?>">
+		     <img src="<?php echo $this->getSkinUrl('images/i_prev.jpg') ?>" alt="<?php echo $this->__('Previous') ?>" class="v-middle"  />
+		  </a> 
+	       
+		<?php endif; ?>
+		 
+		<!-- Numbered page links -->
+		<?php foreach ($paginator->pagesInRange as $page): ?>
+		  <?php if ($page != $paginator->current): ?>
+		    <a href="<?php echo $url . 'page=' . $page; ?>">
+			<?php echo $page; ?>
+		    </a> 
+		  <?php else: ?>
+		   <?php echo $page; ?>
+		  <?php endif; ?>
+		<?php endforeach; ?>
+		 
+		<!-- Next page link -->
+		<?php if (isset($paginator->next)): ?>
+		  <a class="next i-next" href="<?php echo $url . 'page=' . $paginator->next; ?>">
+		     <img src="<?php echo $this->getSkinUrl('images/i_next.jpg') ?>" alt="<?php echo $this->__('Next') ?>" class="v-middle" />
+		  </a>
+	       
+		<?php endif; ?>
+	    
+	    <?php endif; ?>
+		
+       
+    </div>
+<?php endif; ?>

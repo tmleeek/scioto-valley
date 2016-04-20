@@ -1,0 +1,126 @@
+<?php
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   design_default
+ * @package    MageWorx_CurrencySwitcher
+ * @copyright  Copyright (c) 2009 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Currency Auto Switcher extension
+ *
+ * @category   design_default
+ * @package    MageWorx_CurrencySwitcher
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+
+$allCountries = Mage::getSingleton('adminhtml/system_config_source_country')->toOptionArray(true);
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td style="width:50%;"><h3 class="icon-head head-system-currency"><?php echo $this->getHeader() ?></h3></td>
+            <td class="form-buttons">
+                <?php
+                echo $this->getRefreshButtonHtml();
+                echo $this->getSaveButtonHtml();
+                ?>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<form id="currency_relations_form" action="<?php echo $this->getFormActionUrl() ?>" method="post">
+    <input name="form_key" type="hidden" value="<?php echo $this->getFormKey() ?>" />
+
+    <div class="entry-edit">
+        <div class="fieldset fieldset-wide">
+            <div class="grid">
+                <div class="hor-scroll">
+                    <table cellspacing="0" class="data table-cat-img-sizes">
+                        <colgroup>
+                            <col width="5%" />
+                            <col width="15%"/>
+                            <col />
+                            <col width="10%" />
+                        </colgroup>
+                        <thead>
+                        <tr class="headings">
+                            <th><span class="nobr"><span class="not-sort"><?php echo $this->__('ID'); ?></span></span></th>
+                            <th><span class="nobr"><span class="not-sort"><?php echo $this->__('Currency'); ?></span></span></th>
+                            <th><span class="nobr"><span class="not-sort"><?php echo $this->__('Countries'); ?><span class="required"><em>*</em></span></span></span></th>
+                            <th><span class="nobr"><span class="not-sort"><?php echo $this->__('Reset'); ?></span></span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($this->getCurrencyRelations() as $item): ?>
+                        <tr>
+                            <td>
+                                <?php echo $item->getRelationId() ?>
+                            </td>
+                            <td class="label">
+                                <label for="relation<?php echo $item->getRelationId(); ?>"><?php echo $item->getCurrencyCode(); ?></label>
+                                <input type="hidden" name="currency_relation[<?php echo $item->getRelationId(); ?>][code]" value="<?php echo $item->getCurrencyCode(); ?>" />
+                            </td>
+                            <td class="value">
+                                <span><?php echo str_replace(',', ', ', $item->getCountries()) ?></span>
+                                <a href="#" id="relation-change-button-<?php echo $item->getRelationId(); ?>" alt="<?php echo $this->__('Change'); ?>" onclick="toggleRelation('<?php echo $item->getRelationId(); ?>')"><?php echo $this->__('Change'); ?></a><br />
+
+                                <select disabled="disabled" style="display: none;" multiple="multiple" size="6" class="select multiselect" name="currency_relation[<?php echo $item->getRelationId(); ?>][countries][]" id="relation<?php echo $item->getRelationId(); ?>">
+                                <?php foreach ($allCountries as $country): ?>
+                                    <option<?php if (in_array($country['value'], explode(',', $item->getCountries()))){ echo ' selected="selected"'; } ?> value="<?php echo $country['value']; ?>"><?php echo $country['label']; ?></option>
+                                <?php endforeach; ?>
+                                </select>
+
+                            </td>
+                            <td>
+                                <input type="checkbox" name="currency_relation[<?php echo $item->getRelationId(); ?>][countries][use_default]" value="1" />
+                            </td>
+                        </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    var currencyRelationsForm = new varienForm('currency_relations_form');
+
+    function toggleRelation(relationId)
+    {
+        selectBox = $('relation' + relationId);
+        if(selectBox){
+            selectBox.toggle();
+
+            if(selectBox.style.display == 'none'){
+                selectBox.disabled = 'disabled';
+                $('relation-change-button-' + relationId).update('<?php echo $this->__('Change'); ?>');
+            } else {
+                selectBox.disabled = false;
+                $('relation-change-button-' + relationId).update('<?php echo $this->__('Cancel'); ?>');
+            }
+        }
+    }
+</script>

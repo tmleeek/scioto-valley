@@ -1,0 +1,162 @@
+/*------------------------------------------------------------------------
+ # Smart Mega Products - Version 1.0
+ # Copyright (C) 2009-2010 The YouTech Company. All Rights Reserved.
+ # @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ # Author: The YouTech Company
+ # Websites: http://www.smartaddons.com
+ -------------------------------------------------------------------------*/
+/*them1*/
+.yt_mega_news  .tabs li {
+	cursor: pointer;
+}
+a {
+	text-decoration: none;
+}
+.yt_mega_news #yt-mega-news {margin: 50px auto; }
+.yt_mega_news .theme1 .a { text-decoration: none; }
+.yt_mega_news .theme1 .h3 { margin: 0 0 10px 0; line-height: 1.5;}
+.yt_mega_news .theme1 .tabs {overflow: hidden; }
+.yt_mega_news .theme1 .box {float: left; position: relative;}
+.yt_mega_news .theme1 .box-wrapper {position: relative; width: 100%;}
+.yt_mega_news .theme1 .content-box {width: 96%; overflow: hidden; border-top: 2px #145cae solid; display: none; text-align: left;}
+.yt_mega_news .theme1 .current { display: block !important; }
+.yt_mega_news .theme1 .normal-content {margin-top: 5px}
+.yt_mega_news .theme1 .link ul li {list-style: none;}
+.yt_mega_news .theme1 .link ul li a {text-decoration: none;}
+.yt_mega_news .theme1 .link ul {padding: 0px!important; line-height: 20px;}
+.yt_mega_news .theme1 .col-three {position: relative; margin-top: 10px; width: 100%; float: left;}
+.yt_mega_news .theme1 .col-one a {font-weight: bold; color: #0b3766; text-decoration: none;}
+.yt_mega_news .theme1 .col-two {padding-bottom: 5px; width: 100%; overflow: hidden}
+.yt_mega_news .theme1 .arrow {background: url("../images/arrow.png"); width: 6px; height: 8px; margin-top: 6px; margin-right: 5px; float: left;} 
+.yt_mega_news .theme1 .link_category li a {color: #1e7ce3; text-decoration: none;}
+.yt_mega_news .theme1 .image {float: left; margin-right: 10px; overflow: hidden; margin-top: 5px;}
+.yt_mega_news .theme1 .link_category {float: right; list-style:none; text-align: right; margin-top: 10px;}
+.yt_mega_news .theme1 .sub_content {color: #232323; line-height: 1.8; overflow: hidden; text-align: justify;}
+.yt_mega_news .theme1 .read_more {text-align: right}
+.yt_mega_news .theme1 .read_more a {color: #1e7ce3; text-decoration: none;}
+.yt_mega_news .theme1 .category_title_left {background: url("../images/button_left.png") no-repeat; height: 24px; float:left }
+.yt_mega_news .theme1 .category_title_center {background: url("../images/button_center.png") repeat-x scroll 0 0; height: 24px; float: left;}
+.yt_mega_news .theme1 .category_title_right {background: url("../images/button_right.png")  no-repeat; height: 24px; float:left; padding-left: 1px;}
+.yt_mega_news .theme1 .category_name {margin-top: 5px; color: #FFFFFF!important; font-weight: bold;}
+.yt_mega_news .theme1 .category_name a { text-decoration: none; color: #FFFFFF!important;}
+
+/*them2*/
+.yt_mega_news #yt-mega-news {margin: 50px auto; }
+.yt_mega_news .theme2 .a { text-decoration: none; }
+.yt_mega_news .theme2 .h3 { margin: 0 0 10px 0; line-height: 1.5;}
+.yt_mega_news .theme2 .tabs {overflow: hidden; }
+.yt_mega_news .theme2 .box {float: left; position: relative;}
+.yt_mega_news .theme2 .box-wrapper {position: relative; width: 100%;}
+.yt_mega_news .theme2 .content-box {width: 96%; overflow: hidden; border-top: 2px #145cae solid; display: none; text-align: left;}
+.yt_mega_news .theme2 .current { display: block !important; }
+.yt_mega_news .theme2 .normal-content {margin-top: 5px}
+.yt_mega_news .theme2 .col-three {width: 35%; float: left; margin-top: 20px;}
+.yt_mega_news .theme2 .col-one a {font-weight: bold; color: #0b3766}
+.yt_mega_news .theme2 .col-two {padding-bottom: 5px} 
+.yt_mega_news .theme2 .link {line-height: 1.8; list-style: none; margin: 0px; padding-left: 15px}
+.yt_mega_news .theme2 .link li a {color: #0b3766}
+.yt_mega_news .theme2 .arrow {background: url("../images/arrow.png"); width: 6px; height: 8px; margin-top: 6px; margin-right: 5px; float: left}
+.yt_mega_news .theme2 .image {float: left; margin-right: 10px; margin-top: 5px; text-indent: 0px!important; overflow: hidden}
+.yt_mega_news .theme2 .link_category {float: right; text-align: right; list-style: none; margin-top: 10px;}
+.yt_mega_news .theme2 .link_category li a {color: #1e7ce3; text-decoration: none;}
+.yt_mega_news .theme2 .content {width: 60%; margin-top: 5px; float: left; overflow: hidden; margin-right: 13px}
+.yt_mega_news .theme2 .sub_content {color: #232323; text-align: justify;}
+.yt_mega_news .theme2 .read_more {text-align: right}
+.yt_mega_news .theme2 .read_more a {color: #1e7ce3}
+.yt_mega_news .theme2 .category_title_left {background: url("../images/button_left.png") no-repeat; height: 24px; float:left }
+.yt_mega_news .theme2 .category_title_center {background: url("../images/button_center.png") repeat-x scroll 0 0; height: 24px; float: left}
+.yt_mega_news .theme2 .category_title_right {background: url("../images/button_right.png")  no-repeat; height: 24px; float:left; padding-left: 1px}
+.yt_mega_news .theme2 .category_name {color: #FFFFFF!important; font-weight: bold; margin-top: 5px;}
+.yt_mega_news .theme2 .category_name a { text-decoration: none; color: #FFFFFF!important;}
+
+
+/*them3*/
+
+.yt_mega_news #yt-mega-news {margin: 50px auto; }
+.yt_mega_news .theme3 .a { text-decoration: none;}
+.yt_mega_news .theme3 .h3 { margin: 0 0 10px 0; line-height: 1.5;}
+.yt_mega_news .theme3 .tabs {overflow: hidden;}
+.yt_mega_news .theme3 .content-box {width: 96%; overflow: hidden; border-top: 2px #145cae solid; display: none; text-align: left;}
+.yt_mega_news .theme3 .current { display: block !important; }
+.yt_mega_news .theme3 .col-two {float: left; top: 350px; width: 100%;}
+.yt_mega_news .theme3 .col-one {width: 90%; float: left; }
+.yt_mega_news .theme3 .col-one a {font-weight: bold; color: #0b3766; text-decoration: none;}
+.yt_mega_news .theme3 .image {float: left; margin-right: 10px; margin-top: 5px; overflow: hidden}
+.yt_mega_news .theme3 .normal-content {padding-bottom: 5px; position: relative; margin-top: 5px;  /*overflow: hidden;*/ float: left; width: 100%; } 
+.yt_mega_news .theme3 .content {float: left;}
+.yt_mega_news .theme3 .content .sub-content {padding-right: 10px;}
+.yt_mega_news .theme3 .sub_content {color: #232323}
+.yt_mega_news .theme3 .sub_content .article_desc {text-align: justify;}
+.yt_mega_news .theme3 .link_category {float: right; text-align: right; list-style: none; margin-top: 10px;}
+.yt_mega_news .theme3 .link_category li a {color: #1e7ce3; text-decoration: none;}
+.yt_mega_news .theme3 .read_more {text-align: right}
+.yt_mega_news .theme3 .read_more a {color: #1e7ce3; text-decoration: none;}
+.yt_mega_news .theme3 .box {float: left}
+.yt_mega_news .theme3 .category_title_left {background: url("../images/button_left.png") no-repeat; height: 24px; float:left }
+.yt_mega_news .theme3 .category_title_center {background: url("../images/button_center.png") repeat-x scroll 0 0; height: 24px; float: left}
+.yt_mega_news .theme3 .category_title_right {background: url("../images/button_right.png")  no-repeat; height: 24px; float:left; padding-left: 1px}
+.yt_mega_news .theme3 .category_name {color: #FFFFFF!important; font-weight: bold; margin-top: 5px;}
+.yt_mega_news .theme3 .category_name a { text-decoration: none; color: #FFFFFF!important;}
+
+
+
+.yt_mega_news .col-two h3 a {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.yt_mega_news {
+	float: left;
+	width: 100%
+}
+
+.yt_mega_news .arrow1{background-image : url('../images/arrow.png'); height: 8px; width: 6px; margin-right: 4px; margin-top: 5px; float: left }
+
+
+/*them4*/
+.yt_mega_news #yt-mega-news {margin: 50px auto;text-align:right !important;}
+.yt_mega_news .theme4 .a { text-decoration: none; }
+.yt_mega_news .theme4 .h3 { margin: 0 0 10px 0; line-height: 1.5;}
+.yt_mega_news .theme4 .tabs {overflow: hidden; }
+.yt_mega_news .theme4 .box {float: left; position: relative;}
+.yt_mega_news .theme4 .box-wrapper {position: relative; width: 100%;}
+.yt_mega_news .theme4 .content-box {width: 96%; overflow: hidden; border-top: 2px #145cae solid; display: none; text-align: right;}
+.yt_mega_news .theme4 .current { display: block !important; }
+.yt_mega_news .theme4 .normal-content {margin-top: 5px}
+.yt_mega_news .theme4 .link ul li {list-style: none}
+.yt_mega_news .theme4 .link ul {padding: 0px!important; line-height: 20px}
+.yt_mega_news .theme4 .col-three {position: relative; margin-top: 10px; width: 100%; float: left}
+.yt_mega_news .theme4 .col-one a {font-weight: bold; color: #0b3766}
+.yt_mega_news .theme4 .col-two {padding-bottom: 5px; width: 100%; overflow: hidden}
+.yt_mega_news .theme4 .arrow {background: url("../images/arrow.png"); width: 6px; height: 8px; margin-top: 6px; margin-left: 5px; float: right} 
+.yt_mega_news .theme4 .image {float: right; overflow: hidden; margin-top: 5px;}
+.yt_mega_news .theme4 .link_category {float: left; list-style:none; text-align: right; margin-top: 10px;}
+.yt_mega_news .theme4 .link_category li a {color: #1e7ce3; text-decoration: none;}
+.yt_mega_news .theme4 .sub_content {color: #232323; line-height: 1.8; overflow: hidden;padding-right:15px; }
+.yt_mega_news .theme4 .read_more {text-align: right}
+.yt_mega_news .theme4 .read_more a {color: #1e7ce3}
+.yt_mega_news .theme4 .category_title_left {background: url("../images/button_left.png") no-repeat; height: 24px; float:right }
+.yt_mega_news .theme4 .category_title_center {background: url("../images/button_center.png") repeat-x scroll 0 0; height: 24px; float: right}
+.yt_mega_news .theme4 .category_title_right {background: url("../images/button_right.png")  no-repeat; height: 24px; float:right; padding-right: 4%;}
+.yt_mega_news .theme4 .category_name {color: #FFFFFF!important; font-weight: bold; margin-top: 5px;}
+.yt_mega_news .theme4 .category_name a { text-decoration: none; color: #FFFFFF!important;}
+.yt_mega_news .theme4 .plus {
+	background: url("../images/minus_plus.png") no-repeat scroll -20px 0px transparent;
+	width:20px;
+	height:20px;
+	display:block;
+	outline:none;
+	float:left;
+	left:21px;
+	position:relative;
+}
+.yt_mega_news .theme4 .plus:hover {background-position: 0 0;}
+.yt_mega_news .theme4 .minus {
+	background: url("../images/minus_plus.png") no-repeat scroll -20px -20px transparent;
+	width:20px;
+	height:20px;
+	display:block;
+	outline:none;
+}
+.yt_mega_news .theme4 .minus:hover {background-position: 0px -20px;}
+.yt_mega_news .theme4 .arrow1{background-image : url('../images/arrow.png'); height: 8px; width: 6px; margin-left: 4px; margin-top: 5px; float: right }

@@ -1,0 +1,100 @@
+<?php
+/**
+ * Switcher based on Switching Websites, NOT Store fronts!
+ */
+?>
+<?php
+/**
+ * Store switcher template
+ *
+ * @see Mage_Core_Block_Store_Switcher
+ */
+?>
+<?php $websites = Mage::app()->getWebsites() ?>
+
+<?php if(count($websites) > 1): ?>
+
+    <a class="websiteSwitcher">
+        <span>Our Locations</span>
+        <div class="hoverOver" id="locationHover">
+            <span>Our Locations</span>
+            <div class="hoverBox">
+                <label>Select a Location:</label>
+                <select id="website-changer">
+                <?php $websites = Mage::getModel('core/website')->getCollection() ?>
+                <?php foreach($websites as $website): ?>
+                    <?php
+                    $default_store = $website->getDefaultStore();
+                    $url_obj = new Mage_Core_Model_Url();
+                    $default_store_path = $url_obj->getBaseUrl(array('_store'=> $default_store->getCode()));
+                    
+                    $delimiter = strpos('?', $default_store_path) ? '&' : '?';
+                    $store_url = $default_store_path . $delimiter . '___store=' . $default_store->getCode();
+                    
+                    ?>
+                    <option 
+                        <?php if(strstr($this->helper('core/url')->getCurrentUrl(), $default_store_path)): ?>
+                            selected="selected"
+                        <?php endif ?> 
+                        value="<?php echo $store_url ?>">
+                        <?php echo $website->getName() ?>
+                    </option>
+                <?php endforeach ?>
+                </select>
+                <div class="locationButtons">
+                    <button id="changeLocationBtn" class="leftButton">Change Location</button>
+                    <button id="locationCloseBtn">Cancel</button>
+                </div>
+
+            </div>
+            <!-- <div class="accessory">Accessory Outlet Locations</div> -->
+        </div>
+    </a>
+    
+<?php endif ?>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+		var myLink = "body";
+        jQuery('a.websiteSwitcher').click(function(){			
+			
+            jQuery('#locationHover').show();
+            $overlayCount = jQuery('#websiteSwitcherOverlay').length;
+            if($overlayCount == 0) {				
+				  setTimeout(function() {
+				jQuery('.websiteSwitcher').addClass('checked');
+				}, 5000);
+			
+                jQuery('body').append('<div id="websiteSwitcherOverlay"></div>')			
+            }
+        });
+		
+        jQuery('#locationCloseBtn').click(function(){
+            jQuery('#websiteSwitcherOverlay').remove();
+            jQuery('#locationHover').hide();
+            return false;
+        });
+		
+		
+ 
+       jQuery('body').click(function(){		   
+			    if (jQuery('.websiteSwitcher').hasClass('checked')) {			
+				 jQuery('.websiteSwitcher').removeClass('checked');
+				jQuery('#websiteSwitcherOverlay').remove();
+				jQuery('#locationHover').hide();
+            	return false;
+				
+		  }            
+        });		
+
+        jQuery('#changeLocationBtn').click(function(){
+            document.location = jQuery("select#website-changer option").filter(":selected").val();
+            return false;
+        });
+    });
+
+</script>
+
+<script>
+
+</script>

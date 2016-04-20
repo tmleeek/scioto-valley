@@ -1,0 +1,13 @@
+<?php /* Adds external remarketing scripts depending on whether store is using secure HTTPS or not  ?>
+
+<?php if(strpos(Mage::getBaseUrl(),'www.watsons.com')): ?>
+    <?php if(Mage::app()->getStore()->isCurrentlySecure()): ?>
+
+        <script src="https://secure.adnsx.com/seg?add=2651931&t=1" type='text/javascript'></script>
+
+    <?php else: ?>
+
+        <script src="http://ads.exactdrive.com/seg?add=2651931&t=1" type='text/javascript'></script>
+
+    <?php endif; ?>
+<?php endif; */

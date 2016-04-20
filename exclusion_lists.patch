@@ -1,0 +1,52 @@
+diff --git a/app/code/community/Bronto/Common/Model/List.php b/app/code/community/Bronto/Common/Model/List.php
+index 59444f4..a6abf45 100644
+--- a/app/code/community/Bronto/Common/Model/List.php
++++ b/app/code/community/Bronto/Common/Model/List.php
+@@ -47,17 +47,17 @@ class Bronto_Common_Model_List
+         $listIds = $this->getExclusionLists('store', $storeId);
+         $recipients = array();
+         if ($listIds) {
+-            $listObject = $this->_helper->getApi(null, 'store', $storeId)->getListObject();
+             try {
+-                  $lists = $listObject->readAll(array('id' => $listIds));
+-                  foreach ($lists->iterate() as $list) {
+-                      $this->_helper->writeDebug("Excluding list: {$list->name} ({$list->id})");
+-                      $recipients[] = array(
+-                          'type' => 'list',
+-                          'id' => $list->id,
+-                          'deliveryType' => 'ineligible'
+-                      );
+-                  }
++                $listObject = $this->_helper->getApi(null, 'store', $storeId)->transferMailList();
++                $lists = $listObject->read()->where->id->in($listIds);
++                foreach ($lists as $list) {
++                    $this->_helper->writeDebug("Excluding list: {$list->getName()} ({$list->getId()})");
++                    $recipients[] = array(
++                        'type' => 'list',
++                        'id' => $list->getId(),
++                        'deliveryType' => 'ineligible'
++                    );
++                }
+             } catch (Exception $e) {
+                 $this->_helper->writeError("Unable to add exclusion lists: " . $e->getMessage());
+             }
+diff --git a/app/code/community/Bronto/Newsletter/Model/Observer.php b/app/code/community/Bronto/Newsletter/Model/Observer.php
+index a57cebc..52ebe55 100644
+--- a/app/code/community/Bronto/Newsletter/Model/Observer.php
++++ b/app/code/community/Bronto/Newsletter/Model/Observer.php
+@@ -318,12 +318,12 @@ class Bronto_Newsletter_Model_Observer
+ 
+                 // Get List Details
+                 if ($subscriber->getStatus() == Bronto_Api_Model_Contact::STATUS_ACTIVE || ($helper->isRemoveUnsubs('store', $storeId) && $subscriber->getStatus() == Bronto_Api_Model_Contact::STATUS_UNSUBSCRIBED)) {
+-                    foreach ($actualLists as $listId => $listName) {
++                    foreach ($actualLists as $listId => $list) {
+                         if ($subscriber->getStatus() == Bronto_Api_Model_Contact::STATUS_ACTIVE) {
+-                            $helper->writeInfo("  Adding Contact to list: {$listName}");
++                            $helper->writeInfo("  Adding Contact to list: {$list->getName()}");
+                             $contact->addList($listId);
+                         } else {
+-                            $helper->writeInfo("  Removing Contact from list: {$listName}");
++                            $helper->writeInfo("  Removing Contact from list: {$list->getName()}");
+                             $contact->removeList($listId);
+                         }
+                     }

@@ -1,0 +1,76 @@
+/* 
+    Document   : jobsstyle
+    Created on : Feb 29, 2012, 1:08:37 PM
+    Author     : Kaleem Ullah Khan
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+ul#sort_by li {display: inline-block; margin-right: 5px;}
+
+.sort_by_label {font-size: 10px; font-weight: bold;}
+
+ul#sort_by li a {text-decoration: none;}
+ul#sort_by li a:hover {text-decoration: underline;}
+
+.row1 {margin: 0 auto 5px auto;}
+.jobs_rows .col_t1, .jobs_rows .col1, .jobs_rows .col2, .jobs_rows .col3, .jobs_rows .col4 {display: inline-block;}
+
+.row1 .col_t1{width: 200px;}
+.row1 .col1{width: 200px;}
+.row1 .col2{width: 200px;}
+.row1 .col3{width: 100px;}
+.row1 .col4{width: 150px; padding-left: 20px;}
+.row1 .col4 a{text-decoration: none;}
+.row1 .col4 a:hover{text-decoration: underline;}
+
+.block-filterby .block-content, .block-filterby .filterby_label{display: inline-block;}
+
+.pagination .toolbar {margin-top: 5px;}
+
+/*--------------   jobs Detail Page   -----------------*/
+.jobsdetail_main .top .left{width: 360px;}
+.jobsdetail_main .top .right{width: 360px;}
+
+.job_heading h1 {font-size: 26px; font-weight: bold; float: left; display: inline-block;}
+
+.job_heading {width: 100%; background-color: #BCDEFF; padding-left: 20px; margin-bottom: 20px;}
+
+
+.jobsdetail_table td.job_label{width: 200px;}
+.jobsdetail_table td.job_value{ margin-left: 20px;}
+
+.jobsdetail_main .apply_btn {display: inline-block; float: right; margin-top: 5px; margin-right: 5px; width: 116px;}
+
+
+.row1 div {display: inline-block; float: left;}
+
+ul#sort_by li {display: inline-block; float: left;}
+
+.row1_head {width: 100%; margin-bottom: 10px; float: left; font-weight: bold; background-color: #F0F0F0;}
+.row1_head div {display: inline-block; float: left;}
+
+
+.row1_head .col_t1{width: 200px;}
+.row1_head .col1{width: 200px;}
+.row1_head .col2{width: 200px;}
+.row1_head .col3{width: 100px;}
+.row1_head .col4{width: 150px; padding-left: 20px; }
+.row1_head .col4 a{text-decoration: none;}
+.row1_head .col4 a:hover{text-decoration: underline;}
+
+.row1 {float: left;}
+
+#jobs_apply_form .entry-edit {float: left;}
+.clear {clear: both;
+       padding: 0px;
+       margin: 0px;
+}
+
+#jobs_form table.form-list {*position: relative; }
+#jobs_apply_form {*position: relative;}
+#jobs_form {*position: relative; }

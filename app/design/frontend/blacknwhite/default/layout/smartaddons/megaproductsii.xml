@@ -1,0 +1,54 @@
+<?xml version="1.0"?>   
+<layout version="1.0">
+	<default>
+        <reference name="head">	
+        	<action method="addCss"><stylesheet>smartaddons/megaproductsii/css/megaii.css</stylesheet></action>
+        	<action method="addCss"><stylesheet>smartaddons/megaproductsii/css/megaii-font-color.css</stylesheet></action>
+			<action method="addCss"><stylesheet>smartaddons/megaproductsii/css/megaii-tooltip.css</stylesheet></action>
+        </reference>
+    </default>
+	<megaproductsii_index_index>
+		<reference name="content">
+			<block type="megaproductsii/list" name="megaproductsii.theme1">
+				<action method="setConfig" module="megaproductsii">
+					<name>
+						<theme>theme1</theme>						
+					</name>
+				</action>
+			</block>
+			<block type="megaproductsii/list" name="megaproductsii.theme2">
+				<action method="setConfig" module="megaproductsii">
+					<name>
+						<theme>theme2</theme>						
+					</name>
+				</action>
+			</block>
+			<block type="megaproductsii/list" name="megaproductsii.theme3">
+				<action method="setConfig" module="megaproductsii">
+					<name>
+						<theme>theme3</theme>						
+					</name>
+				</action>
+			</block>
+			<block type="megaproductsii/list" name="megaproductsii.theme4">
+				<action method="setConfig" module="megaproductsii">
+					<name>
+						<theme>theme4</theme>						
+					</name>
+				</action>
+			</block>
+		</reference>
+	</megaproductsii_index_index>
+<cms_index_index>
+<reference name="center">
+<block type="megaproductsii/list" name="megaproductsii.list">
+</block>
+</reference>
+</cms_index_index>
+<catalog_category_view>
+<reference name="content">
+<block type="megaproductsii/list" name="megaproductsii.list">
+</block>
+</reference>
+</catalog_category_view>	
+</layout>   	

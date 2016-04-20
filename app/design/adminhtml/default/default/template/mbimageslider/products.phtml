@@ -1,0 +1,24 @@
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('mbimageslider')->__('Display on product pages') ?></h4>
+    </div>
+    <fieldset id="product_fields">
+		<span class="product-param">
+					<label for="product_sku"><?php echo Mage::helper('mbimageslider')->__('Show On Product Pages (SKU)') ?></label>
+					
+					<span class="element">
+						<input id="product_sku" class="input-text element-value-changer" type="text" value="<?php echo $this->getIdsString() ?>" name="product_sku">
+						<a class="product-chooser-trigger" href="javascript:void(0)">
+							<img src="<?php echo Mage::getDesign()->getSkinUrl('images/rule_chooser_trigger.gif') ?>" alt="" onclick="<?php echo $this->getProductChooserURL(); ?>" class="v-middle product-chooser-trigger" title="<?php echo Mage::helper('mbimageslider')->__('Open Chooser') ?>" />
+						</a>
+					</span>
+				</span>
+				
+    </fieldset>
+</div>
+
+
+<script type="text/javascript">
+	var rule_conditions_fieldset = new VarienRulesForm('product_fields', '<?php echo $this->getProductNewConditional() ?>');
+	
+</script>

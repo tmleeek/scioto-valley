@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">    
+    <default>	
+		<reference name="content">
+			<block type="mbimageslider/mbimageslider" name="mbslider"> 
+                <action method="setTemplate" ifconfig="mbimageslider/general/enabled">
+                    <template>mbimageslider/mbimageslider.phtml</template> 
+                </action>
+			</block> 
+		</reference>
+		
+		<reference name="left">
+			<block type="mbimageslider/mbimageslider" name="mbsliderleft"> 
+                <action method="setTemplate" ifconfig="mbimageslider/general/enabled">
+                    <template>mbimageslider/mbimagesliderleft.phtml</template> 
+                </action>
+			</block>		
+		</reference>
+		
+		<reference name="right">
+			<block type="mbimageslider/mbimageslider" name="mbsliderright"> 
+                <action method="setTemplate" ifconfig="mbimageslider/general/enabled">
+                    <template>mbimageslider/mbimagesliderright.phtml</template> 
+                </action>
+			</block>
+		</reference>		
+    </default>	
+</layout>

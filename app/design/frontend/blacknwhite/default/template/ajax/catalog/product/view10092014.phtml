@@ -1,0 +1,694 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information. 
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php /* @var $_product Mage_Catalog_Model_Product */ ?>
+<?php 
+	$meigee_blacknwhite_productpage = MAGE::helper('ThemeOptionsBlacknwhite')->getThemeOptionsBlacknwhite('meigee_blacknwhite_productpage');
+    if ($_product->getBlacknwhitePrcolleteral() == 0):
+    	$productpage_collateral = $meigee_blacknwhite_productpage['layout']['collateral'];
+    else:
+    	switch ($_product->getBlacknwhitePrcolleteral()) {
+	        case 1:
+	            $productpage_collateral = 'collateral_list';
+	        break;
+	        case 2:
+	            $productpage_collateral = 'collateral_tabs';
+	        break;
+	        case 3:
+	            $productpage_collateral = 'collateral_tabs_vertical';
+	        break;
+			case 4:
+	            $productpage_collateral = 'collateral_accordion';
+	        break;
+        }
+    endif;
+    $productpage_sku = $meigee_blacknwhite_productpage['general']['product_sku'];
+    $productpage_additional = $meigee_blacknwhite_productpage['additional'];
+    if ($_product->getBlacknwhitePrlayout() == 0):
+    	$productpage_pagelayout = $meigee_blacknwhite_productpage['layout']['pagelayout'];
+    else:
+    	$productpage_pagelayout = $_product->getBlacknwhitePrlayout();
+		switch ($productpage_pagelayout) {
+			case 1:
+				$productpage_pagelayout = 'productpage_small';
+            break;
+			case 2:
+				$productpage_pagelayout = 'productpage_medium';
+            break;
+			case 3:
+				$productpage_pagelayout = 'productpage_large';
+            break;
+			case 4:
+				$productpage_pagelayout = 'productpage_extralarge';
+            break;
+		}
+    endif;
+    switch ($productpage_pagelayout) {
+        case 'productpage_extralarge':
+            $leftcol = 'grid_12';
+			$rightcol = 'grid_9';
+			$rightcol_no_rel = 'grid_12';
+            break;
+        case 'productpage_large':
+            $leftcol = 'grid_4';
+            $rightcol = 'grid_5';
+			$rightcol_no_rel = 'grid_8';
+            break;
+        case 'productpage_medium':
+            $leftcol = 'grid_5';
+            $rightcol = 'grid_4';
+			$rightcol_no_rel = 'grid_7';
+            break;
+        case 'productpage_small':
+            $leftcol = 'grid_6';
+            $rightcol = 'grid_3';
+			$rightcol_no_rel = 'grid_6';
+            break;
+        default:
+            $leftcol = 'grid_5';
+            $rightcol = 'grid_4';
+			$rightcol_no_rel = 'grid_7';
+            break;
+    }
+    if ($_product->getBlacknwhitePrbrand() == 0) {
+		$pr_brand = $meigee_blacknwhite_productpage['brand']['productbrand'];
+		$pr_brandsearch = $meigee_blacknwhite_productpage['brand']['brandsearch'];
+		$pr_brandtarget = $meigee_blacknwhite_productpage['brand']['brandtarget'];
+    }
+    else {
+    	$pr_brand = $_product->getBlacknwhitePrbrand();
+    	$pr_brandsearch = $_product->getBlacknwhitePrbrandlink();
+    	$pr_brandtarget = $_product->getBlacknwhitePrbrandtarget();
+    }
+
+    if ($_product->getBlacknwhitePrsidebar() == 0):
+    	$productpageSidebar = $meigee_blacknwhite_productpage['layout']['productsidebar'];
+    else:
+    	$productpageSidebar = $_product->getBlacknwhitePrsidebar();
+		switch ($productpageSidebar) {
+			case 1:
+				$productpageSidebar = 'left';
+            break;
+			case 2:
+				$productpageSidebar = 'right';
+            break;
+			case 3:
+				$productpageSidebar = 'none';
+            break;
+		}
+    endif;
+	
+	$richSnippets = $meigee_blacknwhite_productpage['rich_snippets'];
+?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div id="product-top" class="product-view"<?php if($richSnippets['status'] == 1): ?> itemscope itemtype="http://schema.org/Product"<?php endif; ?>>
+<?php if($productpageSidebar == 'left' and $productpage_pagelayout != 'productpage_extralarge'): ?>
+<aside class="grid_3 alpha"> <?php echo $this->getChildHtml('product_col'); ?> </aside>
+<?php endif; ?>
+<?php if($productpageSidebar != 'none' and $productpage_pagelayout == 'productpage_extralarge'): ?>
+<div class="grid_12 alpha omega">
+<?php elseif($productpageSidebar == 'left'): ?>
+<div class="grid_12 omega">
+<?php elseif($productpageSidebar == 'right'): ?>
+<div class="grid_9 alpha">
+  <?php else: ?>
+  <div class="grid_12 alpha omega">
+    <?php endif; ?>
+    <div class="product-essential <?php echo $productpage_pagelayout; if($productpageSidebar == 'none'){echo ' no-sidebar';} ?>">
+      <div class="grid_3 alpha product-img-box"> <?php echo $this->getChildHtml('media'); ?> </div>
+      <?php if($productpageSidebar == 'left' and $productpage_pagelayout == 'productpage_extralarge'): ?>
+      <aside class="grid_3 alpha omega"> <?php echo $this->getChildHtml('product_col'); ?> </aside>
+      <?php endif; ?>
+      <?php // hard ocded grid 8, chaning theme options doesn't seem to let us change this! ?>
+      <div class="grid_6 omega product-shop"> <?php echo $this->getChildHtml('manufacturer.center'); ?>
+       <?php  $magentoCurrentUrl = Mage::helper('core/url')->getCurrentUrl()."?print=yes" ?>
+     
+        <div class="product-name<?php if(!$this->getChildHtml('catalog.product.related')){echo ' no-rel';} ?>">
+          <?php $manufacturer = $_product->getManufacturer() ?>
+          <h1<?php if($richSnippets['status'] == 1): ?> itemprop="name"<?php endif; ?>> <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+            <?php if($manufacturer): ?>
+            <span class="productManu"> By&nbsp;<?php echo $_product->getAttributeText('manufacturer') ?> </span>
+            <?php endif ?>
+          </h1>
+          <div class="product-social-icons-right"> 
+            <!-- send to friend -->
+            <?php /*if ($this->canEmailToFriend()): ?>
+                            <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span><span><?php echo $this->__('Email to a Friend') ?></span></span></a></p>
+                        <?php endif;*/ ?>
+            <!-- fb share - will style later -->
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1516758221892825&version=v2.0";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
+            <!-- Tweet Button -->
+            <div class="socialSharing twitterButton"> <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="watsons"></a> 
+              <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script> 
+            </div>
+            <div class="socialSharing googlePlusOneButton">
+              <g:plusone annotation="bubble" width="100" size="medium"></g:plusone>
+              <script type="text/javascript">
+                                (function() {
+                                    window.___gcfg = {lang: 'en'}; // Define button default language here
+                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                    po.src = 'https://apis.google.com/js/plusone.js';
+                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                })();
+                            </script> 
+            </div>
+            <?php if ($this->canEmailToFriend()): ?>
+            <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span> <span><img src="<?php echo $this->getSkinUrl('images/email-to-friend.png'); ?>" /></span></span></a></p>
+            <?php endif;?>
+            
+             
+            <a class="printicon" href="<?php echo $magentoCurrentUrl ?>" onclick="javascript:void window.open('<?php echo $magentoCurrentUrl ?>','1411467340295','width=1200,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a>
+             <?php  if( isset($_GET['print']) ) : echo $_GET['print'];?>
+             
+             <div class="prinonicon"><a href="#" onclick="myFunction()"><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a>
+             <style>
+             .printicon { display:none;}
+			 
+			 .prinonicon {
+    position: absolute;
+    right: 500px;
+    top: -199px;
+}
+             </style>
+               <script>
+			function myFunction() {
+							  window.print();
+			}
+            </script> 
+            <?php endif; ?>
+          <!--  <a href="#" onclick="myFunction()"><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a> -->
+           
+          
+
+
+
+            <!--<a href='javascript:window.print()' ><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a>
+<a href='javascript:window.print()'>
+<img src='images/printer.png' height='32px' width='32px'></a>
+<h1>
+        Pop & print</h1>
+    <button onclick="pop();">
+        Pop</button>
+
+    <script type="text/javascript">
+      var POP;
+      function pop() {
+          var newWin = window.open('', 'thePopup', 'width=350,height=350');
+        newWin.document.write("<html><head><title>popup</title></head><body><h1>Pop</h1>" +
+            "<p>Print me</p><a href='print.html' onclick='window.print();return false;'>" +
+            "<img src='images/printer.png' height='32px' width='32px'></a></body></html>");
+      }
+    </script>
+
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
+--> 
+            <!-- Google +1 Button - needs some help -->
+            
+            <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('social_product')->toHtml() ?>
+            <?php //echo $this->getChildHtml('social_icon'); ?>
+          </div>
+          <?php if ($_product->getBlacknwhitePrsku() < 2 ):
+						if ($_product->getBlacknwhitePrsku() == 1 or $productpage_sku): ?>
+          <div class="sku"><?php echo $this->__('SKU') . ':<span>' . $_product->getSku() . '</span>'; ?></div>
+          <?php 
+						endif; 
+					endif; ?>
+          <?php echo $_product->getProductSku(); ?> </div>
+        <?php echo MAGE::helper('ThemeOptionsBlacknwhite')->prevnext($_product) ?>
+        <?php if((($_product->isSaleable() && $this->hasOptions()) and $this->getChildChildHtml('container1', '', true, true)) or !($_product->isSaleable() && $this->hasOptions())): ?>
+        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+          <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+          </div>
+          <?php endif; ?>
+          <?php //echo $this->getReviewsSummaryHtml($_product, false, true) // DISABLE 
+					   
+					    $c2c_hide_price =  $_product->getResource()->getAttribute('c2c_hide_price')->getFrontend()->getValue($_product);
+						
+						$special_order =  $_product->getResource()->getAttribute('special_order')->getFrontend()->getValue($_product);
+					   ?>
+          <div class="price-block"<?php if(($richSnippets['status'] == 1) and ($richSnippets['product_price'] == 1) and ($_product->getTypeId() != Mage_Catalog_Model_Product_Type::TYPE_GROUPED)): ?> itemprop="offers" itemscope itemtype="http://schema.org/Offer"<?php endif; ?>>
+            <?php //$priceAvaliable = false; ?>
+            <?php if(!$this->hasOptions()): ?>
+            <?php $priceAvaliable = true; ?>
+            <?php if($c2c_hide_price == "No") { ?>
+            <?php echo $this->getChildHtml('product_type_data'); ?>
+            <?php } else { ?>
+            <h2 class="spclmsg">Ask us about our pricing!</h2>
+            <?php } ?>
+            <?php elseif($_product->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_BUNDLE): ?>
+            <?php $priceAvaliable = true; ?>
+            <?php echo $this->getChildHtml('product_type_data'); ?>
+            <?php elseif($_product->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE): ?>
+            <?php $priceAvaliable = true; ?>
+            <?php echo $this->getChildHtml('product_type_data'); ?>
+            <?php endif; ?>
+            <?php if($_product->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_GROUPED): ?>
+            <?php $priceAvaliable = false; ?>
+            <?php echo $this->getChildHtml('product_type_data'); ?>
+            <?php endif; ?>
+            <?php if ($this->displayProductStockStatus()): ?>
+            <?php if ($_product->isAvailable()): ?>
+            <p class="availability<?php if($priceAvaliable == false){echo ' left';} ?> in-stock"><?php echo $this->__('Availability:') ?><span><?php echo $this->__('In stock') ?></span></p>
+            <?php else: ?>
+            <p class="availability<?php if($priceAvaliable == false){echo ' left';} ?> out-of-stock"><?php echo $this->__('Availability:') ?><span><?php echo $this->__('Out of stock') ?></span></p>
+            <?php endif; ?>
+            <?php endif; ?>
+          </div>
+          <div class="clear "></div>
+          <?php if($special_order == "Yes") : ?>
+          <div class="instore-pricing-body"> Ask us about our pricing! <br>
+            <a style="color: #25a2e3" href="http://www.watsons.com/productquestions/index/index/id/16186/category/939/">ASK</a> OR CALL (513) 326-1100 NOW </div>
+          <?php endif; ?>
+          <?php echo $this->getChildHtml('alert_urls') ?>
+          <?php $optionsAvailability = false; if($_product->isSaleable() && $this->hasOptions()){$optionsAvailability = true;}?>
+          <?php if ($_product->getShortDescription()):?>
+          <div class="short-description">
+            <div class="std"<?php if($richSnippets['status'] == 1): ?> itemprop="description"<?php endif; ?>>
+              <?php /**<h2><?php //echo $this->__('Details:') ?></h2>**/ ?>
+              <?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?> </div>
+          </div>
+          <?php endif;?>
+          <?php
+                       /**
+                        * Simple products etc
+                        */
+                       ?>
+          <?php if ( ! $this->hasOptions()):?>
+          <div class="product-type-block">
+          
+            <?php   $c2c_is_online_product =  $_product->getResource()->getAttribute('c2c_is_online_product')->getFrontend()->getValue($_product);  $online_product =  $_product->getResource()->getAttribute('online_product')->getFrontend()->getValue($_product); if($c2c_is_online_product == 'Yes' ) { ?>
+            <div class="grid_3 alpha">
+              <div class="add-to-box"  style="margin-bottom: 10px;">
+                <?php if($_product->isSaleable()): ?>
+                <?php echo $this->getChildHtml('addtocart') ?>
+                <?php endif; ?>
+              </div>
+              <?php //echo $this->getChildHtml('aw_pq2_question_list_right') ?>
+            </div>
+            <div class="grid_3 omega">
+           <!--   <h3 class="headingRed"> CALL 1.888.358.8643 FOR PRICING </h3>-->
+              <div class="product-cta"> <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_right_widget')->toHtml() ?>
+                <?php //echo Mage::app()->getLayout()->createBlock('cms/zblocks')->setPosition('product_right')->toHtml(); ?>
+              </div>
+            </div>
+              <style>                           
+				.box-collateral.aw-pq2-question-list-wrapper {				
+					top: -127px !important;				
+				}
+              </style>
+            <?php }else { ?>
+            <div class="grid_3 alpha">
+            
+              <div class="add-to-box"  style="margin-bottom: 10px;">
+                <?php $_wishlistSubmitUrl = $this->helper('wishlist')->getAddUrl($_product); ?>
+                <a  href="<?php echo $this->getAddToWishlistUrl($_product) ?>"  class="link-wishlist product-buy-btn">
+                <?php //echo MAGE::helper('ThemeOptionsBlacknwhite')->getIcon('wishlist'); ?>
+              
+                <?php echo $this->__('Add to Wishlist') ?><span class="add-to-loader" id='ajax_wishlist_loading<?php echo $_product->getId()?>' style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span></a> 
+                <script type="text/javascript">
+var wishlistForm = new VarienForm('product_addtocart_form');
+function popUpMessage(data){
+	jQuery('body').append('<div class="add-to-cart-success">' + data.message +'<a href="#" class="btn-remove"><i class="fa fa-times" /></a></div>');
+	setTimeout(function () {jQuery('.add-to-cart-success').slideUp(500, function(){jQuery(this).remove()})}, 5000);
+	jQuery('.add-to-cart-success a.btn-remove').click(function(){
+		jQuery(this).parent().slideUp(500, function(){jQuery(this).remove()});
+		return false;
+	})
+}
+wishlistForm.submitAjaxWishlist = function(button, url,id){
+    if(this.validator) {
+        var nv = Validation.methods;
+        delete Validation.methods['required-entry'];
+        delete Validation.methods['validate-one-required'];
+        delete Validation.methods['validate-one-required-by-name'];
+        if (this.validator.validate()) {
+        	url = url.replace("wishlist/index","ajax/whishlist");
+        	var data = jQuery('#product_addtocart_form').serialize();
+			data += '&isAjax=1';
+			jQuery('#ajax_wishlist_loading'+id).show();
+			jQuery.ajax( {
+				url : url,
+				dataType : 'json',
+				type : 'post',
+				data : data,
+				success : function(data) {
+					jQuery('#ajax_wishlist_loading'+id).hide();
+					if(data.status == 'ERROR'){
+						popUpMessage(data);
+					}else{
+						popUpMessage(data);
+						if(jQuery('.block-wishlist').length){
+                            jQuery('.block-wishlist').replaceWith(data.sidebar);
+                        }else{
+                            if(jQuery('.col-right').length){
+                            	jQuery('.col-right').prepend(data.sidebar);
+                            }
+                        }
+                        if(jQuery('.header .links').length){
+                            jQuery('.header .links').replaceWith(data.toplink);
+                        }
+					}
+				}
+			});
+        }
+        Object.extend(Validation.methods, nv);
+    }
+}.bind(wishlistForm);
+</script> 
+              </div>
+              <?php //echo $this->getChildHtml('aw_pq2_question_list_right') ?>
+            </div>
+            <div class="grid_3 omega"> 
+               <h3 class="headingRed">
+                                   CALL 1.888.358.8643 FOR PRICING
+                               </h3>
+              
+              <div class="product-cta"> <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_right_widget')->toHtml() ?>
+                <?php //echo Mage::app()->getLayout()->createBlock('cms/zblocks')->setPosition('product_right')->toHtml(); ?>
+              </div>
+            </div>
+            <?php } ?>
+            <!--<div class="add-to-links-box">
+							   <?php //echo $this->getChildHtml('addto') ?>
+							</div>-->
+            <div class="clear"></div>
+            <?php //echo $this->getChildHtml('extra_buttons') ?>
+          </div>
+          <?php endif; ?>
+          <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+          <div class="bundled-price"<?php if(($richSnippets['status'] == 1) and ($richSnippets['product_price'] == 1)): ?> itemprop="offers" itemscope itemtype="http://schema.org/Offer"<?php endif; ?>> <?php echo $this->getChildHtml('product_type_data'); ?> </div>
+          <?php endif;?>
+          <?php echo $this->getChildHtml('extrahint') ?> <?php echo $this->getChildHtml('other');?> <?php echo $this->getTierPriceHtml() ?>
+          <?php
+                        /**
+                         * Configurable / options
+                         */
+                        ?>
+          <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+          <div class="product-type-block">
+            <div class="grid_3 alpha"> <?php echo $this->getChildChildHtml('container1', '', true, true) ?> </div>
+            <div class="grid_3 omega">
+              <h3 class="headingRed"> CALL 1.888.358.8643 FOR PRICING </h3>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <?php endif;?>
+          <?php if((($_product->isSaleable() && $this->hasOptions()) and $this->getChildChildHtml('container1', '', true, true)) or !($_product->isSaleable() && $this->hasOptions())): ?>
+          <?php 
+                        
+						if ($_product->getBlacknwhitePrcustom()):
+							echo '<div class="product-custom">' . $_product->getBlacknwhitePrcustom() . '</div>';
+						else:
+							$product_custom_blocks = explode(",", $productpage_additional['product_custom']);
+							foreach ($product_custom_blocks as $product_custom_block) {
+                                $customContent = $this->getLayout()->createBlock('cms/block')->setBlockId(trim($product_custom_block))->toHtml();
+                                if( ! empty($customContent)) {
+                                    echo '<div class="product-custom">' . $customContent . '</div>';
+                                }
+							};
+							endif;
+						?>
+          <?php echo $this->getChildHtml('upsell_products_slider'); ?>
+        </form>
+        <?php echo $this->getChildHtml('aw_pq2_question_list_right') ?>
+        <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('aw_question_paper')->toHtml() ?>
+        <?php endif; ?>
+        <?php if ($meigee_blacknwhite_productpage['layout']['collateral_position'] == 'details'): ?>
+        <div class="product-collateral"<?php if ($productpage_collateral == 'collateral_accordion') echo " id='collateral-accordion'"; ?>>
+          <?php 
+					if ($productpage_collateral == 'collateral_tabs' or $productpage_collateral == 'collateral_tabs_vertical'):
+					   echo $this->getChildHtml('info_tabs');
+					else:
+					    foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):
+				           if ($title = $this->getChildData($alias, 'title')):
+				           	//echo '<h2>' . $this->escapeHtml($title) . '</h2>'; // hide title..
+				           endif;
+				           echo $html;
+					    endforeach;
+						//echo $this->getChildHtml('upsell_products');
+						echo $this->getChildHtml('product_additional_data');
+					   
+						if ($_product->getBlacknwhitePrtabs()):
+						  $productpage_additional = $_product->getBlacknwhitePrtabs();
+						else:
+						  $productpage_additional = $meigee_blacknwhite_productpage['additional'];
+						  $productpage_additional = $productpage_additional['product_tabs'];
+						endif;
+
+						$custom_tabs = array();
+						$product_custom_tabs = explode(",", $productpage_additional);
+						foreach ($product_custom_tabs as $product_custom_tab) {
+						  $custom_tabs[] = trim($product_custom_tab);
+						}; 
+						foreach ($custom_tabs as $key) {
+							 if(!empty($key)):
+						    ?>
+          <!--<h2 id="<?php //echo $key; ?>"><?php //echo Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load($key)->getTitle(); ?></h2>-->
+          <div class="box-collateral" id="<?php echo $key; ?>_contents"> <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId(trim($key))->toHtml() ?> </div>
+          <?php endif; 
+						}
+			        endif;
+					?>
+        </div>
+        <?php endif; ?>
+      </div>
+      <?php if($productpageSidebar == 'right' and $productpage_pagelayout == 'productpage_extralarge'): ?>
+      <aside class="grid_3 omega"> <?php echo $this->getChildHtml('product_col'); ?> </aside>
+      <?php endif; ?>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <?php if($productpageSidebar == 'right' and $productpage_pagelayout != 'productpage_extralarge'): ?>
+  <aside class="grid_3 omega"> <?php echo $this->getChildHtml('product_col'); ?> </aside>
+  <?php endif; ?>
+  <div class="clear"></div>
+  <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+  <?php if (($_product->isSaleable() && $this->hasOptions()) and !$this->getChildChildHtml('container1', '', true, true)): ?>
+  <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+    <div class="no-display">
+      <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+      <input type="hidden" name="related_product" id="related-products-field" value="" />
+    </div>
+    <div class="bundled-price"<?php if(($richSnippets['status'] == 1) and ($richSnippets['product_price'] == 1)): ?> itemprop="offers" itemscope itemtype="http://schema.org/Offer"<?php endif; ?>> <?php echo $this->getChildHtml('product_type_data'); ?> </div>
+    <?php endif; ?>
+    <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+    <?php if (($_product->isSaleable() && $this->hasOptions()) and !$this->getChildChildHtml('container1', '', true, true)): ?>
+  </form>
+  <?php endif; ?>
+  <?php endif; ?>
+ 			<script type="text/javascript">
+				//<![CDATA[
+					var productAddToCartForm = new VarienForm('product_addtocart_form');
+					productAddToCartForm.submit = function(button, url) {
+					if (this.validator.validate()) {
+						var form = this.form;
+						var oldUrl = form.action;
+						if (url) {
+							form.action = url;
+						}
+						var e = null;
+						// Start of our new ajax code
+						if (!url) {
+							url = jQuery('#product_addtocart_form').attr('action');
+						}
+						
+						url = url.replace("checkout/cart","ajax/index"); // New Code
+						var data = jQuery('#product_addtocart_form').serialize();
+						data += '&isAjax=1';
+						jQuery('#ajax_loader').show();
+						try {
+							jQuery.ajax( {
+								url : url,
+								dataType : 'json',
+								type : 'post',
+								data : data,
+								complete: function(){
+									if(jQuery('body').hasClass('product-edit')){
+										jQuery.ajax({
+											url: "<?php echo $this->getUrl('meigeeactions/updatecart/') ?>",
+											cache: false
+										}).done(function(html){
+											jQuery('header#header .top-cart').remove();
+											jQuery('header#header .top-link-wishlist').before(html);
+											
+										});
+										jQuery('#ajax_loader').hide();
+										jQuery('body').append("<div class='add-to-cart-success'><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name').' '.$this->__('Updated') ?><br/><a href='<?php echo $this->getUrl('checkout/cart'); ?>'><span><span><?php echo $this->__('Go to Shopping Cart') ?></span></span></a><a href='#' class='btn-remove'><i class='icon-remove'></i></a></div>");
+										setTimeout(function () {jQuery('.add-to-cart-success').slideUp(500)}, 5000);
+										jQuery('.add-to-cart-success a.btn-remove').click(function(){
+											jQuery(this).parent().slideUp(500);
+											return false;
+										})
+									}
+								},
+								success : function(data) {
+									jQuery('#ajax_loader').hide();
+									if(data.status == 'ERROR'){
+										alert(data.message);
+									}else{
+										if(jQuery('.top-cart')){
+											jQuery('.top-cart').replaceWith(data.sidebar);
+										}
+										/* if(jQuery('.header .links')){
+											jQuery('.header .links').replaceWith(data.toplink);
+										} */
+									}
+									jQuery('body').append('<div class="add-to-cart-success">' + data.message +' <br /><a href="<?php echo $this->getUrl('checkout/cart'); ?>"><span><?php echo $this->__('Go to Shopping Cart') ?></span></a><a href="#" class="btn-remove"><i class="fa fa-times" /></a></div>');
+									setTimeout(function () {jQuery('.add-to-cart-success').slideUp(500)}, 5000);
+									jQuery('.add-to-cart-success a.btn-remove').click(function(){
+										jQuery(this).parent().slideUp(500);
+										return false;
+									})
+								}
+							});
+						} catch (e) {
+						}
+						// End of our new ajax code
+						this.form.action = oldUrl;
+						if (e) {
+							throw e;
+						}
+					}
+				}.bind(productAddToCartForm);
+				
+				productAddToCartForm.submitLight = function(button, url){
+						if(this.validator) {
+							var nv = Validation.methods;
+							delete Validation.methods['required-entry'];
+							delete Validation.methods['validate-one-required'];
+							delete Validation.methods['validate-one-required-by-name'];
+							if (this.validator.validate()) {
+								if (url) {
+									this.form.action = url;
+								}
+								this.form.submit();
+							}
+							Object.extend(Validation.methods, nv);
+						}
+					}.bind(productAddToCartForm);
+				//]]>
+			</script>
+  <?php if ($meigee_blacknwhite_productpage['layout']['collateral_position'] == 'underdetails'): ?>
+  <div class="product-collateral"<?php if ($productpage_collateral == 'collateral_accordion') echo " id='collateral-accordion'"; ?>>
+    <?php // Show Tabs.. ?>
+    <ul class="product-view-tabs">
+      <li> <a href="#product-attribute-specs-table">Specifications</a> </li>
+      <li> <a href="#customer-reviews">Reviews</a> </li>
+      <!-- remove videos for now <li>
+                <a href="#product-videos">Videos</a>
+            </li> -->
+      <li> <a href="#autorelatedProducts">Related Items</a> </li>
+    </ul>
+    <?php 
+		if ($productpage_collateral == 'collateral_tabs' or $productpage_collateral == 'collateral_tabs_vertical'):
+		   echo $this->getChildHtml('info_tabs');
+		else:
+		    foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):
+	           if ($title = $this->getChildData($alias, 'title')):
+	           	echo '<h2>' . $this->escapeHtml($title) . '</h2>';
+	           endif;
+	           echo $html;
+               echo '<p class="back-top-top"><a href="#product-top">Back to top</a></p>';
+               
+		    endforeach;
+			//echo $this->getChildHtml('upsell_products');
+			echo $this->getChildHtml('product_additional_data');
+		   
+			if ($_product->getBlacknwhitePrtabs()):
+			  $productpage_additional = $_product->getBlacknwhitePrtabs();
+			else:
+			  $productpage_additional = $meigee_blacknwhite_productpage['additional'];
+			  $productpage_additional = $productpage_additional['product_tabs'];
+			endif;
+
+			$custom_tabs = array();
+			$product_custom_tabs = explode(",", $productpage_additional);
+			foreach ($product_custom_tabs as $product_custom_tab) {
+			  $custom_tabs[] = trim($product_custom_tab);
+			}; 
+			foreach ($custom_tabs as $key) {
+				 if(!empty($key)):
+			    ?>
+    <h2 id="<?php echo $key; ?>"><?php echo Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load($key)->getTitle(); ?></h2>
+    <div class="box-collateral" id="<?php echo $key; ?>_contents"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId(trim($key))->toHtml() ?></div>
+    <?php endif; 
+			}
+        endif;
+		?>
+    <?php echo $this->getChildHtml('product.info.review_list'); ?> 
+    
+    <!--<p class="back-top-top">
+                <a href="#product-top">Back to top</a>
+            </p>--> 
+    
+    <?php echo $this->getChildHtml('catalog.product.related.bottom'); ?>
+    <!-- remove videos for now
+        <?php if($_product->getProductVideo() || $_product->getProductVideoTwo()): ?>
+            <div class="product-video-wrap-outer clearer">
+                <?php if($_product->getProductVideo()): ?>
+                    <div id="product-videos" class="product-video-wrap">
+                        <iframe width="400" height="300" src="http://www.youtube.com/embed/<?php echo $_product->getProductVideo() ?>" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                <?php endif; ?>
+
+                <?php if($_product->getProductVideoTwo()): ?>
+                    <div id="product-videos-two" class="product-video-wrap">
+                        <iframe width="400" height="300" src="http://www.youtube.com/embed/<?php echo $_product->getProductVideoTwo() ?>" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <?php endif ?>
+            --> 
+    <?php echo $this->getChildHtml('awautorelated2') // Auto related products ?> </div>
+  <?php endif; ?>
+</div>

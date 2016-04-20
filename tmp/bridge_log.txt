@@ -1,0 +1,490 @@
+[Fri, 13 Mar 2015 10:20:04 -0400]Intializing
+[Fri, 13 Mar 2015 10:20:04 -0400]Connecting to database
+[Fri, 13 Mar 2015 10:20:04 -0400]Selecting database
+[Fri, 13 Mar 2015 10:20:04 -0400]Delete old temp files
+[Fri, 13 Mar 2015 10:20:04 -0400]Creating backup file
+[Fri, 13 Mar 2015 10:20:04 -0400]Selecting tables
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `admin_assert` [0].
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `admin_rule` [943].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `admin_rule` LIMIT 0, 34381
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `admin_user` [12].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `admin_user` LIMIT 0, 1537
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `adminnotification_inbox` [1 059].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `adminnotification_inbox` LIMIT 0, 11783
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_entity` [403].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_entity` LIMIT 0, 34381
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_entity_datetime` [436].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_entity_datetime` LIMIT 0, 110377
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_entity_decimal` [221].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_entity_decimal` LIMIT 0, 55925
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_entity_int` [1 352].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_entity_int` LIMIT 0, 57457
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_entity_text` [5 095].
+[Fri, 13 Mar 2015 10:20:21 -0400]Connecting to database
+[Fri, 13 Mar 2015 10:20:21 -0400]Selecting database
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_entity_text` LIMIT 0, 14981
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_entity_varchar` [6 883].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_entity_varchar` LIMIT 0, 54472
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_flat_store_1` [149].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_flat_store_1` LIMIT 0, 2543
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_flat_store_2` [153].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_flat_store_2` LIMIT 0, 2611
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_flat_store_3` [148].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_flat_store_3` LIMIT 0, 2526
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_flat_store_4` [151].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_flat_store_4` LIMIT 0, 2577
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_flat_store_5` [148].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_flat_store_5` LIMIT 0, 2526
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_flat_store_6` [165].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_flat_store_6` LIMIT 0, 2816
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_product` [17 555].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_product` LIMIT 0, 51151
+[Fri, 13 Mar 2015 10:20:21 -0400]Handling table `catalog_category_product_index` [158 819].
+[Fri, 13 Mar 2015 10:20:21 -0400]-SELECT * FROM `catalog_category_product_index` LIMIT 0, 48772
+[Fri, 13 Mar 2015 10:20:22 -0400]-SELECT * FROM catalog_category_product_index LIMIT 48772, 48772
+[Fri, 13 Mar 2015 10:20:22 -0400]-SELECT * FROM catalog_category_product_index LIMIT 97544, 48772
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_category_product_index_enbl_idx` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_category_product_index_enbl_tmp` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_category_product_index_idx` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_category_product_index_tmp` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_compare_item` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_eav_attribute` [310].
+[Fri, 13 Mar 2015 10:20:23 -0400]-SELECT * FROM `catalog_eav_attribute` LIMIT 0, 19785
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_bundle_option` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_bundle_option_value` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_bundle_price_index` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_bundle_selection` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_bundle_selection_price` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_bundle_stock_index` [0].
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_enabled_index` [32 089].
+[Fri, 13 Mar 2015 10:20:23 -0400]-SELECT * FROM `catalog_product_enabled_index` LIMIT 0, 55189
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_entity` [5 476].
+[Fri, 13 Mar 2015 10:20:23 -0400]-SELECT * FROM `catalog_product_entity` LIMIT 0, 53774
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_entity_datetime` [25 574].
+[Fri, 13 Mar 2015 10:20:23 -0400]-SELECT * FROM `catalog_product_entity_datetime` LIMIT 0, 66577
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_entity_decimal` [24 510].
+[Fri, 13 Mar 2015 10:20:23 -0400]-SELECT * FROM `catalog_product_entity_decimal` LIMIT 0, 71091
+[Fri, 13 Mar 2015 10:20:23 -0400]Handling table `catalog_product_entity_gallery` [0].
+[Fri, 13 Mar 2015 10:20:24 -0400]Handling table `catalog_product_entity_group_price` [0].
+[Fri, 13 Mar 2015 10:20:26 -0400]Handling table `catalog_product_entity_int` [211 397].
+[Fri, 13 Mar 2015 10:20:26 -0400]-SELECT * FROM `catalog_product_entity_int` LIMIT 0, 62603
+[Fri, 13 Mar 2015 10:20:27 -0400]-SELECT * FROM catalog_product_entity_int LIMIT 62603, 62603
+[Fri, 13 Mar 2015 10:20:27 -0400]-SELECT * FROM catalog_product_entity_int LIMIT 125206, 62603
+[Fri, 13 Mar 2015 10:20:28 -0400]-SELECT * FROM catalog_product_entity_int LIMIT 187809, 62603
+[Fri, 13 Mar 2015 10:20:29 -0400]Handling table `catalog_product_entity_media_gallery` [8 373].
+[Fri, 13 Mar 2015 10:20:29 -0400]-SELECT * FROM `catalog_product_entity_media_gallery` LIMIT 0, 15593
+[Fri, 13 Mar 2015 10:20:29 -0400]Handling table `catalog_product_entity_media_gallery_value` [10 441].
+[Fri, 13 Mar 2015 10:20:29 -0400]-SELECT * FROM `catalog_product_entity_media_gallery_value` LIMIT 0, 18894
+[Fri, 13 Mar 2015 10:20:29 -0400]Handling table `catalog_product_entity_text` [224 082].
+[Fri, 13 Mar 2015 10:20:29 -0400]-SELECT * FROM `catalog_product_entity_text` LIMIT 0, 4778
+[Fri, 13 Mar 2015 10:20:29 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 4778, 4778
+[Fri, 13 Mar 2015 10:20:29 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 9556, 4778
+[Fri, 13 Mar 2015 10:20:30 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 14334, 4778
+[Fri, 13 Mar 2015 10:20:30 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 19112, 4778
+[Fri, 13 Mar 2015 10:20:30 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 23890, 4778
+[Fri, 13 Mar 2015 10:20:30 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 28668, 4778
+[Fri, 13 Mar 2015 10:20:30 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 33446, 4778
+[Fri, 13 Mar 2015 10:20:31 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 38224, 4778
+[Fri, 13 Mar 2015 10:20:31 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 43002, 4778
+[Fri, 13 Mar 2015 10:20:31 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 47780, 4778
+[Fri, 13 Mar 2015 10:20:31 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 52558, 4778
+[Fri, 13 Mar 2015 10:20:31 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 57336, 4778
+[Fri, 13 Mar 2015 10:20:31 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 62114, 4778
+[Fri, 13 Mar 2015 10:20:31 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 66892, 4778
+[Fri, 13 Mar 2015 10:20:31 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 71670, 4778
+[Fri, 13 Mar 2015 10:20:32 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 76448, 4778
+[Fri, 13 Mar 2015 10:20:32 -0400]-SELECT * FROM catalog_product_entity_text LIMIT 81226, 4778
+[Fri, 13 Mar 2015 10:20:32 -0400]Handling table `catalog_product_entity_tier_price` [0].
+[Fri, 13 Mar 2015 10:20:32 -0400]Handling table `catalog_product_entity_varchar` [287 253].
+[Fri, 13 Mar 2015 10:20:32 -0400]-SELECT * FROM `catalog_product_entity_varchar` LIMIT 0, 27061
+[Fri, 13 Mar 2015 10:20:32 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 27061, 27061
+[Fri, 13 Mar 2015 10:20:32 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 54122, 27061
+[Fri, 13 Mar 2015 10:20:33 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 81183, 27061
+[Fri, 13 Mar 2015 10:20:33 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 108244, 27061
+[Fri, 13 Mar 2015 10:20:33 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 135305, 27061
+[Fri, 13 Mar 2015 10:20:34 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 162366, 27061
+[Fri, 13 Mar 2015 10:20:34 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 189427, 27061
+[Fri, 13 Mar 2015 10:20:34 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 216488, 27061
+[Fri, 13 Mar 2015 10:20:34 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 243549, 27061
+[Fri, 13 Mar 2015 10:20:35 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 270610, 27061
+[Fri, 13 Mar 2015 10:20:35 -0400]-SELECT * FROM catalog_product_entity_varchar LIMIT 297671, 27061
+[Fri, 13 Mar 2015 10:20:35 -0400]Handling table `catalog_product_flat_1` [0].
+[Fri, 13 Mar 2015 10:20:35 -0400]Handling table `catalog_product_flat_2` [0].
+[Fri, 13 Mar 2015 10:20:35 -0400]Handling table `catalog_product_flat_3` [0].
+[Fri, 13 Mar 2015 10:20:35 -0400]Handling table `catalog_product_flat_4` [0].
+[Fri, 13 Mar 2015 10:20:35 -0400]Handling table `catalog_product_flat_5` [0].
+[Fri, 13 Mar 2015 10:20:35 -0400]Handling table `catalog_product_flat_6` [0].
+[Fri, 13 Mar 2015 10:20:35 -0400]Handling table `catalog_product_index_eav` [68 586].
+[Fri, 13 Mar 2015 10:20:35 -0400]-SELECT * FROM `catalog_product_index_eav` LIMIT 0, 27061
+[Fri, 13 Mar 2015 10:20:35 -0400]-SELECT * FROM catalog_product_index_eav LIMIT 27061, 27061
+[Fri, 13 Mar 2015 10:20:36 -0400]-SELECT * FROM catalog_product_index_eav LIMIT 54122, 27061
+[Fri, 13 Mar 2015 10:20:36 -0400]Handling table `catalog_product_index_eav_decimal` [0].
+[Fri, 13 Mar 2015 10:20:36 -0400]Handling table `catalog_product_index_eav_decimal_idx` [0].
+[Fri, 13 Mar 2015 10:20:36 -0400]Handling table `catalog_product_index_eav_decimal_tmp` [0].
+[Fri, 13 Mar 2015 10:20:36 -0400]Handling table `catalog_product_index_eav_idx` [112 275].
+[Fri, 13 Mar 2015 10:20:36 -0400]-SELECT * FROM `catalog_product_index_eav_idx` LIMIT 0, 73585
+[Fri, 13 Mar 2015 10:20:37 -0400]Connecting to database
+[Fri, 13 Mar 2015 10:20:37 -0400]Selecting database
+[Fri, 13 Mar 2015 10:20:37 -0400]-SELECT * FROM catalog_product_index_eav_idx LIMIT 73585, 73585
+[Fri, 13 Mar 2015 10:20:37 -0400]Handling table `catalog_product_index_eav_tmp` [0].
+[Fri, 13 Mar 2015 10:20:37 -0400]Handling table `catalog_product_index_group_price` [0].
+[Fri, 13 Mar 2015 10:20:37 -0400]Handling table `catalog_product_index_price` [131 596].
+[Fri, 13 Mar 2015 10:20:37 -0400]-SELECT * FROM `catalog_product_index_price` LIMIT 0, 26053
+[Fri, 13 Mar 2015 10:20:37 -0400]-SELECT * FROM catalog_product_index_price LIMIT 26053, 26053
+[Fri, 13 Mar 2015 10:20:38 -0400]-SELECT * FROM catalog_product_index_price LIMIT 52106, 26053
+[Fri, 13 Mar 2015 10:20:38 -0400]-SELECT * FROM catalog_product_index_price LIMIT 78159, 26053
+[Fri, 13 Mar 2015 10:20:39 -0400]-SELECT * FROM catalog_product_index_price LIMIT 104212, 26053
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_bundle_idx` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_bundle_opt_idx` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_bundle_opt_tmp` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_bundle_sel_idx` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_bundle_sel_tmp` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_bundle_tmp` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_cfg_opt_agr_idx` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_cfg_opt_agr_tmp` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_cfg_opt_idx` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_cfg_opt_tmp` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_downlod_idx` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_downlod_tmp` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_final_idx` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_final_tmp` [0].
+[Fri, 13 Mar 2015 10:20:39 -0400]Handling table `catalog_product_index_price_idx` [115 143].
+[Fri, 13 Mar 2015 10:20:39 -0400]-SELECT * FROM `catalog_product_index_price_idx` LIMIT 0, 36793
+[Fri, 13 Mar 2015 10:20:40 -0400]-SELECT * FROM catalog_product_index_price_idx LIMIT 36793, 36793
+[Fri, 13 Mar 2015 10:20:41 -0400]-SELECT * FROM catalog_product_index_price_idx LIMIT 73586, 36793
+[Fri, 13 Mar 2015 10:20:41 -0400]-SELECT * FROM catalog_product_index_price_idx LIMIT 110379, 36793
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_index_price_opt_agr_idx` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_index_price_opt_agr_tmp` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_index_price_opt_idx` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_index_price_opt_tmp` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_index_price_tmp` [24].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `catalog_product_index_price_tmp` LIMIT 0, 87382
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_index_tier_price` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_index_website` [7].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `catalog_product_index_website` LIMIT 0, 1793
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_link` [6 535].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `catalog_product_link` LIMIT 0, 21401
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_link_attribute` [5].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `catalog_product_link_attribute` LIMIT 0, 1281
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_link_attribute_decimal` [741].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `catalog_product_link_attribute_decimal` LIMIT 0, 62603
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_link_attribute_int` [7 093].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `catalog_product_link_attribute_int` LIMIT 0, 72317
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_link_attribute_varchar` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_link_type` [4].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `catalog_product_link_type` LIMIT 0, 1025
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_option` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_option_price` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_option_title` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_option_type_price` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_option_type_title` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_option_type_value` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_relation` [558].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `catalog_product_relation` LIMIT 0, 139811
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_super_attribute` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_super_attribute_label` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_super_attribute_pricing` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_super_link` [0].
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `catalog_product_website` [31 569].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `catalog_product_website` LIMIT 0, 53774
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `cataloginventory_stock` [1].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `cataloginventory_stock` LIMIT 0, 257
+[Fri, 13 Mar 2015 10:20:42 -0400]Handling table `cataloginventory_stock_item` [5 056].
+[Fri, 13 Mar 2015 10:20:42 -0400]-SELECT * FROM `cataloginventory_stock_item` LIMIT 0, 15034
+[Fri, 13 Mar 2015 10:20:43 -0400]Handling table `cataloginventory_stock_status` [18 681].
+[Fri, 13 Mar 2015 10:20:43 -0400]-SELECT * FROM `cataloginventory_stock_status` LIMIT 0, 18317
+[Fri, 13 Mar 2015 10:20:43 -0400]-SELECT * FROM cataloginventory_stock_status LIMIT 18317, 18317
+[Fri, 13 Mar 2015 10:20:43 -0400]Handling table `cataloginventory_stock_status_idx` [26 462].
+[Fri, 13 Mar 2015 10:20:43 -0400]-SELECT * FROM `cataloginventory_stock_status_idx` LIMIT 0, 43241
+[Fri, 13 Mar 2015 10:20:43 -0400]Handling table `cataloginventory_stock_status_tmp` [0].
+[Fri, 13 Mar 2015 10:20:43 -0400]Handling table `catalogrule` [0].
+[Fri, 13 Mar 2015 10:20:43 -0400]Handling table `catalogrule_product` [0].
+[Fri, 13 Mar 2015 10:20:43 -0400]Handling table `catalogrule_product_price` [0].
+[Fri, 13 Mar 2015 10:20:43 -0400]Handling table `catalogsearch_fulltext` [27 006].
+[Fri, 13 Mar 2015 10:20:43 -0400]-SELECT * FROM `catalogsearch_fulltext` LIMIT 0, 8887
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM catalogsearch_fulltext LIMIT 8887, 8887
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM catalogsearch_fulltext LIMIT 17774, 8887
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM catalogsearch_fulltext LIMIT 26661, 8887
+[Fri, 13 Mar 2015 10:20:44 -0400]Handling table `catalogsearch_result` [0].
+[Fri, 13 Mar 2015 10:20:44 -0400]Handling table `cms_block` [76].
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM `cms_block` LIMIT 0, 1769
+[Fri, 13 Mar 2015 10:20:44 -0400]Handling table `core_config_data` [1 800].
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM `core_config_data` LIMIT 0, 38131
+[Fri, 13 Mar 2015 10:20:44 -0400]Handling table `core_store` [4].
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM `core_store` LIMIT 0, 513
+[Fri, 13 Mar 2015 10:20:44 -0400]Handling table `core_store_group` [8].
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM `core_store_group` LIMIT 0, 2048
+[Fri, 13 Mar 2015 10:20:44 -0400]Handling table `core_translate` [829].
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM `core_translate` LIMIT 0, 42368
+[Fri, 13 Mar 2015 10:20:44 -0400]Handling table `core_url_rewrite` [307 115].
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM `core_url_rewrite` LIMIT 0, 7945
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM core_url_rewrite LIMIT 7945, 7945
+[Fri, 13 Mar 2015 10:20:44 -0400]-SELECT * FROM core_url_rewrite LIMIT 15890, 7945
+[Fri, 13 Mar 2015 10:20:45 -0400]-SELECT * FROM core_url_rewrite LIMIT 23835, 7945
+[Fri, 13 Mar 2015 10:20:45 -0400]-SELECT * FROM core_url_rewrite LIMIT 31780, 7945
+[Fri, 13 Mar 2015 10:20:45 -0400]-SELECT * FROM core_url_rewrite LIMIT 39725, 7945
+[Fri, 13 Mar 2015 10:20:45 -0400]-SELECT * FROM core_url_rewrite LIMIT 47670, 7945
+[Fri, 13 Mar 2015 10:20:45 -0400]-SELECT * FROM core_url_rewrite LIMIT 55615, 7945
+[Fri, 13 Mar 2015 10:20:46 -0400]-SELECT * FROM core_url_rewrite LIMIT 63560, 7945
+[Fri, 13 Mar 2015 10:20:46 -0400]-SELECT * FROM core_url_rewrite LIMIT 71505, 7945
+[Fri, 13 Mar 2015 10:20:46 -0400]-SELECT * FROM core_url_rewrite LIMIT 79450, 7945
+[Fri, 13 Mar 2015 10:20:46 -0400]-SELECT * FROM core_url_rewrite LIMIT 87395, 7945
+[Fri, 13 Mar 2015 10:20:47 -0400]-SELECT * FROM core_url_rewrite LIMIT 95340, 7945
+[Fri, 13 Mar 2015 10:20:47 -0400]-SELECT * FROM core_url_rewrite LIMIT 103285, 7945
+[Fri, 13 Mar 2015 10:20:47 -0400]-SELECT * FROM core_url_rewrite LIMIT 111230, 7945
+[Fri, 13 Mar 2015 10:20:47 -0400]-SELECT * FROM core_url_rewrite LIMIT 119175, 7945
+[Fri, 13 Mar 2015 10:20:51 -0400]-SELECT * FROM core_url_rewrite LIMIT 127120, 7945
+[Fri, 13 Mar 2015 10:20:51 -0400]-SELECT * FROM core_url_rewrite LIMIT 135065, 7945
+[Fri, 13 Mar 2015 10:20:51 -0400]-SELECT * FROM core_url_rewrite LIMIT 143010, 7945
+[Fri, 13 Mar 2015 10:20:52 -0400]-SELECT * FROM core_url_rewrite LIMIT 150955, 7945
+[Fri, 13 Mar 2015 10:20:52 -0400]-SELECT * FROM core_url_rewrite LIMIT 158900, 7945
+[Fri, 13 Mar 2015 10:20:52 -0400]-SELECT * FROM core_url_rewrite LIMIT 166845, 7945
+[Fri, 13 Mar 2015 10:20:53 -0400]Connecting to database
+[Fri, 13 Mar 2015 10:20:53 -0400]Selecting database
+[Fri, 13 Mar 2015 10:20:53 -0400]-SELECT * FROM core_url_rewrite LIMIT 174790, 7945
+[Fri, 13 Mar 2015 10:20:53 -0400]-SELECT * FROM core_url_rewrite LIMIT 182735, 7945
+[Fri, 13 Mar 2015 10:20:53 -0400]-SELECT * FROM core_url_rewrite LIMIT 190680, 7945
+[Fri, 13 Mar 2015 10:20:54 -0400]-SELECT * FROM core_url_rewrite LIMIT 198625, 7945
+[Fri, 13 Mar 2015 10:20:54 -0400]-SELECT * FROM core_url_rewrite LIMIT 206570, 7945
+[Fri, 13 Mar 2015 10:20:54 -0400]-SELECT * FROM core_url_rewrite LIMIT 214515, 7945
+[Fri, 13 Mar 2015 10:20:55 -0400]-SELECT * FROM core_url_rewrite LIMIT 222460, 7945
+[Fri, 13 Mar 2015 10:20:55 -0400]-SELECT * FROM core_url_rewrite LIMIT 230405, 7945
+[Fri, 13 Mar 2015 10:20:55 -0400]-SELECT * FROM core_url_rewrite LIMIT 238350, 7945
+[Fri, 13 Mar 2015 10:20:55 -0400]-SELECT * FROM core_url_rewrite LIMIT 246295, 7945
+[Fri, 13 Mar 2015 10:20:56 -0400]-SELECT * FROM core_url_rewrite LIMIT 254240, 7945
+[Fri, 13 Mar 2015 10:20:56 -0400]-SELECT * FROM core_url_rewrite LIMIT 262185, 7945
+[Fri, 13 Mar 2015 10:20:56 -0400]-SELECT * FROM core_url_rewrite LIMIT 270130, 7945
+[Fri, 13 Mar 2015 10:20:57 -0400]-SELECT * FROM core_url_rewrite LIMIT 278075, 7945
+[Fri, 13 Mar 2015 10:20:57 -0400]-SELECT * FROM core_url_rewrite LIMIT 286020, 7945
+[Fri, 13 Mar 2015 10:20:57 -0400]-SELECT * FROM core_url_rewrite LIMIT 293965, 7945
+[Fri, 13 Mar 2015 10:20:58 -0400]-SELECT * FROM core_url_rewrite LIMIT 301910, 7945
+[Fri, 13 Mar 2015 10:20:58 -0400]-SELECT * FROM core_url_rewrite LIMIT 309855, 7945
+[Fri, 13 Mar 2015 10:20:59 -0400]-SELECT * FROM core_url_rewrite LIMIT 317800, 7945
+[Fri, 13 Mar 2015 10:20:59 -0400]-SELECT * FROM core_url_rewrite LIMIT 325745, 7945
+[Fri, 13 Mar 2015 10:20:59 -0400]-SELECT * FROM core_url_rewrite LIMIT 333690, 7945
+[Fri, 13 Mar 2015 10:21:00 -0400]-SELECT * FROM core_url_rewrite LIMIT 341635, 7945
+[Fri, 13 Mar 2015 10:21:00 -0400]-SELECT * FROM core_url_rewrite LIMIT 349580, 7945
+[Fri, 13 Mar 2015 10:21:00 -0400]-SELECT * FROM core_url_rewrite LIMIT 357525, 7945
+[Fri, 13 Mar 2015 10:21:01 -0400]-SELECT * FROM core_url_rewrite LIMIT 365470, 7945
+[Fri, 13 Mar 2015 10:21:01 -0400]-SELECT * FROM core_url_rewrite LIMIT 373415, 7945
+[Fri, 13 Mar 2015 10:21:02 -0400]-SELECT * FROM core_url_rewrite LIMIT 381360, 7945
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `core_website` [8].
+[Fri, 13 Mar 2015 10:21:02 -0400]-SELECT * FROM `core_website` LIMIT 0, 2048
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_address_entity` [3 775].
+[Fri, 13 Mar 2015 10:21:02 -0400]-SELECT * FROM `customer_address_entity` LIMIT 0, 79139
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_address_entity_datetime` [0].
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_address_entity_decimal` [0].
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_address_entity_int` [3 808].
+[Fri, 13 Mar 2015 10:21:02 -0400]-SELECT * FROM `customer_address_entity_int` LIMIT 0, 95326
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_address_entity_text` [3 660].
+[Fri, 13 Mar 2015 10:21:02 -0400]-SELECT * FROM `customer_address_entity_text` LIMIT 0, 61682
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_address_entity_varchar` [33 791].
+[Fri, 13 Mar 2015 10:21:02 -0400]-SELECT * FROM `customer_address_entity_varchar` LIMIT 0, 87382
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_eav_attribute` [44].
+[Fri, 13 Mar 2015 10:21:02 -0400]-SELECT * FROM `customer_eav_attribute` LIMIT 0, 11246
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_entity` [13 904].
+[Fri, 13 Mar 2015 10:21:02 -0400]-SELECT * FROM `customer_entity` LIMIT 0, 36473
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_entity_datetime` [15].
+[Fri, 13 Mar 2015 10:21:02 -0400]-SELECT * FROM `customer_entity_datetime` LIMIT 0, 3838
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_entity_decimal` [0].
+[Fri, 13 Mar 2015 10:21:02 -0400]Handling table `customer_entity_int` [26 902].
+[Fri, 13 Mar 2015 10:21:02 -0400]-SELECT * FROM `customer_entity_int` LIMIT 0, 69906
+[Fri, 13 Mar 2015 10:21:03 -0400]Handling table `customer_entity_text` [0].
+[Fri, 13 Mar 2015 10:21:03 -0400]Handling table `customer_entity_varchar` [122 483].
+[Fri, 13 Mar 2015 10:21:03 -0400]-SELECT * FROM `customer_entity_varchar` LIMIT 0, 87382
+[Fri, 13 Mar 2015 10:21:04 -0400]-SELECT * FROM customer_entity_varchar LIMIT 87382, 87382
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `customer_group` [4].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `customer_group` LIMIT 0, 1025
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `directory_country` [246].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `directory_country` LIMIT 0, 62603
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `directory_country_format` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `directory_country_region` [603].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `directory_country_region` LIMIT 0, 51151
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `directory_country_region_name` [589].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `directory_country_region_name` LIMIT 0, 49933
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `directory_currency_rate` [4].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `directory_currency_rate` LIMIT 0, 1025
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `downloadable_link` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `downloadable_link_price` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `downloadable_link_purchased` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `downloadable_link_purchased_item` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `downloadable_link_title` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `downloadable_sample` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `downloadable_sample_title` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_attribute` [544].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `eav_attribute` LIMIT 0, 23174
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_attribute_group` [22].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `eav_attribute_group` LIMIT 0, 1409
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_attribute_label` [2 189].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `eav_attribute_label` LIMIT 0, 50535
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_attribute_option` [1 969].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `eav_attribute_option` LIMIT 0, 99865
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_attribute_option_value` [7 826].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `eav_attribute_option_value` LIMIT 0, 27415
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_attribute_set` [58].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `eav_attribute_set` LIMIT 0, 14822
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_entity` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_entity_attribute` [6 295].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `eav_entity_attribute` LIMIT 0, 99865
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_entity_datetime` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_entity_decimal` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_entity_int` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_entity_store` [21].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `eav_entity_store` LIMIT 0, 5371
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_entity_text` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_entity_type` [9].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `eav_entity_type` LIMIT 0, 2304
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `eav_entity_varchar` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `gift_message` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `newsletter_queue` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `newsletter_queue_link` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `newsletter_queue_store_link` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `newsletter_template` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `product_alert_price` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `product_alert_stock` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `rating` [2].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `rating` LIMIT 0, 513
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `rating_entity` [3].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `rating_entity` LIMIT 0, 769
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `rating_option` [25].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `rating_option` LIMIT 0, 6395
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `rating_option_vote` [2].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `rating_option_vote` LIMIT 0, 513
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `rating_option_vote_aggregated` [4].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `rating_option_vote_aggregated` LIMIT 0, 1025
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `rating_store` [14].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `rating_store` LIMIT 0, 3583
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `rating_title` [0].
+[Fri, 13 Mar 2015 10:21:05 -0400]Handling table `report_event` [1 314 315].
+[Fri, 13 Mar 2015 10:21:05 -0400]-SELECT * FROM `report_event` LIMIT 0, 85599
+[Fri, 13 Mar 2015 10:21:06 -0400]-SELECT * FROM report_event LIMIT 85599, 85599
+[Fri, 13 Mar 2015 10:21:07 -0400]-SELECT * FROM report_event LIMIT 171198, 85599
+[Fri, 13 Mar 2015 10:21:08 -0400]-SELECT * FROM report_event LIMIT 256797, 85599
+[Fri, 13 Mar 2015 10:21:09 -0400]Connecting to database
+[Fri, 13 Mar 2015 10:21:09 -0400]Selecting database
+[Fri, 13 Mar 2015 10:21:09 -0400]-SELECT * FROM report_event LIMIT 342396, 85599
+[Fri, 13 Mar 2015 10:21:10 -0400]-SELECT * FROM report_event LIMIT 427995, 85599
+[Fri, 13 Mar 2015 10:21:11 -0400]-SELECT * FROM report_event LIMIT 513594, 85599
+[Fri, 13 Mar 2015 10:21:12 -0400]-SELECT * FROM report_event LIMIT 599193, 85599
+[Fri, 13 Mar 2015 10:21:13 -0400]-SELECT * FROM report_event LIMIT 684792, 85599
+[Fri, 13 Mar 2015 10:21:14 -0400]-SELECT * FROM report_event LIMIT 770391, 85599
+[Fri, 13 Mar 2015 10:21:18 -0400]-SELECT * FROM report_event LIMIT 855990, 85599
+[Fri, 13 Mar 2015 10:21:19 -0400]-SELECT * FROM report_event LIMIT 941589, 85599
+[Fri, 13 Mar 2015 10:21:25 -0400]-SELECT * FROM report_event LIMIT 1027188, 85599
+[Fri, 13 Mar 2015 10:21:25 -0400]Connecting to database
+[Fri, 13 Mar 2015 10:21:25 -0400]Selecting database
+[Fri, 13 Mar 2015 10:21:26 -0400]-SELECT * FROM report_event LIMIT 1112787, 85599
+[Fri, 13 Mar 2015 10:21:28 -0400]-SELECT * FROM report_event LIMIT 1198386, 85599
+[Fri, 13 Mar 2015 10:21:29 -0400]-SELECT * FROM report_event LIMIT 1283985, 85599
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `report_event_types` [6].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `report_event_types` LIMIT 0, 1537
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `review` [30].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `review` LIMIT 0, 7669
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `review_detail` [30].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `review_detail` LIMIT 0, 7669
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `review_entity` [3].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `review_entity` LIMIT 0, 769
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `review_entity_summary` [202].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `review_entity_summary` LIMIT 0, 51151
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `review_status` [3].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `review_status` LIMIT 0, 769
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `review_store` [205].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `review_store` LIMIT 0, 52430
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `sales_flat_creditmemo` [18].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `sales_flat_creditmemo` LIMIT 0, 4605
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `sales_flat_creditmemo_comment` [0].
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `sales_flat_creditmemo_grid` [18].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `sales_flat_creditmemo_grid` LIMIT 0, 4605
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `sales_flat_creditmemo_item` [19].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `sales_flat_creditmemo_item` LIMIT 0, 4861
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `sales_flat_invoice` [79].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `sales_flat_invoice` LIMIT 0, 6733
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `sales_flat_invoice_comment` [0].
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `sales_flat_invoice_grid` [73].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `sales_flat_invoice_grid` LIMIT 0, 18642
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `sales_flat_invoice_item` [157].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `sales_flat_invoice_item` LIMIT 0, 10035
+[Fri, 13 Mar 2015 10:21:30 -0400]Handling table `sales_flat_order` [3 949].
+[Fri, 13 Mar 2015 10:21:30 -0400]-SELECT * FROM `sales_flat_order` LIMIT 0, 10409
+[Fri, 13 Mar 2015 10:21:31 -0400]Handling table `sales_flat_order_address` [7 743].
+[Fri, 13 Mar 2015 10:21:31 -0400]-SELECT * FROM `sales_flat_order_address` LIMIT 0, 20362
+[Fri, 13 Mar 2015 10:21:31 -0400]Handling table `sales_flat_order_grid` [3 987].
+[Fri, 13 Mar 2015 10:21:31 -0400]-SELECT * FROM `sales_flat_order_grid` LIMIT 0, 10513
+[Fri, 13 Mar 2015 10:21:31 -0400]Handling table `sales_flat_order_item` [8 684].
+[Fri, 13 Mar 2015 10:21:31 -0400]-SELECT * FROM `sales_flat_order_item` LIMIT 0, 9870
+[Fri, 13 Mar 2015 10:21:32 -0400]Handling table `sales_flat_order_payment` [3 857].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_order_payment` LIMIT 0, 51783
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_order_status_history` [7 414].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_order_status_history` LIMIT 0, 11783
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_quote` [1 752].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_quote` LIMIT 0, 19419
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_quote_address` [3 564].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_quote_address` LIMIT 0, 9405
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_quote_address_item` [0].
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_quote_item` [1 123].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_quote_item` LIMIT 0, 11492
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_quote_item_option` [1 222].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_quote_item_option` LIMIT 0, 13027
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_quote_payment` [101].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_quote_payment` LIMIT 0, 8614
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_quote_shipping_rate` [325].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_quote_shipping_rate` LIMIT 0, 16579
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_shipment` [50].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_shipment` LIMIT 0, 12789
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_shipment_comment` [37].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_shipment_comment` LIMIT 0, 2368
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_shipment_grid` [50].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_shipment_grid` LIMIT 0, 12789
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_shipment_item` [145].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_shipment_item` LIMIT 0, 37119
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_flat_shipment_track` [49].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_flat_shipment_track` LIMIT 0, 12521
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_order_status` [12].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_order_status` LIMIT 0, 3072
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_order_status_label` [0].
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_order_status_state` [9].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_order_status_state` LIMIT 0, 2304
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_order_tax` [34].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_order_tax` LIMIT 0, 8703
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sales_order_tax_item` [102].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sales_order_tax_item` LIMIT 0, 26053
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `salesrule` [3].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `salesrule` LIMIT 0, 769
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `salesrule_coupon` [2].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `salesrule_coupon` LIMIT 0, 513
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `salesrule_coupon_usage` [1].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `salesrule_coupon_usage` LIMIT 0, 257
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `salesrule_customer` [1].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `salesrule_customer` LIMIT 0, 257
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `salesrule_customer_group` [12].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `salesrule_customer_group` LIMIT 0, 3072
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `salesrule_label` [1].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `salesrule_label` LIMIT 0, 257
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `salesrule_product_attribute` [48].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `salesrule_product_attribute` LIMIT 0, 12265
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `salesrule_website` [13].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `salesrule_website` LIMIT 0, 3327
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sitemap` [2].
+[Fri, 13 Mar 2015 10:21:33 -0400]-SELECT * FROM `sitemap` LIMIT 0, 513
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `sm_products_filter` [0].
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `tag` [0].
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `tag_properties` [0].
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `tag_relation` [0].
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `tag_summary` [0].
+[Fri, 13 Mar 2015 10:21:33 -0400]Handling table `tax_calculation` [10].
+[Fri, 13 Mar 2015 10:21:34 -0400]-SELECT * FROM `tax_calculation` LIMIT 0, 2560
+[Fri, 13 Mar 2015 10:21:34 -0400]Handling table `tax_calculation_rate` [6].
+[Fri, 13 Mar 2015 10:21:34 -0400]-SELECT * FROM `tax_calculation_rate` LIMIT 0, 1537
+[Fri, 13 Mar 2015 10:21:34 -0400]Handling table `tax_calculation_rate_title` [0].
+[Fri, 13 Mar 2015 10:21:34 -0400]Handling table `tax_calculation_rule` [1].
+[Fri, 13 Mar 2015 10:21:34 -0400]-SELECT * FROM `tax_calculation_rule` LIMIT 0, 257
+[Fri, 13 Mar 2015 10:21:34 -0400]Handling table `tax_class` [3].
+[Fri, 13 Mar 2015 10:21:34 -0400]-SELECT * FROM `tax_class` LIMIT 0, 769
+[Fri, 13 Mar 2015 10:21:34 -0400]Handling table `weee_discount` [0].
+[Fri, 13 Mar 2015 10:21:34 -0400]Handling table `weee_tax` [0].
+[Fri, 13 Mar 2015 10:21:34 -0400]Handling table `wishlist` [389].
+[Fri, 13 Mar 2015 10:21:34 -0400]-SELECT * FROM `wishlist` LIMIT 0, 33027
+[Fri, 13 Mar 2015 10:21:34 -0400]Handling table `wishlist_item` [31].
+[Fri, 13 Mar 2015 10:21:34 -0400]-SELECT * FROM `wishlist_item` LIMIT 0, 2646
+[Fri, 13 Mar 2015 10:21:34 -0400]Handling table `wishlist_item_option` [393].
+[Fri, 13 Mar 2015 10:21:34 -0400]-SELECT * FROM `wishlist_item_option` LIMIT 0, 20069

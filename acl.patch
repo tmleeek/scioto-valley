@@ -1,0 +1,80 @@
+diff --git a/app/code/community/Bronto/Email/controllers/Adminhtml/System/Email/LogController.php b/app/code/community/Bronto/Email/controllers/Adminhtml/System/Email/LogController.php
+index 2d776a4..945cde8 100644
+--- a/app/code/community/Bronto/Email/controllers/Adminhtml/System/Email/LogController.php
++++ b/app/code/community/Bronto/Email/controllers/Adminhtml/System/Email/LogController.php
+@@ -25,6 +25,15 @@ class Bronto_Email_Adminhtml_System_Email_LogController extends Mage_Adminhtml_C
+     }
+ 
+     /**
++     * Override for ACL permissions
++     */
++    protected function _isAllowed()
++    {
++        $session = Mage::getSingleton('admin/session');
++        return $session->isAllowed('admin/system/config/bronto_email');
++    }
++
++    /**
+      * Deletes all log history
+      */
+     public function clearAction()
+diff --git a/app/code/community/Bronto/Product/controllers/Adminhtml/RecommendationsController.php b/app/code/community/Bronto/Product/controllers/Adminhtml/RecommendationsController.php
+index d5ab8bd..88f5e84 100644
+--- a/app/code/community/Bronto/Product/controllers/Adminhtml/RecommendationsController.php
++++ b/app/code/community/Bronto/Product/controllers/Adminhtml/RecommendationsController.php
+@@ -7,6 +7,15 @@ class Bronto_Product_Adminhtml_RecommendationsController extends Mage_Adminhtml_
+     protected $_helper;
+ 
+     /**
++     * Override for ACL permissions
++     */
++    protected function _isAllowed()
++    {
++        $session = Mage::getSingleton('admin/session');
++        return $session->isAllowed('admin/promo/bronto_product');
++    }
++
++    /**
+      * Gets the product helper related to this module
+      *
+      * @return Bronto_Product_Helper_Data
+diff --git a/app/code/community/Bronto/Reminder/controllers/Adminhtml/DeliveryController.php b/app/code/community/Bronto/Reminder/controllers/Adminhtml/DeliveryController.php
+index 6c151f1..3d8bef4 100644
+--- a/app/code/community/Bronto/Reminder/controllers/Adminhtml/DeliveryController.php
++++ b/app/code/community/Bronto/Reminder/controllers/Adminhtml/DeliveryController.php
+@@ -25,6 +25,15 @@ class Bronto_Reminder_Adminhtml_DeliveryController extends Mage_Adminhtml_Contro
+     }
+ 
+     /**
++     * Override for ACL permissions
++     */
++    protected function _isAllowed()
++    {
++        $session = Mage::getSingleton('admin/session');
++        return $session->isAllowed('admin/promo/bronto_reminder');
++    }
++
++    /**
+      * Deletes all log history
+      */
+     public function clearAction()
+diff --git a/app/code/community/Bronto/Reviews/controllers/Adminhtml/PostpurchaseController.php b/app/code/community/Bronto/Reviews/controllers/Adminhtml/PostpurchaseController.php
+index 9ee2e09..a964156 100644
+--- a/app/code/community/Bronto/Reviews/controllers/Adminhtml/PostpurchaseController.php
++++ b/app/code/community/Bronto/Reviews/controllers/Adminhtml/PostpurchaseController.php
+@@ -6,6 +6,15 @@ class Bronto_Reviews_Adminhtml_PostpurchaseController extends Mage_Adminhtml_Con
+     protected $_module = 'bronto_reviews';
+ 
+     /**
++     * Override for ACL permissions
++     */
++    protected function _isAllowed()
++    {
++        $session = Mage::getSingleton('admin/session');
++        return $session->isAllowed('admin/system/bronto_reviews');
++    }
++
++    /**
+      * Gets the block for the grid for certain things
+      *
+      * @return Mage_Adminhtml_Block_Abstract

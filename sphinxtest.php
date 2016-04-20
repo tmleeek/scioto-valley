@@ -1,0 +1,54 @@
+<?php
+ob_start();
+passthru('indexer');
+$result=ob_get_contents();
+ob_end_clean();
+print_r('indexer-'.$result);
+echo '<br>';
+echo '<br>';
+ob_start();
+passthru('/usr/bin/indexer');
+$result=ob_get_contents();
+ob_end_clean();
+print_r('/usr/bin/indexer-'.$result);
+echo '<br>';
+echo '<br>';
+ob_start();
+passthru('/usr/local/bin/indexer');
+$result=ob_get_contents();
+ob_end_clean();
+print_r('/usr/local/bin/indexer-'.$result);
+echo '<br>';
+echo '<br>';
+ob_start();
+passthru('searchd --help');
+$result=ob_get_contents();
+ob_end_clean();
+print_r('searchd-'.$result);
+echo '<br>';
+echo '<br>';
+ob_start();
+passthru('/usr/bin/searchd --help');
+$result=ob_get_contents();
+ob_end_clean();
+print_r('/usr/bin/searchd-'.$result);
+echo '<br>';
+echo '<br>';
+ob_start();
+passthru('/usr/local/bin/searchd --help');
+$result=ob_get_contents();
+ob_end_clean();
+print_r('/usr/local/bin/searchd-'.$result);
+echo '<br>';
+echo '<br>';
+
+$safe_mode = ini_get( 'safe_mode' );
+print_r('safe_mode- '.$safe_mode);
+echo '<br>';
+echo '<br>';
+$disable_functions = ini_get( 'disable_functions' );
+print_r('disable_functions- '.$disable_functions);        
+echo '<br>';
+echo '<br>';        
+
+?>

@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Jobs extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    FME_Jobs
+ * @author     Malik Tahir Mehmood<malik.tahir786@gmail.com>
+ * @copyright  Copyright 2010 © free-magentoextensions.com All right reserved
+ */
+ -->
+<config>
+    <modules>
+        <FME_Jobs>
+            <version>1.0.1</version>
+        </FME_Jobs>
+    </modules>
+    <frontend>
+         <translate>
+            <modules>
+                <FME_Jobs>
+                    <files>
+                        <default>FME_Jobs.csv</default>
+                    </files>
+                </FME_Jobs>
+            </modules>
+        </translate>
+        <routers>
+            <jobs>
+                <use>standard</use>
+                <args>
+                    <module>FME_Jobs</module>
+                    <frontName>jobs</frontName>
+                </args>
+            </jobs>
+        </routers>
+        <layout>
+            <updates>
+                <jobs>
+                    <file>jobs.xml</file>
+                </jobs>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<adminjobs>
+				<use>admin</use>
+				<args>
+					<module>FME_Jobs</module>
+					<frontName>adminjobs</frontName>
+				</args>
+			</adminjobs>
+        </routers>
+    </admin>
+    <adminhtml>
+       <translate>
+            <modules>
+                <FME_Jobs>
+                    <files>
+                        <default>FME_Jobs.csv</default>
+                    </files>
+                </FME_Jobs>
+            </modules>
+        </translate>
+		<layout>
+			<updates>
+				<jobs>
+					<file>jobs.xml</file>
+				</jobs>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <jobs>
+                <class>FME_Jobs_Model</class>
+                <resourceModel>jobs_mysql4</resourceModel>
+            </jobs>
+            <jobs_mysql4>
+                <class>FME_Jobs_Model_Mysql4</class>
+                <entities>
+                    <jobs>
+                        <table>fme_jobs</table>
+                    </jobs>
+		    <store>
+                        <table>fme_jobs_store</table>
+                    </store>
+                     <job_store>
+                        <table>job_store</table>
+                    </job_store>
+                    <jobtype>
+                        <table>fme_jobs_jobtype</table>
+                    </jobtype>
+		    <department>
+                        <table>fme_jobs_department</table>
+                    </department>
+                    <jobsapplications>
+                        <table>fme_jobsapplications</table>
+                    </jobsapplications>
+                </entities>
+            </jobs_mysql4>
+        </models>
+        <resources>
+            <jobs_setup>
+                <setup>
+                    <module>FME_Jobs</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </jobs_setup>
+            <jobs_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </jobs_write>
+            <jobs_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </jobs_read>
+        </resources>
+        <blocks>
+            <jobs>
+                <class>FME_Jobs_Block</class>
+            </jobs>
+        </blocks>
+        <helpers>
+            <jobs>
+                <class>FME_Jobs_Helper</class>
+            </jobs>
+        </helpers>
+        
+        <events>
+          <controller_front_init_routers>
+                <observers>
+                    <jobs>
+                        <type>singleton</type>
+                        <class>FME_Jobs_Controller_Router</class>
+                        <method>initControllerRouters</method>
+                    </jobs>
+                </observers>
+            </controller_front_init_routers>    
+        </events>
+        
+        <template>
+            <email>
+                <jobs_email_settings_client_email_template module="jobs">
+                    <label>Job application notification email</label>
+                    <file>jobapplied_notification.html</file>
+                    <type>html</type>
+                </jobs_email_settings_client_email_template>
+                
+                <jobs_email_settings_admin_email_template module="jobs">
+                    <label>Jobs admin notification email</label>
+                    <file>jobadmin_notification.html</file>
+                    <type>html</type>
+                </jobs_email_settings_admin_email_template>
+            </email>
+        </template>
+        
+    </global>
+</config>

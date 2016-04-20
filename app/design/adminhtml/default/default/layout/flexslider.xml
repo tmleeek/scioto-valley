@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<layout>
+<!--
+/**
+ * @category	Solide Webservices
+ * @package		Flexslider
+ */
+-->
+
+	<flexslider_admin_adminhtml_group_index>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="flexslider"><title>Manage Groups - Flexslider</title></action>
+		</reference>
+		<reference name="content">
+			<block type="flexslider/adminhtml_group" name="groups" template="flexslider/group.phtml" />
+		</reference>
+	</flexslider_admin_adminhtml_group_index>
+
+	<flexslider_admin_adminhtml_group_edit>
+		<reference name="head">
+			<action method="addJs"><script>flexslider/jquery-1.11.0.min.js</script></action>
+			<action method="addJs"><script>flexslider/jquery.noconflict.js</script></action>
+			<action method="addJs"><script>flexslider/modcoder_excolor/jquery.modcoder.excolor.js</script></action>
+			<action method="addJs"><script>flexslider/product-selector.js</script></action>
+			<action method="addJs"><script>flexslider/flexslider-admin.js</script></action>
+		</reference>
+		<update handle="flexslider_default" />
+		<reference name="left">
+			<block type="flexslider/adminhtml_group_edit_tabs" name="group.tabs" />
+		</reference>
+		<reference name="content">
+			<block type="flexslider/adminhtml_group_edit" name="groups" />
+		</reference>
+	</flexslider_admin_adminhtml_group_edit>
+
+	<flexslider_admin_adminhtml_slide_index>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="flexslider"><title>Manage Slides - Flexslider</title></action>
+		</reference>
+		<reference name="content">
+			<block type="flexslider/adminhtml_slide" name="slide" />
+		</reference>
+	</flexslider_admin_adminhtml_slide_index>
+
+	<flexslider_admin_adminhtml_slide_edit>
+		<update handle="editor" />
+		<reference name="left">
+			<block type="flexslider/adminhtml_slide_edit_tabs" name="slides.tabs" />
+		</reference>
+		<reference name="content">
+			<block type="flexslider/adminhtml_slide_edit" name="slides" />
+		</reference>
+	</flexslider_admin_adminhtml_slide_edit>
+
+</layout>

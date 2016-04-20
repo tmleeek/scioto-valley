@@ -1,0 +1,142 @@
+<?php
+/*------------------------------------------------------------------------
+ # SM Megaproducts - Version 1.0
+ # Copyright (c) 2009-2011 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.smartaddons.com
+-------------------------------------------------------------------------*/
+
+$products	= $this->getProducts();
+$hasData	= $products->count() > 0;
+
+$options	= $this->getConfigObject();
+$sm_helper	= Mage::helper('megaproducts/utils');
+$instance	= rand().time();
+
+if($hasData):
+	echo $this->getScriptTags();
+endif;
+if (!function_exists(pline)){
+	function pline($arg){
+		if (!in_array($arg, array(
+			'entity_id',
+			'entity_type_id',
+			'attribute_set_id',
+			'type_id',
+			'sku',
+			'created_at',
+			'updated_at',
+			'has_options',
+			'required_options',
+			'model',
+			'dimension',
+			'description',
+			'short_description',
+			'custom_layout_update',
+			'color',
+			'meta_title',
+			'meta_description',
+			'stock_item',
+			'activation_information',
+		
+			'minimal_price',
+			'url_key',
+			'thumbnail',
+			'small_image',
+			'image',
+			'meta_keyword ',
+			'status',
+			'tax_class_id',
+			'visibility',
+			'weight',
+			'price',
+			'cost',
+			'gift_message_available',
+			'options_container',
+			'custom_design',
+			'url_path',
+			'is_salable',
+			'meta_keyword',
+		
+			'in_depth',
+			'model'
+		))){
+			$arg = "<b>$arg</b>";
+		}
+		echo $arg . "<br>";
+	};
+}
+if(!function_exists(echoarray)){
+	function echoarray($ar){
+		$msg = "";
+		foreach ($ar as $k => $v) {
+			$msg .= $k . " = " . (empty($v)?"(empty)":"<b>$v</b>") . "<br>";
+		}
+		return $msg;
+	};
+}
+?>
+<style>
+	.block {}
+</style>
+<div class="block">
+	<?php if (!empty( $options->title )): ?>
+	<div class="block-title"><?php echo $options->title; ?></div>
+	<?php endif; ?>
+	
+	<div class="block-content">
+		<?php if (!empty( $options->pretext )): ?>
+		<div class="sm-pretext" <?php echo $mod_style_width; ?>><?php echo $options->pretext; ?></div>
+		<?php endif; ?>
+		
+		<!-- TODO: start dump -->
+		<div style="text-align: left;padding: 7px 9px;">
+		<p><b>Collection Size: <?php echo $products->load()->count(); ?></b></p>
+		<p><b>IDs:</b></p>
+		<p><?php
+			$test_ids = array();
+			foreach ($products->getItems() as $id => $p) {
+				array_push($test_ids, $id);
+			}
+			echo join(', ', $test_ids); 
+			?></p>
+		<p><b>Attributes:</b></p>
+		<p><?php array_walk( array_keys($products->getFirstItem()->getData()), 'pline'); ?></p>
+		<p><b>Configuration:</b></p>
+		<p><?php echo echoarray( $options ); ?></p>
+		<p>Query: <br><b><?php echo $products->getSelect(); ?></b></p>
+		</div>
+		<!-- TODO: end dump here -->
+		<!-- remove above code in action ;) -->
+
+		<?php if ($hasData): ?>
+			<!-- wrapper open -->
+			<div>
+			<?php foreach ($products as $i => $_product): ?>
+				<!-- render list here. -->
+			<?php endforeach; ?>
+			</div>
+			<!-- wrapper close -->
+		<?php else: ?>
+		<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+		<?php endif; ?>		
+		
+		<?php if (!empty( $options->posttext )): ?>
+		<div class="sm-posttext" <?php echo $mod_style_width; ?>><?php echo $options->posttext; ?></div>
+		<?php endif; ?>		
+	</div>
+	
+	<script type="text/javascript">
+		//<CDATA[[
+		$jsmart(document).ready(function($){
+			$('modulewrapperid').pluginfunction({
+				param1: 'value1',
+				param2: 'value2',
+				param3: 'value3'
+			});
+		});
+		//]]>
+	</script>
+	
+</div>

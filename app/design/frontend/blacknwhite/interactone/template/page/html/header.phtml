@@ -1,0 +1,159 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     meigeetheme_default
+ * @copyright   Copyright (c) 2012 MeigeeTeam. (http://www.meigeeteam.com)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php
+$meigee_blacknwhite_general = MAGE::helper('ThemeOptionsBlacknwhite')->getThemeOptionsBlacknwhite('meigee_blacknwhite_general');
+$customlogo = $meigee_blacknwhite_general['customlogo'];
+$mediaurl = MAGE::helper('ThemeOptionsBlacknwhite')->getThemeOptionsBlacknwhite('mediaurl');
+$loginAjaxStatus = $meigee_blacknwhite_general['loginajax']['status'];
+$customer = Mage::getSingleton('customer/session');
+$siteLayout = $meigee_blacknwhite_general['layout']['sitelayout'];
+$stickyClose = $meigee_blacknwhite_general['header']['floatingheader_close'];
+$stickyTime = $meigee_blacknwhite_general['header']['floatingheader_time'];
+$stickyCookie = Mage::getModel('core/cookie')->get("blacknwhiteSticky");
+?>
+
+<div class="header-wrapper">
+	<header id="header" style="z-index:99999">
+        <div class="top-nav-bar">
+            <div class="container_12">
+
+        <div class="quick-access-bss">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_phone')->toHtml() ?>
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_address')->toHtml() ?>
+            <div class="storeswitch">
+                <?php echo $this->getChildHtml('store_switcher') ?>
+            </div>
+            <?php echo $this->getChildHtml('topLinks') ?>
+            <?php echo $this->getChildHtml('cart_sidebar') ?>
+            <div class="display-on-mobile"><?php echo str_replace('id="search','id="search_mobile',$this->getChildHtml('topSearch')); ?></div>
+        </div>
+
+            </div>
+        </div>
+		<div class="container_12">
+
+            <div class="header-top-left">
+				<?php if ($customlogo['logo_status'] == 0): ?>
+					<h2 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><img src="<?php echo $this->getLogoSrc() ?>" <!-- <?php echo MAGE::helper('ThemeOptionsBlacknwhite/Retina')->getRetinaData('logo'); ?> alt="<?php echo $this->getLogoAlt() ?>" /> --></a></h2>
+					<?php else:?>
+					<h2 class="logo"><strong><?php echo $customlogo['logo_alt']; ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $customlogo['logo_alt']; ?>"><img src="<?php echo $mediaurl.$customlogo['logo']; ?>" <?php echo MAGE::helper('ThemeOptionsBlacknwhite/Retina')->getRetinaData('logo_custom'); ?> alt="<?php echo $customlogo['logo_alt']; ?>" /></a></h2>
+				<?php endif; ?>
+            </div>
+
+				<div class="header-top-right">
+                        <div class="menu-button"><?php echo MAGE::helper('ThemeOptionsBlacknwhite')->getIcon('mobilemenu'); ?><span><?php echo $this->__('Menu'); ?></span></div>
+
+
+					<div class="clear"></div>
+
+					<div class="topRight">
+<!--                        --><?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_phone')->toHtml() ?>
+<!--                        --><?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('social')->toHtml() ?>
+<!--                        --><?php //echo $this->getChildHtml('cart_sidebar') ?>
+
+
+
+
+                        <div class="navContainer">
+                            <div class="hide-on-mobile"> <?php echo $this->getChildHtml('topSearch') ?></div>
+                            <?php if ($customlogo['small_logo_status'] == 0): ?>
+                                <h2 class="small_logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="small-logo"><img src="<?php echo $this->getSkinUrl('images/small_logo.png') ?>" <?php echo MAGE::helper('ThemeOptionsBlacknwhite/Retina')->getRetinaData('small_logo'); ?> alt="<?php echo $this->getLogoAlt() ?>" /></a></h2>
+                            <?php else:?>
+                                <h2 class="small_logo"><strong><?php echo $customlogo['logo_alt']; ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $customlogo['logo_alt']; ?>" class="small-logo"><img src="<?php echo $mediaurl.$customlogo['small_logo']; ?>" <?php echo MAGE::helper('ThemeOptionsBlacknwhite/Retina')->getRetinaData('small_logo_custom'); ?> alt="<?php echo $customlogo['logo_alt']; ?>" /></a></h2>
+                            <?php endif; ?>
+                            <?php echo $this->getChildHtml('topMenu') ?>
+                            <span class="wishlist-items"><?php echo $this->helper('wishlist')->getItemCount() ?></span>
+
+
+                            <div class="clear"></div>
+                        </div>
+					</div>
+</div>
+				<div class="clear"></div>
+            </div>
+		<div class="bss-top topline<?php if($stickyClose){echo 'sticky-close-box';} ?>">
+			<?php if($siteLayout == 0 and $stickyClose): ?>
+			<a href="javascript:void(0);" class="sticky-close"><i class="fa fa-times"></i></a>
+			<?php endif; ?>
+
+
+				<div class="clear"></div>
+
+		</div>
+     <?php if(Mage::registry('current_product'))
+{ ?>
+
+<?php //echo $categoryidxxx = Mage::getModel('catalog/layer')->getCurrentCategory()->getId(); ?>
+ 
+<?php }  ?>
+</div>
+<?php if (Mage::getSingleton('cms/page')->getIdentifier() == 'home' && Mage::app()->getFrontController()->getRequest()->getRouteName() == 'cms'): ?>
+    <div class="container_12">
+    <div class="grid_12">
+
+        <div class="clear"></div>
+
+	<?php if ($static_html = $this->getChildHtml('blacknwhite_home_text_blocks')): ?>
+		<div class="home-text-blocks">
+
+					<?php echo $static_html; ?>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	<?php endif; ?>
+<?php endif; ?>
+<?php echo $this->getChildHtml('header_slider_container') ?>
+<?php if($this->getChildHtml('topContainer')): ?>
+<div class="container_12 header-position">
+	<div class="grid_12">
+		<?php echo $this->getChildHtml('topContainer'); ?>
+	</div>
+	<div class="clear"></div>
+</div>
+<?php endif; ?>
+<?php if($loginAjaxStatus): ?>
+	<script type="text/javascript">
+		/* Login ajax */
+		jQuery('.top-link-login').on('click', function(){
+			ajaxLogin("<?php echo $this->getUrl('meigeeactions/login/') ?>", false);
+			return false;
+		});
+	</script>
+<?php endif; ?>
+<?php if($stickyClose and !$stickyCookie): ?>
+<script type="text/javascript">
+jQuery('.sticky-close').on('click', function(){
+	sticky.hide();
+	jQuery(window).off('scroll.sticky');
+	
+	jQuery.cookie('blacknwhiteSticky', 'true', {
+		expires: <?php echo $stickyTime; ?>,
+		path: '/'
+	});
+});
+</script>
+<?php endif; ?>
+<?php if($stickyCookie): ?>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	sticky.hide();
+	jQuery(window).off('scroll.sticky');
+});
+</script>
+<?php endif; ?>
+<!--<div class="header-checkout" style="display:none">-->
+<?php //echo $this->getLayout()->createBlock('core/template')->setTemplate('page/html/header-checkout.phtml')->toHtml(); ?>
+<!--</div>-->
+</div></div>

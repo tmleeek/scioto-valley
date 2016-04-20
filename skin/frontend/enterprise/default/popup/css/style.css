@@ -1,0 +1,15 @@
+.aw_popup{ margin: 10px;}
+.aw_popup ul{ margin-left: 25px; }
+.aw_popup ul li {list-style: disc outside; }
+.aw_popup ol{ margin-left: 25px; }
+.aw_popup ol li { list-style: decimal outside; }
+
+.overlay_alert{background-color:#000000;opacity:0.6;z-index:100 !important;filter:Alpha(Opacity=60);}
+.dialog{border-radius: 5px;display: block;position: absolute;z-index:200 !important;background:#fff;padding:5px;border:1px solid #ccc;-moz-border-radius:5px;-webkit-border-radius:5px;}
+.alert_content{overflow:visible;color: #000;font-family: Tahoma, Arial, sans-serif;font: 12px arial;background: #FFF;margin:0 auto;}
+.alert_message{font: 12px arial;width:100%;padding-bottom:10px;}
+.alert_message p{margin:0;}
+.alert_buttons {position:absolute;top:4px;width:100%;}
+.roundedDivClass{border:1px solid #000;margin:10px;}
+.dialog .top.table_window{width:100%;}
+.dialog .title_window button{float:right;width:17px;height:17px;background:url("../images/close_label.gif") no-repeat;border:none;cursor:pointer;}

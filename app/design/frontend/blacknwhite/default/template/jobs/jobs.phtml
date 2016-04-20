@@ -1,0 +1,131 @@
+<?php
+/*////////////////////////////////////////////////////////////////////////////////
+ \\\\\\\\\\\\\\\\\\\\\\\\\   Jobs extension         \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ /////////////////////////////////////////////////////////////////////////////////
+ \\\\\\\\\\\\\\\\\\\\\\\\\ NOTICE OF LICENSE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ ///////                                                                   ///////
+ \\\\\\\ This source file is subject to the Open Software License (OSL 3.0)\\\\\\\
+ ///////   that is bundled with this package in the file LICENSE.txt.      ///////
+ \\\\\\\   It is also available through the world-wide-web at this URL:    \\\\\\\
+ ///////          http://opensource.org/licenses/osl-3.0.php               ///////
+ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ ///////                      * @category   FME                            ///////
+ \\\\\\\                      * @package    Jobs                    \\\\\\\
+ ///////    * @author     Malik Tahir Mehmood <malik.tahir786@gmail.com>   ///////
+ \\\\\\\                                                                   \\\\\\\
+ /////////////////////////////////////////////////////////////////////////////////
+ \\* @copyright  Copyright 2010 © free-magentoextensions.com All right reserved\\\
+ /////////////////////////////////////////////////////////////////////////////////
+ */
+$helper= Mage::helper('jobs');
+?>
+
+<div class="">
+    <div class="top">
+        <div class="left">
+            <h1><?php echo $helper->getStoreConfig('label');?></h1>
+            <p><?php echo $helper->getStoreConfig('description');?></p>
+	    <a href="<?php echo $helper->getStoreConfig('link');?>"><img src="<?php echo Mage::getBaseUrl('media') . 'jobs/submeter.jpg';?>" alt="" width="174" height="30" /></a>
+	</div>
+        <div class="right">
+            <img src="<?php echo Mage::getBaseUrl('media') . 'jobs/' . $helper->getStoreConfig('image');?>" alt="" width="246" height="156" />
+        </div>
+    </div>
+    <div class="clearer"></div>
+   <?php $collection = $this->getJobs(); ?>
+    <div class="pagination">
+	<div class="block-filterby">
+	    <div class="filterby_label"><?php echo $helper->__('Filter By Location:'); ?></div>
+	    <div class="block-content">
+                <dl id="narrow-by-list">
+                    <dd class="odd">
+			<select id="store" class="selectBox" onchange="setLocation(this.value)">
+			    <option <?php if(!$this->getRequest()->getParam('store')): ?>selected="selected" value=""<?php else: ?> value="<?php echo $helper->manageUrl('store');?>" <?php endif; ?>><?php echo $this->__('All'); ?></option>
+			    <?php $storeselect='';$Stores= Mage::getModel('jobs/jobs')->toOptionArray('store','Asc',false,true);
+				foreach($Stores as $store):
+			    ?>
+				<option <?php if($this->getRequest()->getParam('store') == $store['value']):?> selected="selected"<?php endif; ?> value="<?php echo $helper->manageUrl('store') . 'store=' . $store['value'] ;?>"><?php echo  $store['label']?></option>
+			    <?php endforeach; ?>
+			</select>
+		    </dd>
+		    <dd class="last even">
+			<select id="store" style="display: none;" class="selectBox" onchange="setLocation(this.value)">
+			    <option <?php if(!$this->getRequest()->getParam('department')): ?>selected="selected" value=""<?php else: ?> value="<?php echo $helper->manageUrl('department'); ?>" <?php endif; ?>><?php echo $this->__('Department'); ?></option>
+			    <?php $departments= Mage::getModel('jobs/jobs')->toOptionArray('department','Asc',false,true);
+				foreach($departments as $department):
+			    ?>
+				<option <?php if($this->getRequest()->getParam('department') == $department['value']):?> selected="selected"<?php endif; ?> value="<?php echo $helper->manageUrl('department') . 'department=' . $department['value'] ;?>"><?php echo  $department['label']?></option>
+			    <?php endforeach; ?>
+			</select>
+		    </dd>
+                </dl>
+            </div>
+	</div>
+    	<div class="toolbar">
+	    <div class="pager">
+		
+		<?php if ( $collection instanceof Zend_Paginator ) : ?>
+		    <?php echo $this->getChildHtml('pagination'); ?>
+		<?php else: ?>
+		    <p class="amount"><?php if($total=count($collection)){echo $total . $helper->__(' Jobs');}; ?></p>
+		<?php endif; ?>
+	    </div>
+	    <div class="sorter">
+                <p class="view-mode"> </p>
+		<div class="sort-by">
+		    <label></label>
+		    <ul id="sort_by">
+                        <li class="sort_by_label"><?php echo $helper->__('ORDER BY:'); ?></li>
+			<li><a href="<?php echo $helper->manageUrl('sort') . 'sort=department'; ?>"><?php echo $helper->__('Department'); ?></a></li>
+			<li><a href="<?php echo $helper->manageUrl('sort') . 'sort=create_dates'; ?>"><?php echo $helper->__('Date'); ?></a></li>
+		    </ul>
+		</div>
+	    </div>
+	</div>
+    </div>
+    
+    
+    <div class="jobs_rows">  
+          
+          
+             
+<?php if ( count($collection) == 0 ) : ?>
+	<p><?php echo $helper->__('No Jobs available...'); ?></p></div>
+<?php else : ?>
+          <div class="row1_head">
+                <div class="col_t1"><?php echo $helper->__('Job Title') ?></div>
+                <div class="col1"><?php echo $helper->__('Location') ?></div>
+		<div class="col2"><?php echo $helper->__('Department') ?></div>
+		<div class="col3"><span><?php echo $helper->__('Apply by') ?></span></div>
+		<div class="col4">&nbsp;</div>
+	    </div>
+    
+	<?php foreach ( $collection as $_jobs ) : ?>
+        <?php 
+        $moduleUrl = Mage::helper('jobs')->getModuleUrlPrefix(); 
+        $urlsuffix = Mage::helper('jobs')->getSeoUrlSuffix(); 
+        $baseurl = Mage::getUrl($moduleUrl);
+        ?>
+	    <div class="row1">
+                <div class="col_t1"><?php echo $_jobs['jobtitle']; ?> </div>
+                <div class="col1"><?php echo $_jobs['store_name']; ?> </div>
+		<div class="col2">
+		    <?php echo $_jobs['department_name']; ?>
+		</div>
+		<div class="col3">
+		   <span><?php echo $_jobs['apply_by']; ?> </span>
+		</div>
+		<div class="col4">
+		    <a href="<?php echo $baseurl . '' . $_jobs['jobs_url'].''.$urlsuffix; ?>"><?php echo $this->__('View Details') ?></a>
+		</div>
+	    </div>
+	<?php endforeach; ?>
+	</div>
+	
+	    <?php if ( $collection instanceof Zend_Paginator ) : ?>
+		    <?php echo $this->getChildHtml('bottom_pagination'); ?>
+	    <?php endif; ?>
+	
+	
+<?php endif; ?>
+</div>

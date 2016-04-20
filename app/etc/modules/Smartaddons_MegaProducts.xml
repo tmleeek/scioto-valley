@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>	
+    <modules>    
+        <Smartaddons_MegaProducts>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Catalog />
+            </depends>
+            <version>0.1.0</version>
+        </Smartaddons_MegaProducts>
+    </modules>
+</config>

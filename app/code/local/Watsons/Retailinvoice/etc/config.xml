@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Watsons_Retailinvoice>
+            <version>0.1.0</version>
+        </Watsons_Retailinvoice>
+    </modules>
+    <global>
+        <models>
+            <retailinvoice>
+                <class>Watsons_Retailinvoice_Model</class>
+            </retailinvoice>
+        </models>
+        <helpers>
+            <retailinvoice>
+                <class>Watsons_Retailinvoice_Helper</class>
+            </retailinvoice>
+        </helpers>
+        <blocks>
+            <retailinvoice>
+                <class>Watsons_Retailinvoice_Block</class>
+            </retailinvoice>
+        </blocks>
+    </global>
+    <crontab>
+        <jobs-disabled>
+        </jobs-disabled>
+        <jobs>
+            <watsons_sync_retail_ids>
+                <schedule><cron_expr>10 * * * *</cron_expr></schedule>
+                <run><model>retailinvoice/observer::updateRetailOrderNumbers</model></run>
+            </watsons_sync_retail_ids>
+        </jobs>
+    </crontab>
+<!-- admin -->
+    <admin>
+        <routers>
+            <retailinvoice>
+                <use>admin</use>
+                <args>
+                    <module>Watsons_Retailinvoice</module>
+                    <frontName>retailinvoice</frontName>
+                </args>
+            </retailinvoice>
+        </routers>
+    </admin>
+    <adminhtml>
+
+        <menu>
+            <watsons_menu translate="title" module="adminhtml">
+                <title>Watsons</title> 
+                <sort_order>9999</sort_order>
+                <children>
+                    <sync translate="title" module="adminhtml">
+                        <title>Synchronize</title>
+                        <sort_order>20</sort_order>
+                        <children>
+                            <ordernumbers translate="title">
+                                <title>Import Retail Order Numbers</title>
+                                <action>sync/adminhtml_import/upload_form/type/order_numbers</action>
+                                <sort_order>90</sort_order>
+                            </ordernumbers>
+                        </children>
+                    </sync>
+                </children>
+            </watsons_menu>
+        </menu>
+        
+    </adminhtml>
+<!-- default settings -->
+    <default>
+        <retailinvoice_section>
+            <settings>
+                <enabled>1</enabled>
+                <log_enabled>1</log_enabled>
+            </settings>
+        </retailinvoice_section>
+    </default>
+</config> 

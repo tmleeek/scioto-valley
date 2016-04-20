@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <awadvancedsearch_result_index translate="label">
+        <label>Quick Search Form</label>
+        <reference name="head">
+            <action method="addCss"><stylesheet>aw_advancedsearch/css/style.css</stylesheet></action>
+        </reference>
+        <reference name="breadcrumbs">
+            <action method="setTemplate"><template>catalog/category/breadcrumbs.phtml</template></action>
+            <block type="awadvancedsearch/result" name="category.top" as="category.top"  template="aw_advancedsearch/top.phtml">
+                <block type="awadvancedsearch/layer" name="advancedsearch.leftnav" as="catalogsearch_layer_nav" template="catalog/layer/view.phtml">
+                    <block type="core/template" name="catalog.layer.clear" as="clear_all" template="catalog/layer/clearall.phtml" />
+                </block>
+                <block type="aw_mobile2/catalog_product_list_toolbar" name="product_list_toolbar_top" as="product_list_toolbar_top" template="catalog/category/toolbar_top.phtml" />
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="awadvancedsearch/result" name="search.result" template="aw_advancedsearch/result.phtml">
+                <block type="catalog/product_list" name="search_result_catalog" template="catalog/product/list.phtml">
+                    <block type="aw_mobile2/catalog_product_list_toolbar" name="product_list_toolbar_bottom" template="catalog/product/list/toolbar_bottom.phtml">
+                        <block type="page/html_pager" name="product_list_toolbar_pager">
+                            <action method="setDefaultListPerPage"><limit>20</limit></action>
+                            <action method="setDefaultGridPerPage"><limit>20</limit></action>
+                        </block>
+                    </block>
+                    <action method="setToolbarBlockName"><name>product_list_toolbar_bottom</name></action>
+                </block>
+                <action method="setListOrders"/>
+                <action method="setListModes"/>
+                <action method="setListCollection"/>
+            </block>
+        </reference>
+    </awadvancedsearch_result_index>
+</layout>

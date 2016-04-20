@@ -1,0 +1,53 @@
+<?php
+	function getCommentCount($postId)
+	{
+		$collection = Mage::getModel('blog/comment')->getCollection()->addFieldToFilter('post_id', $postId);
+		return count($collection);
+	}
+?>
+<?php if ($posts = $this->getRecent()): ?>
+    <div class="widget-latest">
+        <header class="widget-title">
+			<h2><?php echo Mage::helper('blog')->__('Latest Posts'); ?></h2>
+		</header>
+		<ul>
+            <?php foreach ($posts as $post): ?>
+                <li class="grid_3">
+					<h3><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle(); ?></a></h3>
+					<div class="postContent"><?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($post->getShortContent()); ?></div>
+					<div class="info-box">
+						<div class="post-date">
+							<i class="fa fa-calendar"></i>
+							<?php echo $post->getCreatedTime(); ?>
+						</div>
+						<?php if ($this->getCommentsEnabled()): ?>
+							<div class="comments">
+								<a href="<?php echo $post->getAddress(); ?>">
+									<i class="fa fa-comment-o"></i>
+									<?php
+										$postId = $post->getPostId();
+										echo $comments = getCommentCount($postId);
+									?>
+									<?php
+										if($post->getComments() == 1){
+											echo $this->__('commment');
+										}else{
+											echo $this->__('comments');
+										}
+									?>
+								</a>
+							</div>
+						<?php endif; ?>
+						<div class="clear"></div>
+					</div>
+					<button onclick="setLocation('<?php echo $post->getAddress(); ?>')" class="button btn-post" title="<?php echo $this->__('Read more') ?>" type="button"><span><span><?php echo $this->__('Read more') ?></span></span></button>
+					<div class="user">
+						<i class="fa fa-user"></i>
+						<?php echo $post->getUser(); ?>
+					</div>
+				</li>
+            <?php endforeach; ?>
+        </ul>
+		<div class="clear"></div>
+    </div>
+<?php endif; ?>

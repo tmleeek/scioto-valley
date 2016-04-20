@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Interactone_Cms>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Interactone_Cms>
+    </modules>
+</config>

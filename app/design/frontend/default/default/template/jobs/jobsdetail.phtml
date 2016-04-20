@@ -1,0 +1,345 @@
+<?php
+/*////////////////////////////////////////////////////////////////////////////////
+ \\\\\\\\\\\\\\\\\\\\\\\\\   FME Jobs extension  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ /////////////////////////////////////////////////////////////////////////////////
+ \\\\\\\\\\\\\\\\\\\\\\\\\ NOTICE OF LICENSE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ ///////                                                                   ///////
+ \\\\\\\ This source file is subject to the Open Software License (OSL 3.0)\\\\\\\
+ ///////   that is bundled with this package in the file LICENSE.txt.      ///////
+ \\\\\\\   It is also available through the world-wide-web at this URL:    \\\\\\\
+ ///////          http://opensource.org/licenses/osl-3.0.php               ///////
+ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ ///////                      * @category   FME                            ///////
+ \\\\\\\                      * @package    Jobs                           \\\\\\\
+ ///////    * @author     Kaleem Ullah Khan <kaleem.ullah@unitedsol.net>   ///////
+ \\\\\\\                                                                   \\\\\\\
+ /////////////////////////////////////////////////////////////////////////////////
+ \\* @copyright  Copyright 2010 © free-magentoextensions.com All right reserved\\\
+ /////////////////////////////////////////////////////////////////////////////////
+ */
+?>
+<script type="text/javascript">
+//<![CDATA[
+enUS = {"m":{"wide":["January","February","March","April","May","June","July","August","September","October","November","December"],"abbr":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}}; // en_US locale reference
+Calendar._DN = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]; // full day names
+Calendar._SDN = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; // short day names
+Calendar._FD = 0; // First day of the week. "0" means display Sunday first, "1" means display Monday first, etc.
+Calendar._MN = ["January","February","March","April","May","June","July","August","September","October","November","December"]; // full month names
+Calendar._SMN = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]; // short month names
+Calendar._am = "AM"; // am/pm
+Calendar._pm = "PM";
+
+// tooltips
+Calendar._TT = {};
+Calendar._TT["INFO"] = "About the calendar";
+
+Calendar._TT["ABOUT"] =
+"DHTML Date/Time Selector\n" +
+"(c) dynarch.com 2002-2005 / Author: Mihai Bazon\n" +
+"For latest version visit: http://www.dynarch.com/projects/calendar/\n" +
+"Distributed under GNU LGPL. See http://gnu.org/licenses/lgpl.html for details." +
+"\n\n" +
+"Date selection:\n" +
+"- Use the \xab, \xbb buttons to select year\n" +
+"- Use the " + String.fromCharCode(0x2039) + ", " + String.fromCharCode(0x203a) + " buttons to select month\n" +
+"- Hold mouse button on any of the above buttons for faster selection.";
+Calendar._TT["ABOUT_TIME"] = "\n\n" +
+"Time selection:\n" +
+"- Click on any of the time parts to increase it\n" +
+"- or Shift-click to decrease it\n" +
+"- or click and drag for faster selection.";
+
+Calendar._TT["PREV_YEAR"] = "Prev. year (hold for menu)";
+Calendar._TT["PREV_MONTH"] = "Prev. month (hold for menu)";
+Calendar._TT["GO_TODAY"] = "Go Today";
+Calendar._TT["NEXT_MONTH"] = "Next month (hold for menu)";
+Calendar._TT["NEXT_YEAR"] = "Next year (hold for menu)";
+Calendar._TT["SEL_DATE"] = "Select date";
+Calendar._TT["DRAG_TO_MOVE"] = "Drag to move";
+Calendar._TT["PART_TODAY"] = ' (' + "Today" + ')';
+
+// the following is to inform that "%s" is to be the first day of week
+Calendar._TT["DAY_FIRST"] = "Display %s first";
+
+// This may be locale-dependent. It specifies the week-end days, as an array
+// of comma-separated numbers. The numbers are from 0 to 6: 0 means Sunday, 1
+// means Monday, etc.
+Calendar._TT["WEEKEND"] = "0,6";
+
+Calendar._TT["CLOSE"] = "Close";
+Calendar._TT["TODAY"] = "Today";
+Calendar._TT["TIME_PART"] = "(Shift-)Click or drag to change value";
+
+// date formats
+Calendar._TT["DEF_DATE_FORMAT"] = "%b %e, %Y";
+Calendar._TT["TT_DATE_FORMAT"] = "%B %e, %Y";
+
+Calendar._TT["WK"] = "Week";
+Calendar._TT["TIME"] = "Time:";
+
+CalendarDateObject._LOCAL_TIMZEONE_OFFSET_SECONDS = -28800;
+CalendarDateObject._SERVER_TIMZEONE_SECONDS = 1330654958;
+
+//]]>
+</script>
+
+<script type="text/javascript">
+
+function SDEffect(element){
+   //new Effect.toggle(element,'Slide', {duration:1});
+
+   new Effect.toggle(element,'Slide', {duration:1});
+   //new Effect.SlideDown('jobs_apply_form', { duration: 1.0 });
+
+}
+
+function SUEffect(element){
+   //new Effect.toggle(element,'Slide', {duration:1});
+   alert("test");
+   new Effect.toggle(element,'Slide', {duration:1});
+   //new Effect.SlideUp('jobs_apply_form', { duration: 1.0 });
+
+}
+
+
+
+</script>
+
+
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "14a445d8-4bfe-482f-bc1c-63c3eac80a7d"}); </script>
+
+<?php 
+$require_travel = array("Not Required", "required");
+$gender = array("Doesn't Matter", "Male", "Female");
+?>
+<?php if($item = $this->getItem()): ?>
+<div class="jobsdetail_main">
+    <div class="job_heading"><h1><?php echo $item->getJobtitle(); ?></h1>
+    <div class="apply_btn"><img border="0" width="115" vspace="5" height="30" src="<?php echo Mage::getBaseUrl('media').'jobs/applynow.gif' ?>" onclick="SDEffect('jobs_apply_form');" ></div>
+    </div>
+    
+    <div>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_linkedin_large' displayText='LinkedIn'></span>
+        <span class='st_email_large' displayText='Email'></span>
+        <!--<span class='st_fblike_large' displayText='Facebook Like'></span>
+        <span class='st_plusone_large' displayText='Google +1'></span>-->
+    </div>
+    
+    <div id="jobs_apply_form" style="display: none;">
+        
+        
+        
+           
+        <div class="entry-edit">
+                
+                    <h4 class=""><?php echo Mage::helper('jobs')->__('Application form') ?></h4>
+                    
+                
+                <div id="jobs_form" class="fieldset">
+                    <div class="hor-scroll">
+                        <form id="fmejobsForm" action="<?php echo Mage::getUrl('jobs/index/formsubmit'); ?>" method="POST" enctype="multipart/form-data"> 
+                        <input type="hidden" name="job_id" value="<?php echo $item->getId(); ?>" />
+                        
+                        <table cellspacing="0" class="form-list">
+                            <tbody>
+                                <tr>
+                                    <td class="label"><label for="fullname"><?php echo Mage::helper('jobs')->__('Full Name') ?> <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input type="text" class=" input-text required-entry" value="" name="fullname" id="fullname" />            </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label for="email"><?php echo Mage::helper('jobs')->__('Email') ?> <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input type="text" class=" input-text required-entry validate-email" value="" name="email" id="email">            </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="label"><label for="dob"><?php echo Mage::helper('jobs')->__('Date of Birth') ?> <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input type="text" class=" input-text required-entry validate-date" value="" name="dob" id="dob" />  
+                                        <img src="<?php echo $this->getSkinUrl("images")."/grid-cal.gif";  ?>" alt="" class="v-middle" id="news_to_date_trig" title="Select Date of Birth" style="">
+                                    <script type="text/javascript">
+                                    //<![CDATA[
+                                        Calendar.setup({
+                                            inputField: "dob",
+                                            ifFormat: "%m/%e/%y",
+                                            showsTime: false,
+                                            button: "news_to_date_trig",
+                                            align: "Bl",
+                                            singleClick : true
+                                        });
+                                    //]]>
+                                    </script> 
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="label"><label for="pob"><?php echo Mage::helper('jobs')->__('Place of Birth') ?> <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input type="text" class=" input-text required-entry" value="" name="pob" id="pob"> 
+                                    
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="label"><label for="nationality"><?php echo Mage::helper('jobs')->__('Nationality') ?> <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input type="text" class=" input-text required-entry" value="" name="nationality" id="nationality"> 
+                                    
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="label"><label for="telephone"><?php echo Mage::helper('jobs')->__('Telephone') ?> <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input type="text" class=" input-text required-entry validate-number" value="" name="telephone" id="telephone"> 
+                                    
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="label"><label for="fmejobs_address"><?php echo Mage::helper('jobs')->__('Address') ?> <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <textarea class=" input-text required-entry" value="" name="address" id="fmejobs_address"></textarea> 
+                                    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label for="fmejobs_zipcode"><?php echo Mage::helper('jobs')->__('Zip Code') ?> <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input type="text" class=" input-text required-entry validate-postcode" value="" name="zipcode" id="fmejobs_zipcode"> 
+                                    
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="label"><label for="fmejobs_cv"><?php echo Mage::helper('jobs')->__('Upload CV') ?></label></td>
+                                    <td class="value">
+                                        <input type="file" class="" value="" name="cvfile" id="fmejobs_cv"> 
+                                    
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="label"></td>
+                                    <td class="value">
+                                        <div id="captcha">
+                                            <input name="captacha_code" type="hidden" id="captacha_code" value="<?php echo $code=Mage::helper('jobs')->getNewrandCode(6)?>" />
+                                            <label for="image"><img style="display: block;" src="<?php echo Mage::helper('jobs')->getSecureImageUrl() ?>CaptchaSecurityImages.php?width=180&height=40&code=<?php echo $code?>" /></label><br/>
+                                            <div class="input-box">
+                                            <label for="security_code" class="required"><em>*</em><b><?php echo Mage::helper('jobs')->__('Security Code Message:') ?></b></label><br />
+                                            <input id="security_code" name="security_code" type="text" /> <br />
+                                            <?php echo Mage::helper('jobs')->__('If you have difficulty in reading the image above then refresh your browser a few times until you see an image that is clear enough to copy.') ?>
+                                            </div> 
+                                        </div>
+                                        
+                                    </td>
+                                        
+                                </tr>
+                                
+                                <tr>
+                                    <td class="label"></td>
+                                    <td class="value"><input type="submit" name="submit" value="Submit" /></td>
+                                        
+                                </tr>
+                            </tbody>
+                        </table>
+                            </form>
+                    </div>
+                </div>
+        </div>
+    
+    <script type="text/javascript">
+    //<![CDATA[
+    var editForm = new VarienForm('fmejobsForm', 'true');
+    //]]>
+    </script>
+    
+        
+        
+    </div>
+    <div class="clear"></div>
+    
+    <div class="top">
+        
+        <div class="left">
+            <table class="jobsdetail_table">
+                <tr>
+                    <td class="job_label">Department:</td>
+                    <td class="job_value"><?php echo $item->getDepartmentName();  ?></td>
+                </tr>
+                <tr>
+                    <td class="job_label">Job Type:</td>
+                    <td class="job_value"><?php echo $item->getJobtypeName();  ?></td>
+                </tr>
+                <tr>
+                    <td class="job_label">Location:</td>
+                    <td class="job_value"><?php echo $item->getStoreName(); ?></td>
+                </tr>
+                <tr>
+                    <td class="job_label">Gender:</td>
+                    <td class="job_value"><?php echo $gender[$item->getGender()]; ?></td>
+                </tr>
+                <tr>
+                    <td class="job_label">Total Positions:</td>
+                    <td class="job_value"><?php echo $item->getPositionsJobs(); ?></td>
+                </tr>
+                <?php if(trim($item->getMinQual()) != "" ): ?>
+                <tr>
+                    <td class="job_label">Minimum Qualification:</td>
+                    <td class="job_value"><?php echo $item->getMinQual(); ?></td>
+                </tr>
+                <?php endif; ?>
+                <?php if(trim($item->getCareerLevel()) != ""): ?>
+                <tr>
+                    <td class="job_label">Career Level:</td>
+                    <td class="job_value"><?php echo $item->getCareerLevel(); ?></td>
+                </tr>
+                <?php endif; ?>
+                <?php if(trim($item->getMinExp()) != ""): ?>
+                <tr>
+                    <td class="job_label">Minimum Experience:</td>
+                    <td class="job_value"><?php echo $item->getMinExp(); ?></td>
+                </tr>
+                <?php endif; ?>
+                <tr>
+                    <td class="job_label">Require Travel:</td>
+                    <td class="job_value"><?php echo $require_travel[$item->getTravel()]; ?></td>
+                </tr>
+                <tr>
+                    <td class="job_label">Apply By:</td>
+                    <td class="job_value"><?php 
+                         $atime_a = explode('-',$item->getApplyBy());
+                         $atime = mktime(0,0,0,$atime_a[1], $atime_a[2], $atime_a[0]); 
+                         echo date('F d, Y', $atime); 
+                    ?></td>
+                </tr>
+                <tr>
+                    <td class="job_label">Posted:</td>
+                    <td class="job_value"><?php 
+                         $ctime_a = explode('-',$item->getCreateDate());
+                         $ctime = mktime(0,0,0,$ctime_a[1], $ctime_a[2], $ctime_a[0]); 
+                        echo date('F d, Y', $item->getCreateDate()); 
+                    ?></td>
+                </tr>
+            </table>
+	</div>
+        <div class="right">
+	    <h2><?php echo $this->__('Job Description:');  ?></h2>
+	    <p><?php echo $item->getDescription();  ?></p>
+            <h2><?php echo $this->__('Skills Required:');  ?></h2>
+            <p><?php echo $item->getSkills();  ?></p>
+	</div>
+        <div class="clear"></div>
+    </div>
+</div>
+ <?php endif;  ?>        
+
+
+

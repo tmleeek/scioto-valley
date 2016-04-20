@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Watsons_Exportskus>
+            <version>0.1.0</version>
+        </Watsons_Exportskus>
+    </modules>
+    <global>
+        <models>
+            <exportskus>
+                <class>Watsons_Exportskus_Model</class>
+            </exportskus>
+        </models>
+        <helpers>
+            <exportskus>
+                <class>Watsons_Exportskus_Helper</class>
+            </exportskus>
+        </helpers>
+        <blocks>
+            <exportskus>
+                <class>Watsons_Exportskus_Block</class>
+            </exportskus>
+        </blocks>
+    </global>
+    <crontab>
+        <jobs-disabled>
+        </jobs-disabled>
+        <jobs>
+            <watsons_export_skus>
+                <schedule><cron_expr>5 * * * *</cron_expr></schedule>
+                <run><model>exportskus/observer::exportSkus</model></run>
+            </watsons_export_skus>
+        </jobs>
+    </crontab>
+    <admin>
+        <routers>
+            <exportskus>
+                <use>admin</use>
+                <args>
+                    <module>Watsons_Exportskus</module>
+                    <frontName>exportskus</frontName>
+                </args>
+            </exportskus>
+        </routers>
+    </admin> 
+<!-- admin -->
+    <adminhtml>
+        <layout>
+            <updates>
+                <exportskus>
+                    <file>exportskus.xml</file>
+                </exportskus>
+            </updates>
+        </layout>
+    </adminhtml>    
+<!-- default settings -->
+    <default>
+        <exportskus_section>
+            <settings>
+                <enabled>1</enabled>
+                <log_enabled>1</log_enabled>
+            </settings>
+        </exportskus_section>
+    </default>
+</config> 

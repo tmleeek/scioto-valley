@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Magebassi_Mbimageslider>
+		    <active>false</active>
+		    <codePool>community</codePool>		   
+		</Magebassi_Mbimageslider>
+	</modules>
+</config>

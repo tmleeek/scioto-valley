@@ -1,0 +1,88 @@
+/* header */
+.header#header, header#header .welcome-msg {color: #e31837; font-size: 12px;}
+
+.header#header .customer-name, header#header .links li a {
+    background-color: #fff;
+    color: #cc0033;
+    font-weight: bold;
+}
+.headerPhone {display: inline-block; float: left; font-size: 14px; font-weight: bold; background-color: #dcdddf; padding: 1px 18px 1px 18px;}
+.socialIcons {display: inline-block; float: left;}
+
+
+header#header .top-cart .block-title .title-cart {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #dcdddf;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+header#header .top-cart .cart-divider {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    display: inline-block;
+    height: 0.84em;
+    margin-bottom: 0;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 0;
+    position: relative;
+    top: 4px;
+    width: 1px;
+}
+
+/* navigation */
+.nav-container li.level-top > a span {
+    color: #e31837;
+    font-size: 12px;
+}
+
+.nav-container li.level-top > a,
+.nav-container li.level-top.active > a,
+.nav-container li.level-top > a:hover{
+    color: #cc0033;
+    -moz-transition:none;
+    -webkit-transition:none;
+    -o-transition:0;
+    transition:none;
+}
+
+.level0.nav-5.level-top {background-color: #e31837; color: #FFFFFF !important; width: 134px;}
+.level0.nav-5.level-top > a span {color: #FFFFFF;}
+
+.level0.nav-6.level-top {background-color: #59a6d6; width: 134px;}
+.level0.nav-6.level-top > a span {color: #FFFFFF;}
+
+/* content */
+
+/* category */
+.catalogsearch-advanced-result .page-title h1, .catalogsearch-result-index .page-title h1, .category-title h1 {
+    color: #e31837;
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 1.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.page-title {
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+    position: relative;
+}
+
+/* product */
+
+/* footer */

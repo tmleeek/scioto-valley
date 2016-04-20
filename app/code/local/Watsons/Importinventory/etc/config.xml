@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Watsons_Importinventory>
+            <version>0.1.0</version>
+        </Watsons_Importinventory>
+    </modules>
+    <global>
+        <blocks>
+            <importinventory>
+                <class>Watsons_Retailinvoice_Block</class>
+            </importinventory>
+        </blocks>
+        <models>
+            <importinventory>
+                <class>Watsons_Importinventory_Model</class>
+            </importinventory>
+        </models>
+        <helpers>
+            <importinventory>
+                <class>Watsons_Importinventory_Helper</class>
+            </importinventory>
+        </helpers>
+        <resources>
+            <importinventory_setup>
+                <setup>
+                    <module>Watsons_Importinventory</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </importinventory_setup>
+            <importinventory_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </importinventory_write>
+            <importinventory_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </importinventory_read>
+        </resources>
+    </global>
+    <crontab>
+        <jobs-disabled>
+        </jobs-disabled>
+        <jobs>
+            <watsons_sync_inventory>
+                <schedule><cron_expr>30 */2 * * *</cron_expr></schedule>
+                <run><model>importinventory/observer::updateProductInventory</model></run>
+            </watsons_sync_inventory>
+        </jobs>
+    </crontab>
+<!-- admin -->
+    <admin>
+        <routers>
+            <importinventory>
+                <use>admin</use>
+                <args>
+                    <module>Watsons_Importinventory</module>
+                    <frontName>importinventory</frontName>
+                </args>
+            </importinventory>
+        </routers>
+    </admin>
+    <adminhtml>
+         
+        <menu>
+            <watsons_menu translate="title" module="adminhtml">
+                <title>Watsons</title> 
+                <sort_order>9999</sort_order>
+                <children>
+                    <sync translate="title" module="adminhtml">
+                        <title>Synchronize</title>
+                        <sort_order>20</sort_order>
+                        <children>
+                            <inventory translate="title">
+                                <title>Import Product Inventory</title>
+                                <action>sync/adminhtml_import/upload_form/type/inventory</action>
+                                <!--<action>importinventory/adminhtml_import/upload_form/type/inventory</action>-->
+                                <sort_order>30</sort_order>
+                            </inventory>
+                        </children>
+                    </sync>
+                </children>
+            </watsons_menu>
+        </menu>
+        
+    </adminhtml>
+<!-- default settings -->
+    <default>
+        <importinventory_section>
+            <settings>
+                <enabled>1</enabled>
+                <log_enabled>1</log_enabled>
+                <outofstock_limit>5</outofstock_limit>
+            </settings>
+        </importinventory_section>
+    </default>
+</config> 

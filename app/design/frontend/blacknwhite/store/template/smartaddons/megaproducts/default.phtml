@@ -1,0 +1,79 @@
+<?php
+/*------------------------------------------------------------------------
+ # Yt Mega Products - Version 1.0
+ # Copyright (C) 2009-2011 The YouTech Company. All Rights Reserved.
+ # @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ # Author: The YouTech Company
+ # Websites: http://www.smartaddons.com
+ -------------------------------------------------------------------------*/
+
+ 
+$options	= $this->getConfigObject();
+// $data		= $this->getProducts();
+$items		= $this->getProducts();
+$smarthelper= Mage::helper('megaproducts/utils');
+// $instance	= rand().time();
+$hasData	= count($items)>0;
+if($hasData):
+	echo $this->getScriptTags();
+endif;
+
+// $count_category = count($items);
+$width_module 			= 100;
+$numcols				= $options->columns_max;
+// $width_category 		= $width_module/$numcols;
+$width_category 		= ($width_module/$numcols);
+$width_normal_content 	= 100;
+$num_items				= $options->columns_max_theme3;
+$width_item 			= $width_normal_content/$num_items;
+$show_image				= $options->product_image_disp;
+$show_title 			= $options->product_title_disp;
+$show_read_more_link 	= $options->product_readmore_disp;
+$show_description 		= $options->product_short_description_disp;
+$read_more_text			= $options->product_readmore_text;
+$show_all_articles 		= $options->product_viewall_disp;
+$view_all				= $options->product_viewall_text;
+$target					= $smarthelper->getTargetAttr($options->product_links_target);
+$link_image				= $options->product_image_linkable;
+$product_title_linkable	= $options->product_title_linkable;
+$sub_category_link		= $options->sub_category_link;
+
+
+$useragent = $_SERVER['HTTP_USER_AGENT'];
+if (preg_match('|MSIE ([0-9].[0-9]{1,2})|',$useragent,$matched)) {
+    $browser_version=$matched[1];
+    $browser = 'IE';
+	if ($browser_version=='7.0'){
+		echo '<link rel="stylesheet" type="text/css" href="http://localhost:81/magento16/skin/frontend/default/default/smartaddons/megaproducts/css/ie7.css" media="all" />';
+	}
+} elseif (preg_match( '|Opera ([0-9].[0-9]{1,2})|',$useragent,$matched)) {
+    $browser_version=$matched[1];
+    $browser = 'Opera';
+} elseif(preg_match('|Firefox/([0-9\.]+)|',$useragent,$matched)) {
+        $browser_version=$matched[1];
+        $browser = 'Firefox';
+} elseif(preg_match('|Safari/([0-9\.]+)|',$useragent,$matched)) {
+        $browser_version=$matched[1];
+        $browser = 'Safari';
+} else {
+        // browser not recognized!
+    $browser_version = 0;
+    $browser= 'other';
+}
+
+
+$mod_style_width = $width_module>0 ? "style=\"width:{$width_module}%;\"" : "";
+
+?>
+
+<?php if (!empty( $options->pretext )): ?>
+<div class="yt_introtext" <?php echo $mod_style_width; ?>><?php echo $options->pretext; ?></div>
+<?php endif; ?>
+
+<div class="mega_products">
+	<?php include $options->theme . '.phtml'; ?>
+</div>
+
+<?php if (!empty( $options->posttext )): ?>
+<div class="yt_footertext" <?php echo $mod_style_width; ?>><?php echo $options->posttext; ?></div>
+<?php endif; ?>

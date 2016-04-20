@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<mbimageslider module="mbimageslider">
+			<title>Magebassi Banner</title>
+			<sort_order>50</sort_order>               
+			<children>
+				<bmitem module="mbimageslider">
+					<title>Manage Slider</title>
+					<sort_order>10</sort_order>
+					<action>mbimageslider/adminhtml_mbimageslider</action>
+				</bmitem>	
+				<bgitem module="mbimageslider">
+					<title>Manage Groups</title>
+					<sort_order>11</sort_order>
+					<action>mbimageslider/adminhtml_mbmanagegroups</action>
+				</bgitem>
+				<bsitem module="mbimageslider">
+					<title>Settings</title>
+					<sort_order>12</sort_order>
+					<action>adminhtml/system_config/edit/section/mbimageslider</action>
+				</bsitem>
+					
+			</children>		
+		</mbimageslider>
+	</menu>
+	
+	<acl>
+        <resources>			
+            <admin>
+                <children>
+                    <mbimageslider translate="title" module="mbimageslider">
+                        <title>Magebassi Banner</title>
+                        <sort_order>100</sort_order>
+                        <children>                            
+                            <bmitem translate="title" module="mbimageslider">
+                                <title>Manage Slider</title>
+                                <sort_order>10</sort_order>
+                            </bmitem>
+							<bgitem translate="title" module="mbimageslider">
+                                <title>Manage Groups</title>
+                                <sort_order>12</sort_order>
+                            </bgitem>
+							<bsitem translate="title" module="mbimageslider">
+                                <title>Settings</title>
+                                <sort_order>14</sort_order>
+                            </bsitem>							
+                        </children>
+                    </mbimageslider>
+                </children>
+            </admin>
+			<admin>
+				<children>
+				  <system>
+					<children>
+					  <config>
+						<children>
+						  <mbimageslider translate="title">
+							<title>Magebassi Banner</title>
+							<sort_order>100</sort_order>
+						  </mbimageslider>
+						</children>
+					  </config>
+					</children>
+				  </system>
+				</children>
+			</admin>
+        </resources>
+    </acl> 	
+</config>

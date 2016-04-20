@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   MageWorx
+ * @package    MageWorx_CurrencySwitcher
+ * @copyright  Copyright (c) 2013 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Currency Auto Switcher extension
+ * Exception class
+ *
+ * @category   MageWorx
+ * @package    MageWorx_CurrencySwitcher
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+-->
+<config>
+    <modules>
+        <MageWorx_CurrencySwitcher>
+            <version>1.1.4</version>
+        </MageWorx_CurrencySwitcher>
+    </modules>
+
+    <admin>
+        <routers>
+            <currencyswitcher>
+                <use>admin</use>
+                <args>
+                    <module>MageWorx_CurrencySwitcher</module>
+                    <frontName>currencyswitcher</frontName>
+                </args>
+            </currencyswitcher>
+        </routers>
+    </admin>
+
+    <frontend>
+        <translate>
+            <modules>
+                <MageWorx_CurrencySwitcher>
+                    <files>
+                        <default>MageWorx_CurrencySwitcher.csv</default>
+                    </files>
+                </MageWorx_CurrencySwitcher>
+            </modules>
+        </translate>
+    </frontend>
+
+    <global>
+        <models>
+            <currencyswitcher>
+                <class>MageWorx_CurrencySwitcher_Model</class>
+                <resourceModel>currencyswitcher_mysql4</resourceModel>
+            </currencyswitcher>
+            <currencyswitcher_mysql4>
+                <class>MageWorx_CurrencySwitcher_Model_Mysql4</class>
+                <entities>
+                    <relations>
+                        <table>currencyswitcher_relations</table>
+                    </relations>
+                </entities>
+            </currencyswitcher_mysql4>
+        </models>
+        <resources>
+            <currencyswitcher_setup>
+                <setup>
+                    <module>MageWorx_CurrencySwitcher</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </currencyswitcher_setup>
+            <currencyswitcher_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </currencyswitcher_write>
+            <currencyswitcher_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </currencyswitcher_read>
+        </resources>
+        <blocks>
+            <currencyswitcher>
+                <class>MageWorx_CurrencySwitcher_Block</class>
+            </currencyswitcher>
+        </blocks>
+        <helpers>
+            <currencyswitcher>
+                <class>MageWorx_CurrencySwitcher_Helper</class>
+            </currencyswitcher>
+        </helpers>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <currencyswitcher>
+                        <type>singleton</type>
+                        <class>currencyswitcher/observer</class>
+                        <method>currencyAutoswitch</method>
+                    </currencyswitcher>
+                </observers>
+            </controller_action_predispatch>
+            <controller_action_predispatch_directory_currency_switch>
+                <observers>
+                    <currencyswitcher>
+                        <type>singleton</type>
+                        <class>currencyswitcher/observer</class>
+                        <method>setCurrency</method>
+                    </currencyswitcher>
+                </observers>
+            </controller_action_predispatch_directory_currency_switch>
+        </events>
+    </global>
+
+    <adminhtml>
+        <menu>
+            <system>
+                <children>
+                    <currency translate="title" module="currencyswitcher">
+                        <children>
+                            <relations translate="title">
+                                <title>Relations</title>
+                                <action>currencyswitcher/adminhtml_relations</action>
+                                <sort_order>160</sort_order>
+                            </relations>
+                        </children>
+                    </currency>
+                </children>
+            </system>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <currency>
+                                    <children>
+                                        <relations translate="title" module="currencyswitcher">
+                                            <title>Relations</title>
+                                            <sort_order>160</sort_order>
+                                        </relations>
+                                    </children>
+                                </currency>
+                                <config>
+                                    <children>
+                                        <mageworx_customers>
+                                            <children>
+                                                <currency_switcher translate="title" module="currencyswitcher">
+                                                    <title>Currency Auto Switcher</title>
+                                                </currency_switcher>
+                                            </children>
+                                        </mageworx_customers>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <currencyswitcher>
+                    <file>currencyswitcher.xml</file>
+                </currencyswitcher>
+            </updates>
+        </layout>
+        <events>
+            <adminhtml_cache_flush_all>
+                <observers>
+                    <currencyswitcher>
+                        <class>currencyswitcher/observer</class>
+                        <method>refreshCurrencySwitcherCache</method>
+                    </currencyswitcher>
+                </observers>
+            </adminhtml_cache_flush_all>
+            <adminhtml_cache_refresh_type>
+                <observers>
+                    <currencyswitcher>
+                        <class>currencyswitcher/observer</class>
+                        <method>refreshCurrencySwitcherCache</method>
+                    </currencyswitcher>
+                </observers>
+            </adminhtml_cache_refresh_type>
+        </events>
+    </adminhtml>
+
+    <default>
+        <mageworx_customers>
+            <currency_switcher>
+                <enable>1</enable>
+                <user_agent_list>googlebot*
+yahoo*
+msnbot*
+facebook*</user_agent_list>
+            </currency_switcher>
+        </mageworx_customers>
+    </default>
+</config>

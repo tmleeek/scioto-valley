@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mageworx_customers>
+                                        <children>
+                                            <geolocation translate="title" module="geolocation">
+                                                <title>GeoIP Location</title>
+                                            </geolocation>
+                                        </children>
+                                    </mageworx_customers>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

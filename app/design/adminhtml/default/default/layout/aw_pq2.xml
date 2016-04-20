@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<layout>
+    <aw_pq2_admin_adminhtml_question_list>
+        <reference name="content">
+            <block type="aw_pq2/adminhtml_question" name="aw_pq2.question"/>
+        </reference>
+    </aw_pq2_admin_adminhtml_question_list>
+    <aw_pq2_admin_adminhtml_question_listpending>
+        <reference name="content">
+            <block type="aw_pq2/adminhtml_question_pending" name="aw_pq2.question.pending"/>
+        </reference>
+    </aw_pq2_admin_adminhtml_question_listpending>
+    <aw_pq2_admin_adminhtml_question_new>
+        <reference name="content">
+            <block type="aw_pq2/adminhtml_question_new" name="aw_pq2.question.new" as="aw_pq2_question_new" template="aw_pq2/question/new/container.phtml" />
+        </reference>
+    </aw_pq2_admin_adminhtml_question_new>
+    <aw_pq2_admin_adminhtml_question_productgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="aw_pq2/adminhtml_question_new_product_grid" name="product_grid" />
+        </block>
+    </aw_pq2_admin_adminhtml_question_productgrid>
+    <aw_pq2_admin_adminhtml_question_customergrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="aw_pq2/adminhtml_question_new_customer_grid" name="customer_grid" />
+        </block>
+    </aw_pq2_admin_adminhtml_question_customergrid>
+    <aw_pq2_admin_adminhtml_question_edit>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>aw_pq2/js/answer/PQ2AjaxForm.js</name></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+            <action method="addCss"><name>aw_pq2/css/style.css</name></action>
+        </reference>
+        <reference name="content">
+            <block type="aw_pq2/adminhtml_question_edit" name="question_edit" />
+        </reference>
+        <reference name="left">
+            <block type="aw_pq2/adminhtml_question_edit_tabs" name="question_tabs" />
+        </reference>
+    </aw_pq2_admin_adminhtml_question_edit>
+    <aw_pq2_admin_adminhtml_question_sharingproductgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="aw_pq2/adminhtml_question_edit_tab_sharing_product_grid" name="sharing_product_grid" />
+        </block>
+    </aw_pq2_admin_adminhtml_question_sharingproductgrid>
+    <aw_pq2_admin_adminhtml_question_answersgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="aw_pq2/adminhtml_question_edit_tab_answers_grid" name="answers_grid" />
+        </block>
+    </aw_pq2_admin_adminhtml_question_answersgrid>
+    <aw_pq2_admin_adminhtml_answer_edit>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="aw_pq2/adminhtml_question_answer_edit" name="answer_edit" template="aw_pq2/question/answer/form_container.phtml">
+                <block type="core/messages" name="messages" as="messages"/>
+            </block>
+        </block>
+    </aw_pq2_admin_adminhtml_answer_edit>
+    <aw_pq2_admin_adminhtml_answer_new>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="aw_pq2/adminhtml_question_answer_new" name="aw_pq2.answer.new" as="aw_pq2_answer_new" template="aw_pq2/question/answer/new_container.phtml">
+                <block type="core/messages" name="messages" as="messages"/>
+            </block>
+        </block>
+    </aw_pq2_admin_adminhtml_answer_new>
+    <aw_pq2_admin_adminhtml_answer_customergrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="aw_pq2/adminhtml_question_answer_new_customer_grid" name="answer_customer_grid" />
+        </block>
+    </aw_pq2_admin_adminhtml_answer_customergrid>
+    <adminhtml_customer_edit>
+        <reference name="customer_edit_tabs">
+            <action method="addTab">
+                <name>customer_edit_tab_aw_pq2</name>
+                <block>aw_pq2/adminhtml_customer_edit_tab_questions</block>
+            </action>
+        </reference>
+    </adminhtml_customer_edit>
+</layout>

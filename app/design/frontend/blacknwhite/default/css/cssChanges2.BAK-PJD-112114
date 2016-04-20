@@ -1,0 +1,28 @@
+a.websiteSwitcher {
+  margin: 0 0 6px 0;
+  height: 19px;
+}
+
+header#header .links:before {
+  margin-right: 0;
+}
+
+header#header .links {
+  margin-left: 0;
+}
+
+.top-link-login {
+  margin: 0 2px;
+}
+
+header#header .links li.last:before {
+  margin-right: 0;
+}
+
+header#header .links li a:hover {
+  color: rgb(0,0,0);
+}
+
+a.websiteSwitcher div.hoverOver span {
+  background: #fff url("../images/locations.png") 13px 7px no-repeat;
+}

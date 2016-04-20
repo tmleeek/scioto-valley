@@ -1,0 +1,114 @@
+<?php
+/**
+ *
+ * Version			: 1.0.4
+ * Edition 			: Community 
+ * Compatible with 	: Magento Versions 1.5.x to 1.7.x
+ * Developed By 	: Magebassi
+ * Email			: magebassi@gmail.com
+ * Web URL 			: www.magebassi.com
+ * Extension		: Magebassi Bannerslider
+ * 
+ */
+?>
+<?php	
+	$imageCollectionRight = $this->getImageCollectionRight();	
+	$groupDataLeft  	 = $imageCollectionRight['groupdata'];	
+	
+	$locale				= 		Mage::app()->getLocale()->getLocaleCode();
+	$enabled			=		$groupDataLeft['groupstatus'];
+	$style				=	 	$groupDataLeft['effect'];
+	$imagewidth			=	 	$groupDataLeft['imagewidth'];
+	$imageheight		=	 	$groupDataLeft['imageheight'];
+	$description		=	 	$groupDataLeft['description'];	
+	$slidingtime		=	 	$groupDataLeft['slidingtime'];
+	$slidingtime 		= 		($slidingtime*1000);
+	$slidingeffecttime	=	 	$groupDataLeft['slidingeffecttime'];
+	$slidingeffecttime 	= 		($slidingeffecttime*1000);	
+	$loader				=	 	$groupDataLeft['loader'];
+	$navigation			=	 	$groupDataLeft['navigation'];
+	$thumbnails			=	 	$groupDataLeft['thumbnails'];
+	
+	if($thumbnails=='thumbnail'){ $thumbsts = 'true'; $pagests = 'false'; }
+	elseif($thumbnails=='pagination'){ $thumbsts = 'true'; $pagests = 'true';}
+	else{ $thumbsts = 'false'; $pagests = 'false';}		
+	if($imagewidth){ $width = $imagewidth."px";}else {$width = "100%";}
+?>	
+
+<?php if($enabled){?>
+
+<?php if(count($imageCollectionRight)){?> 
+<script type="text/javascript" src="<?php echo $this->getJsUrl('magebassi/mbimageslider/jquery.mobile.customized.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('magebassi/mbimageslider/jquery.easing.1.3.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('magebassi/mbimageslider/jquery-migrate-1.2.1.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('magebassi/mbimageslider/camera.js') ?>"></script>  
+
+<script type="text/javascript">
+	var $mbr = jQuery.noConflict();
+	$mbr(function(){		
+		$mbr('#camera_wrap_right').camera({
+			thumbnails: <?php echo $thumbsts; ?>,
+			fx: '<?php echo $style; ?>',			
+			time: <?php echo $slidingtime; ?>,
+			transPeriod: <?php echo $slidingeffecttime; ?>,
+			loader: '<?php echo $loader; ?>',
+			navigation: <?php echo $navigation; ?>,
+			<?php if($imageheight){?>height: '<?php echo $imageheight; ?>px', <?php } ?>
+			opacityOnGrid: true,
+			pauseOnClick: false,
+			playPause: false,			
+			pagination: <?php echo $pagests; ?>			
+		});			
+	});
+</script>				
+<link rel='stylesheet' id='camera-css'  href="<?php echo $this->getSkinUrl('css/magebassi/mbimageslider/camera.css');?>" type='text/css' media='all'>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	a {
+		color: #09f;
+	}
+	a:hover {
+		text-decoration: none;
+	}
+	#back_to_camera {
+		clear: both;
+		display: block;
+		height: 80px;
+		line-height: 40px;
+		padding: 20px;
+	}
+	#camera_wrap_right {
+		margin: 0 auto;
+		max-width: 1000px;
+		width: <?php echo $width; ?>;
+	}
+	
+	.wrap_content_right {
+		margin-bottom: 10px !important;
+		margin-top: 10px !important;
+	}
+</style>
+    	
+	<div class="camera_wrap camera_coffee_skin wrap_content_right" id="camera_wrap_right">	
+	<?php foreach ($imageCollectionRight['sliderdata'] as $banner): ?>
+		<?php if($banner['slidertype']=='imageslider'){ ?>
+		<div data-thumb="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."mbimages/thumbs/".$banner['filename']?>" data-src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$banner['filename']?>" <?php if(isset($banner['weblink'])){?>data-link="<?php echo $banner['weblink']; ?>" data-target="_blank" <?php }?>>		
+			<?php if(!$description){?>
+			<div class="camera_caption fadeFromBottom">
+				<?php echo $banner['title']; ?>
+			</div>
+			<?php } ?>			
+		</div>	
+		<?php } ?>
+	<?php endforeach; ?>	
+	</div>
+
+    
+<div style="clear:both; display:block;"></div>
+<?php }else{
+	echo "<p><b>Magebassi Banner Slider.</b></p><p>Please upload banner images.</p>";
+} ?>
+<?php }?>
