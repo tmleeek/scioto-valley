@@ -1,3 +1,7 @@
+/app/design/adminhtml/default/default/template/alekseon
+/app/code/community/Alekseon
+/app/etc/modules/Alekseon_ModulesConflictDetector.xml
+/modules_conflict_detector-0.1.0.4.tgz
 /.htaccess
 !*/.htaccess
 
@@ -11,6 +15,7 @@ media/catalog/
 media/wysiwyg/
 media/email/
 media/enterprise/
+/package.xml
 media/captcha/
 media/custom_options/
 media/tmp/
