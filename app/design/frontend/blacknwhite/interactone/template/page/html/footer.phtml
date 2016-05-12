@@ -1,31 +1,28 @@
-<div class="container_12">
-    <div class="grid_12">
-
+<?php if(Mage::getSingleton('cms/page')->getIdentifier() !== 'email_registration') : ?>
+    <div class="container_12">
+        <div class="grid_12">
             <div class="mo-12-wrapper grey newsletter-wrapper">
                 <div class="border-white">
-    <div class="grid_8">
-                    <h1><span>Never</span><span><span> miss out on a deal</span></span></h1>
-
-    </div>
+                    <div class="grid_8">
+                        <h1><span>Never</span><span><span> miss out on a deal</span></span></h1>
+                    </div>
                     <div class="grid_4 home-box">
-                    <form action="http://dev.sciotovalley.com/email_registration" method="post">
-                        <table border="0" cellspacing="0" cellpadding="0" align="center" style="width: 100%">
-                            <tbody>
-                            <tr>
-                                <td style="width:100%;"><input class="sub-submit banner-button-solid" style="width: 90%;margin: auto;" type="submit" value="Click here to sign up!"/></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </form>
+                        <form action="http://dev.sciotovalley.com/email_registration" method="post">
+                            <table border="0" cellspacing="0" cellpadding="0" align="center" style="width: 100%">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:100%;"><input class="sub-submit banner-button-solid" style="width: 90%;margin: auto;" type="submit" value="Click here to sign up!"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
                     </div>
                     <div class="grid_12" style="clear:both;">   <h5><span>Be the first to receive updates on new arrivals, promotions, and special events</span></h5></div>
-
                 </div>
             </div>
-
         </div>
     </div>
-
+<?php endif; ?>
 
 
 <?php
