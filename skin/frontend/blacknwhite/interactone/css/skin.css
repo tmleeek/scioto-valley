@@ -300,7 +300,9 @@ header#header .top-cart .block-title.active {/*background-color: #222;*/}
 
 /*====== Header =======*/
 header#header,
-header#header .welcome-msg {color: #888;}
+header#header .welcome-msg {color: #cc0000; font-size: 18px; font-weight: bold; text-decoration: none;}
+header#header .welcome-msg a {color: #cc0000; font-size: 18px; font-weight: bold; text-decoration: none;}
+header#header .welcome-msg a:hover {color: #cc0000; font-size: 18px; font-weight: bold; text-decoration: none;}
 header#header a {color: #f8ba75;}
 header#header a:hover {color: #ff1341;}
 header#header,
