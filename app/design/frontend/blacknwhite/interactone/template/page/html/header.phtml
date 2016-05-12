@@ -30,9 +30,6 @@ $stickyCookie = Mage::getModel('core/cookie')->get("blacknwhiteSticky");
         <div class="quick-access-bss">
             <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_phone')->toHtml() ?>
             <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_address')->toHtml() ?>
-            <div class="storeswitch">
-                <?php echo $this->getChildHtml('store_switcher') ?>
-            </div>
             <?php echo $this->getChildHtml('topLinks') ?>
             <?php echo $this->getChildHtml('cart_sidebar') ?>
             <div class="display-on-mobile"><?php echo str_replace('id="search','id="search_mobile',$this->getChildHtml('topSearch')); ?></div>
