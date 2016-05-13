@@ -6,17 +6,9 @@
                     <div class="grid_8">
                         <h1><span>Never</span><span><span> miss out on a deal</span></span></h1>
                     </div>
-                    <div class="grid_4 home-box">
-                        <form action="http://dev.sciotovalley.com/email_registration" method="post">
-                            <table border="0" cellspacing="0" cellpadding="0" align="center" style="width: 100%">
-                                <tbody>
-                                    <tr>
-                                        <td style="width:100%;"><input class="sub-submit banner-button-solid" style="width: 90%;margin: auto;" type="submit" value="Click here to sign up!"/></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </form>
-                    </div>
+                    <a style="color:white;" href="<?php echo Mage::getUrl("email_registration")?>">
+                        <div class="grid_4 home-box banner-button-solid">Click here to sign up!</div>
+                    </a>
                     <div class="grid_12" style="clear:both;">   <h5><span>Be the first to receive updates on new arrivals, promotions, and special events</span></h5></div>
                 </div>
             </div>
@@ -39,22 +31,22 @@
 ?>
 
 <footer id="footer"<?php if ($footer_status == 0): ?> class="default-footer"<?php endif; ?>>
-	<?php if ($footer_status == 1): ?>
-		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('catalog_footer')->toHtml() ?>
-	<?php else: ?>
-		<div class="footer-bottom-wrapper">
-			<div class="container_12">
-				<div class="grid_12">
-					<address><?php echo $this->getCopyright(); ?></address>
-					<?php echo $this->getChildHtml('store_switcher'); ?>
-					<div class="footer-links">
-						<?php echo $this->getChildHtml('cms_footer_links') ?>
+    <?php if ($footer_status == 1): ?>
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('catalog_footer')->toHtml() ?>
+    <?php else: ?>
+        <div class="footer-bottom-wrapper">
+            <div class="container_12">
+                <div class="grid_12">
+                    <address><?php echo $this->getCopyright(); ?></address>
+                    <?php echo $this->getChildHtml('store_switcher'); ?>
+                    <div class="footer-links">
+                        <?php echo $this->getChildHtml('cms_footer_links') ?>
                     </div>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</div>
-	<?php endif; ?>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    <?php endif; ?>
 </footer>
 <!--<div class="footer-checkout" style="display:none">-->
 <?php //echo $this->getLayout()->createBlock('core/template')->setTemplate('page/html/footer-checkout.phtml')->toHtml(); ?>
