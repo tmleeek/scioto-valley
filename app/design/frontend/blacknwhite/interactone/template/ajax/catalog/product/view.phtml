@@ -169,45 +169,6 @@
 
 
 
-         <!-- begin social share bar -->
-          <div class="product-social-icons-right">
-
-            <!-- fb share - will style later -->
-            <div id="fb-root"></div>
-            <script>(function(d, s, id) {
-                                var js, fjs = d.getElementsByTagName(s)[0];
-                                if (d.getElementById(id)) return;
-                                js = d.createElement(s); js.id = id;
-                                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1516758221892825&version=v2.0";
-                                fjs.parentNode.insertBefore(js, fjs);
-                            }(document, 'script', 'facebook-jssdk'));</script>
-            <div class="fb-like" data-href="" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
-            <!-- Tweet Button -->
-            <div class="socialSharing twitterButton"> <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="watsons"></a>
-              <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-            </div>
-
-            <!-- google+ icon -->
-            <div class="socialSharing googlePlusOneButton">
-              <g:plusone annotation="bubble" width="100" size="medium"></g:plusone>
-              <script type="text/javascript">
-                                (function() {
-                                    window.___gcfg = {lang: 'en'}; // Define button default language here
-                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                    po.src = 'https://apis.google.com/js/plusone.js';
-                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                                })();
-                            </script>
-            </div>
-            <?php if ($this->canEmailToFriend()): ?>
-            <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span> <span><img src="<?php echo $this->getSkinUrl('images/email-to-friend.png'); ?>" /></span></span></a></p>
-            <?php endif;?>
-
-            <!-- new print code 12/21/2014 -->
-             <a href="javascript:window.print()"><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" alt="print this page" id="print-button" /></a>
-
-          </div>
-
           <?php if ($_product->getBlacknwhitePrsku() < 2 ):
 						if ($_product->getBlacknwhitePrsku() == 1 or $productpage_sku): ?>
           <div class="sku"><?php echo $this->__('SKU') . ':<span>' . $_product->getSku() . '</span>'; ?></div>
