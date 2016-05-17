@@ -134,7 +134,6 @@
             <action method="addCss"><stylesheet>css/cssChanges.css</stylesheet><params/></action>
             <action method="addCss"><stylesheet>css/cssChanges2.css</stylesheet><params/></action>
             <action method="addCss"><stylesheet>css/olsCssChanges.css</stylesheet><params/></action>
-            <action method="addCss"><stylesheet>css/grid.css</stylesheet></action>
             <action method="addCss"><stylesheet>css/cart-checkout.css</stylesheet></action>
 
             <block type="core/template" name="bgslider" template="meigee/bgslider.phtml" />
