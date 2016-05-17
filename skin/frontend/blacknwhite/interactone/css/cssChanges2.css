@@ -146,16 +146,16 @@ a.websiteSwitcher div.hoverOver span {
     box-sizing: border-box;
     border-left: 3px solid white;
     border-right: 3px solid white;
-    background-image: url("http://watsons.com/media/wysiwyg/home/social/twitter.png");
+    background-image: url("https://www.sciotovalley.com/media/wysiwyg/home/social/twitter.png");
   }
   
   .socialIcons a:first-child {
-    background-image: url("http://watsons.com/media/wysiwyg/home/social/facebook.png");
+    background-image: url("https://www.sciotovalley.com/media/wysiwyg/home/social/facebook.png");
     background-position: center right;
   }
   
   .socialIcons a:last-child {
-    background-image: url("http://watsons.com/media/wysiwyg/home/social/pinterest.png");
+    background-image: url("https://www.sciotovalley.com/media/wysiwyg/home/social/pinterest.png");
   }
   
   .socialIcons a img {
