@@ -1,10 +1,10 @@
 <?php
 /**
- * Google Recaptcha for Magento 
+ * Google Recaptcha for Magento
  *
  * @package     Yireo_Recaptcha
- * @author      Yireo (http://www.yireo.com/)
- * @copyright   Copyright (C) 2014 Yireo (http://www.yireo.com/)
+ * @author      Yireo (https://www.yireo.com/)
+ * @copyright   Copyright 2016 Yireo (https://www.yireo.com/)
  * @license     Open Source License (OSL v3)
  */
 
@@ -13,11 +13,25 @@
  */
 class Yireo_Recaptcha_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    /*
+    /**
+     * Switch to determine whether this extension is enabled or not
+     *
+     * @return bool
+     */
+    public function enabled()
+    {
+        if ((bool)$this->getStoreConfig('advanced/modules_disable_output/Yireo_Recaptcha', false)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * List of blocks and URLs to override
-     * 
-     * @access public
+     *
      * @parameter null
+     *
      * @return array
      */
     public function getOverwrites()
@@ -34,23 +48,48 @@ class Yireo_Recaptcha_Helper_Data extends Mage_Core_Helper_Abstract
         );
     }
 
-    /*
+    /**
      * Load the configured custom URLs as simple array
-     * 
-     * @access public
+     *
      * @parameter null
+     *
      * @return array
      */
     public function getCustomUrls()
     {
-        $value = Mage::getStoreConfig('web/recaptcha/custom_urls');
+        $value = $this->getStoreConfig('custom_urls');
+        return $this->getArrayFromString($value);
+    }
+
+    /**
+     * Load the configured skip URLs as simple array
+     *
+     * @parameter null
+     *
+     * @return array
+     */
+    public function getSkipUrls()
+    {
+        $value = $this->getStoreConfig('skip_urls');
+        return $this->getArrayFromString($value);
+    }
+
+    /**
+     * Convert a CSV string into an array
+     *
+     * @parameter null
+     *
+     * @return array
+     */
+    public function getArrayFromString($value)
+    {
         $return = array();
-        if(!empty($value)) {
+        if (!empty($value)) {
             $value = str_replace("\n", ',', $value);
             $values = explode(',', $value);
-            foreach($values as $value) {
+            foreach ($values as $value) {
                 $value = trim($value);
-                if(!empty($value)) {
+                if (!empty($value)) {
                     $return[] = $value;
                 }
             }
@@ -58,46 +97,99 @@ class Yireo_Recaptcha_Helper_Data extends Mage_Core_Helper_Abstract
         return $return;
     }
 
-    /*
+    /**
      * Include the CAPTCHA library
-     * 
-     * @access public
+     *
      * @parameter null
-     * @return null
+     *
      */
     public function includeRecaptcha()
     {
-        if(function_exists('_recaptcha_qsencode')) return;
-        if(function_exists('_recaptcha_http_post')) return;
-
-        require_once BP.DS.'app'.DS.'code'.DS.'community'.DS.'Yireo'.DS.'Recaptcha'.DS.'Lib'.DS.'recaptchalib.php';
-    }
-
-    /*
-     * Check whether CAPTCHA can be loaded or not
-     * 
-     * @access public
-     * @parameter null
-     * @return boolean
-     */
-    public function forceCaptcha()
-    {
-        if(Mage::getStoreConfig('web/recaptcha/enabled') == 0) {
-            return false;
+        if (class_exists('\ReCaptcha\Response', false)) {
+            return;
         }
 
-        if(Mage::getSingleton('customer/session')->isLoggedIn() == true) {
-            if(Mage::getStoreConfig('web/recaptcha/captcha_for_loggedin') == 0) {
+        if (class_exists('\ReCaptcha\ReCaptcha', false)) {
+            return;
+        }
+
+        require_once BP . '/app/code/community/Yireo/Recaptcha/Lib/ReCaptcha/ReCaptcha.php';
+        require_once BP . '/app/code/community/Yireo/Recaptcha/Lib/ReCaptcha/Response.php';
+        require_once BP . '/app/code/community/Yireo/Recaptcha/Lib/ReCaptcha/RequestMethod.php';
+        require_once BP . '/app/code/community/Yireo/Recaptcha/Lib/ReCaptcha/RequestParameters.php';
+        require_once BP . '/app/code/community/Yireo/Recaptcha/Lib/ReCaptcha/RequestMethod/Curl.php';
+        require_once BP . '/app/code/community/Yireo/Recaptcha/Lib/ReCaptcha/RequestMethod/Post.php';
+        require_once BP . '/app/code/community/Yireo/Recaptcha/Lib/ReCaptcha/RequestMethod/CurlPost.php';
+        require_once BP . '/app/code/community/Yireo/Recaptcha/Lib/ReCaptcha/RequestMethod/Socket.php';
+        require_once BP . '/app/code/community/Yireo/Recaptcha/Lib/ReCaptcha/RequestMethod/SocketPost.php';
+    }
+
+    /**
+     * Check whether CAPTCHA can be loaded or not
+     *
+     * @parameter null
+     *
+     * @return boolean
+     */
+    public function useCaptcha()
+    {
+        if (Mage::getSingleton('customer/session')->isLoggedIn() == true) {
+            if ($this->getStoreConfig('captcha_for_loggedin') == 0) {
                 return false;
             }
         }
 
-        $public_key = trim(Mage::getStoreConfig('web/recaptcha/public_key'));
-        $private_key = trim(Mage::getStoreConfig('web/recaptcha/private_key'));
-        if(empty($public_key) || empty($private_key)) {
+        if ($this->isValidKeys() == false) {
             return false;
         }
 
         return true;
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isValidKeys()
+    {
+        $siteKey = trim($this->getStoreConfig('site_key'));
+        $secretKey = trim($this->getStoreConfig('secret_key'));
+
+        if (empty($siteKey) || empty($secretKey)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @param $message
+     * @param null $variable
+     */
+    public function debug($message, $variable = null)
+    {
+        $debugging = $this->getStoreConfig('debugging');
+        if ($debugging == false) {
+            return;
+        }
+
+        if (!empty($variable)) {
+            $message .= ' = ' . $variable;
+        }
+
+        Mage::log($message, 'yireo_recaptcha.log');
+    }
+
+    /**
+     * @param $value
+     *
+     * @return mixed
+     */
+    public function getStoreConfig($value, $prefix = true)
+    {
+        if ($prefix) {
+            $value = 'recaptcha/settings/' . $value;
+        }
+
+        return Mage::getStoreConfig($value);
     }
 }

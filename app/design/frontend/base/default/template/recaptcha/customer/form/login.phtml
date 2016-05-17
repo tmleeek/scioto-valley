@@ -20,7 +20,7 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright 2016 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
@@ -64,6 +64,12 @@
                         </li>
                     </ul>
                     <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+                    <?php $recaptcha = $this->getBlockHtml('recaptcha')?>
+                    <?php if($recaptcha): ?>
+                    <div id="recaptcha-outer-box">
+                        <?php echo $recaptcha; ?>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -80,12 +86,6 @@
                 </div>
             </div>
         </div>
-        <?php $recaptcha = $this->getBlockHtml('recaptcha')?>
-        <?php if($recaptcha): ?>
-        <div id="recaptcha-outer-box">
-            <?php echo $recaptcha; ?>
-        </div>
-        <?php endif; ?>
     </form>
     <script type="text/javascript">
     //<![CDATA[

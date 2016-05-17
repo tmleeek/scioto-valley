@@ -4,19 +4,32 @@
  * Google reCaptcha for Magento 
  *
  * @package     Yireo_Recaptcha
- * @author      Yireo (http://www.yireo.com/)
- * @copyright   Copyright (C) 2014 Yireo (http://www.yireo.com/)
+ * @author      Yireo (https://www.yireo.com/)
+ * @copyright   Copyright 2016 Yireo (https://www.yireo.com/)
  * @license     Open Source License (OSL v3)
  */
 -->
 <config>
+    <tabs>
+        <yireo translate="label" module="recaptcha">
+            <label>Yireo</label>
+            <sort_order>900</sort_order>
+        </yireo>
+    </tabs>
     <sections>
-        <web>
+        <recaptcha translate="label" module="recaptcha">
+            <label>Google Recaptcha</label>
+            <tab>yireo</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>98</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
             <groups>
-                <recaptcha translate="label">
-                    <label>Recaptcha</label>
+                <settings translate="label">
+                    <label>Settings</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>99</sort_order>
+                    <sort_order>1</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
@@ -26,53 +39,44 @@
                             <comment><![CDATA[Enable or disable reCAPTCHA quickly]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>6</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </enabled>
-                        <private_key translate="label">
-                            <label>Private Key</label>
-                            <comment><![CDATA[Private Key as generated on google.com/recaptcha]]></comment>
-                            <frontend_type>text</frontend_type>
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </private_key>
-                        <public_key translate="label">
-                            <label>Public Key</label>
-                            <comment><![CDATA[Public Key as generated on google.com/recaptcha]]></comment>
+                        </enabled>
+                        <site_key translate="label">
+                            <label>Site Key</label>
+                            <comment><![CDATA[Site Key as generated on google.com/recaptcha]]></comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </public_key>
+                        </site_key>
+                        <secret_key translate="label">
+                            <label>Secret Key</label>
+                            <comment><![CDATA[Secret Key as generated on google.com/recaptcha]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </secret_key>
                         <theme translate="label">
                             <label>Theme</label>
                             <frontend_type>select</frontend_type>
                             <source_model>recaptcha/backend_source_theme</source_model>
-                            <sort_order>3</sort_order>
+                            <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </theme>
-                        <api translate="label">
-                            <label>API</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>recaptcha/backend_source_api</source_model>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </api>
                         <overwrite_customer_form_register translate="label">
                             <label>Customer registration</label>
                             <comment><![CDATA[Select Yes to add reCAPTCHA to this page]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>4</sort_order>
+                            <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -82,7 +86,7 @@
                             <comment><![CDATA[Select Yes to add reCAPTCHA to this page]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>5</sort_order>
+                            <sort_order>21</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -92,7 +96,7 @@
                             <comment><![CDATA[Select Yes to add reCAPTCHA to this page]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>5</sort_order>
+                            <sort_order>22</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -102,7 +106,7 @@
                             <comment><![CDATA[Select Yes to add reCAPTCHA to this page]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>6</sort_order>
+                            <sort_order>23</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -112,7 +116,7 @@
                             <comment><![CDATA[Select Yes to add reCAPTCHA to this page]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>6</sort_order>
+                            <sort_order>24</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -122,7 +126,7 @@
                             <comment><![CDATA[Select Yes to add reCAPTCHA to this page]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>6</sort_order>
+                            <sort_order>25</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -132,7 +136,7 @@
                             <comment><![CDATA[Select Yes to add reCAPTCHA to this page]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>6</sort_order>
+                            <sort_order>26</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -142,7 +146,7 @@
                             <comment><![CDATA[Select Yes to add reCAPTCHA to this page]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>6</sort_order>
+                            <sort_order>27</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -150,7 +154,7 @@
                         <custom_urls translate="label">
                             <label>Custom URLs</label>
                             <frontend_type>textarea</frontend_type>
-                            <sort_order>10</sort_order>
+                            <sort_order>50</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
@@ -161,14 +165,34 @@
                             <comment><![CDATA[Force reCAPTCHA for logged in users as well]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>6</sort_order>
+                            <sort_order>60</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </captcha_for_loggedin>
+                        <basic_mode translate="label">
+                            <label>Basic Mode</label>
+                            <comment><![CDATA[Enable basic reCAPTCHA mode]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>61</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </basic_mode>
+                        <debugging translate="label">
+                            <label>Debugging</label>
+                            <comment><![CDATA[Log to system.log]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </debugging>
                     </fields>
-                </recaptcha>
+                </settings>
             </groups>
-        </web>
+        </recaptcha>
     </sections>
 </config>
