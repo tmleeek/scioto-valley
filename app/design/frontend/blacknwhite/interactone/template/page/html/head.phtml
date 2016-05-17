@@ -43,25 +43,3 @@
 <?php echo $this->getChildHtml() ?>
 <?php echo $this->helper('core/js')->getTranslatorScript() ?>
 <?php echo $this->getIncludes() ?>
-
-<?php // Dayton Conversion Code ?>
-<?php if ( Mage::app()->getStore()->getCode() == 'dayton' && Mage::getSingleton('cms/page')->getIdentifier() == 'thank-you-for-contacting-watsons' ): ?>
-	<!-- Google Code for Form Fills Conversion Page -->
-	<script type="text/javascript">
-		/* <![CDATA[ */
-		var google_conversion_id = 935353168;
-		var google_conversion_language = "en";
-		var google_conversion_format = "3";
-		var google_conversion_color = "ffffff";
-		var google_conversion_label = "3VxzCKjM6GIQ0LaBvgM";
-		var google_remarketing_only = false;
-		/* ]]> */
-	</script>
-	<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-	</script>
-	<noscript>
-		<div style="display:inline;">
-			<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/935353168/?label=3VxzCKjM6GIQ0LaBvgM&guid=ON&script=0"/>
-		</div>
-	</noscript>
-<?php endif; ?>
