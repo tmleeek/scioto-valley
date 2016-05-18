@@ -215,102 +215,114 @@ $richSnippets = $meigee_blacknwhite_productpage['rich_snippets'];
                                             <?php endif; ?>
                                         <?php endif; ?>
                                         <div class="product-social-icons-right">
-                                            <!-- send to friend -->
-                                            <?php /*if ($this->canEmailToFriend()): ?>
-                            <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span><span><?php echo $this->__('Email to a Friend') ?></span></span></a></p>
-                        <?php endif;*/ ?>
-                                            <!-- fb share - will style later -->
-                                            <div id="fb-root"></div>
-                                            <script>(function(d, s, id) {
-                                                    var js, fjs = d.getElementsByTagName(s)[0];
-                                                    if (d.getElementById(id)) return;
-                                                    js = d.createElement(s); js.id = id;
-                                                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1516758221892825&version=v2.0";
-                                                    fjs.parentNode.insertBefore(js, fjs);
-                                                }(document, 'script', 'facebook-jssdk'));</script>
-                                            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
-                                            <!-- Tweet Button -->
-                                            <div class="socialSharing twitterButton"> <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="watsons"></a>
-                                                <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-                                            </div>
-                                            <div class="socialSharing googlePlusOneButton">
-                                                <g:plusone annotation="bubble" width="100" size="medium"></g:plusone>
-                                                <script type="text/javascript">
-                                                    (function() {
-                                                        window.___gcfg = {lang: 'en'}; // Define button default language here
-                                                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                                        po.src = 'https://apis.google.com/js/plusone.js';
-                                                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                                                    })();
+                                            <?php
+                                            $showSocial=False;
+                                            if($showSocial==True) {?>
+                                                <!-- send to friend -->
+                                                <?php /*if ($this->canEmailToFriend()): ?>
+                                                    <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span><span><?php echo $this->__('Email to a Friend') ?></span></span></a></p>
+                                                <?php endif;*/ ?>
+                                                <!-- fb share - will style later -->
+                                                <div id="fb-root"></div>
+                                                <script>(function(d, s, id) {
+                                                        var js, fjs = d.getElementsByTagName(s)[0];
+                                                        if (d.getElementById(id)) return;
+                                                        js = d.createElement(s); js.id = id;
+                                                        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1516758221892825&version=v2.0";
+                                                        fjs.parentNode.insertBefore(js, fjs);
+                                                    }(document, 'script', 'facebook-jssdk'));
                                                 </script>
-                                            </div>
-                                            <?php if ($this->canEmailToFriend()): ?>
-                                                <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span> <span><img src="<?php echo $this->getSkinUrl('images/email-to-friend.png'); ?>" /></span></span></a></p>
-                                            <?php endif;?>
+                                                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
+                                                <!-- Tweet Button -->
+                                                <div class="socialSharing twitterButton"> <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="watsons"></a>
+                                                    <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+                                                </div>
+                                                <div class="socialSharing googlePlusOneButton">
+                                                    <g:plusone annotation="bubble" width="100" size="medium"></g:plusone>
+                                                    <script type="text/javascript">
+                                                        (function() {
+                                                            window.___gcfg = {lang: 'en'}; // Define button default language here
+                                                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                                            po.src = 'https://apis.google.com/js/plusone.js';
+                                                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                                        })();
+                                                    </script>
+                                                </div>
+                                                <?php if ($this->canEmailToFriend()): ?>
+                                                    <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span> <span><img src="<?php echo $this->getSkinUrl('images/email-to-friend.png'); ?>" /></span></span></a></p>
+                                                <?php endif;?>
 
 
-                                            <a class="printicon" href="<?php echo $magentoCurrentUrl ?>" onclick="javascript:void window.open('<?php echo $magentoCurrentUrl ?>','1411467340295','width=1200,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a>
-                                            <?php  if( isset($_GET['print']) ) : echo $_GET['print'];?>
+                                                <a class="printicon" href="<?php echo $magentoCurrentUrl ?>" onclick="javascript:void window.open('<?php echo $magentoCurrentUrl ?>','1411467340295','width=1200,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a>
+                                                <?php  if( isset($_GET['print']) ) : echo $_GET['print'];?>
 
-                                            <div class="prinonicon"><a href="#" onclick="myFunction()"><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a>
-                                                <style>
-                                                    .printicon { display:none;}
+                                                    <div class="prinonicon"><a href="#" onclick="myFunction()"><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a>
+                                                        <style>
+                                                            .printicon { display:none;}
 
-                                                    .prinonicon {
-                                                        position: absolute;
-                                                        right: 500px;
-                                                        top: -199px;
-                                                    }
-                                                </style>
-                                                <script>
-                                                    function myFunction() {
-                                                        window.print();
-                                                    }
-                                                </script>
+                                                            .prinonicon {
+                                                                position: absolute;
+                                                                right: 500px;
+                                                                top: -199px;
+                                                            }
+                                                        </style>
+                                                        <script>
+                                                            function myFunction() {
+                                                                window.print();
+                                                            }
+                                                        </script>
+                                                        
+                                                        <!--  <a href="#" onclick="myFunction()"><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a> -->
+
+
+
+
+
+                                                        <!--<a href='javascript:window.print()' ><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a>
+                                                        <a href='javascript:window.print()'>
+                                                        <img src='images/printer.png' height='32px' width='32px'></a>
+                                                        <h1>
+                                                                Pop & print</h1>
+                                                            <button onclick="pop();">
+                                                                Pop</button>
+
+                                                            <script type="text/javascript">
+                                                              var POP;
+                                                              function pop() {
+                                                                  var newWin = window.open('', 'thePopup', 'width=350,height=350');
+                                                                newWin.document.write("<html><head><title>popup</title></head><body><h1>Pop</h1>" +
+                                                                    "<p>Print me</p><a href='print.html' onclick='window.print();return false;'>" +
+                                                                    "<img src='images/printer.png' height='32px' width='32px'></a></body></html>");
+                                                              }
+                                                            </script>
+
+                                                        <script>
+                                                        function myFunction() {
+                                                            window.print();
+                                                        }
+                                                        </script>
+                                                        -->
+                                                        <!-- Google +1 Button - needs some help -->
+
+                                                        <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('social_product')->toHtml() ?>
+                                                        <?php //echo $this->getChildHtml('social_icon'); ?>
+                                                    </div>
                                                 <?php endif; ?>
-                                                <!--  <a href="#" onclick="myFunction()"><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a> -->
-
-
-
-
-
-                                                <!--<a href='javascript:window.print()' ><img src="<?php echo $this->getSkinUrl('images/print.png'); ?>" /></a>
-<a href='javascript:window.print()'>
-<img src='images/printer.png' height='32px' width='32px'></a>
-<h1>
-        Pop & print</h1>
-    <button onclick="pop();">
-        Pop</button>
-
-    <script type="text/javascript">
-      var POP;
-      function pop() {
-          var newWin = window.open('', 'thePopup', 'width=350,height=350');
-        newWin.document.write("<html><head><title>popup</title></head><body><h1>Pop</h1>" +
-            "<p>Print me</p><a href='print.html' onclick='window.print();return false;'>" +
-            "<img src='images/printer.png' height='32px' width='32px'></a></body></html>");
-      }
-    </script>
-
-<script>
-function myFunction() {
-    window.print();
-}
-</script>
--->
-                                                <!-- Google +1 Button - needs some help -->
-
-                                                <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('social_product')->toHtml() ?>
-                                                <?php //echo $this->getChildHtml('social_icon'); ?>
-                                            </div>
-                                            <?php if ($_product->getBlacknwhitePrsku() < 2 ):
-                                                if ($_product->getBlacknwhitePrsku() == 1 or $productpage_sku): ?>
-                                                    <div class="sku"><?php echo $this->__('SKU') . ':<span>' . $_product->getSku() . '</span>'; ?></div>
-                                                <?php
-                                                endif;
-                                            endif; ?>
-                                            <?php echo $_product->getProductSku(); ?> </div>
+                                                <?php 
+                                                if ($_product->getBlacknwhitePrsku() < 2 ):
+                                                    if ($_product->getBlacknwhitePrsku() == 1 or $productpage_sku): ?>
+                                                        <div class="sku"><?php echo $this->__('SKU') . ':<span>' . $_product->getSku() . '</span>'; ?></div>
+                                                        <?php
+                                                    endif;
+                                                endif; ?>
+                                                <?php echo $_product->getProductSku(); ?>
+                                            <?php 
+                                            };
+                                            ?>
+                                        </div>
+                                        </div>
                                     </div>
+
                                     <div class="clear "></div>
                                     <?php if($special_order == "Yes") : ?>
                                         <div class="instore-pricing-body"> Ask us about our pricing! <br>
