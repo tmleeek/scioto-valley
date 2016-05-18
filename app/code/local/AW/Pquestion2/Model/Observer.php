@@ -186,7 +186,7 @@ class AW_Pquestion2_Model_Observer
             'product_url'             => $question->getProduct()->getProductUrl(),
             'product_name'            => Mage::helper('aw_pq2')->stripTags($question->getProduct()->getName()),
             'question_initiator_name' => $question->getAuthorName(),
-            'question_initiator_name' => $question->getAuthorEmail(),
+            'question_initiator_email' => $question->getAuthorEmail(),
             'question_text'           => $question->getContent(),
             'backend_question_page'   => Mage::getSingleton('adminhtml/url')->getUrl(
                 'aw_pq2_admin/adminhtml_question/edit',
