@@ -1,0 +1,45 @@
+<?php
+
+$_helper = Mage::helper('downloads');
+$item = $this->getItem();
+$fileName = $item->getName();
+$itemUrl = ($item->getUrl() != '') ? $item->getUrl() : $_helper->getDownloadLink($item);
+$updateCountUrl = $_helper->getUpdateCountUrl($item);
+$isNewTab = ($item->getUrl() != '' || $item->getType() == 'pdf');
+?>
+
+<div class="downloads-item">
+    <div class="item-icon"><?php echo $_helper->getIcon($item) ?></div>
+    <div class="item-link">
+        <?php if ($_helper->checkCustomerGroupAccess($item)) { ?>
+
+            <?php if ($item->getEmbedCode() != ''): ?>
+                <a href="#" rel="<?php echo $item->getId() ?>" onclick="downloads.openVideo('<?php echo $_helper->getEmbedLink($item) ?>', '<?php echo $item->getName() ?>'); return false;" title="<?php echo $_helper->htmlEscape($fileName) ?>"><b><?php echo $fileName ?></b></a>
+            <?php else: ?>
+                <a href="<?php echo $itemUrl ?>" rel="<?php echo $item->getId() ?>" onclick="downloads.openFile('<?php echo $itemUrl ?>', <?php echo $isNewTab ? 1 : 0 ?>); return false;" title="<?php echo $_helper->htmlEscape($fileName) ?>"><b><?php echo $fileName ?></b></a>
+            <?php endif; ?>
+
+        <?php } else { ?>
+
+            <b><?php echo $fileName ?></b><span> *</span>
+
+        <?php } ?>
+    </div>
+
+    <?php if (!$this->getIsGridMode()): ?>
+        <div class="item-info">
+            <?php if ($_helper->isDisplaySize() && $item->getUrl() == ''): ?>
+                (<?php echo $_helper->__('Size') ?>: <?php echo $_helper->prepareFileSize($item->getSize()) ?>)
+            <?php endif; ?>
+            <?php if ($_helper->isDisplayDownloads() && $item->getUrl()==''): ?>
+                <?php echo $_helper->__('Downloads') ?>: <?php echo $item->getDownloads() ?>
+            <?php endif; ?>
+        </div>
+
+        <?php if ($item->getFileDescription()): ?>
+        <div class="item-description">
+            <?php echo $item->getFileDescription(); ?>
+        </div>
+        <?php endif; ?>
+    <?php endif; ?>
+</div>
