@@ -39,10 +39,10 @@ class MageWorx_Adminhtml_Block_System_Config_Edit extends Mage_Adminhtml_Block_S
         $sectionCode = $this->getRequest()->getParam('section');
         $sections = Mage::getSingleton('adminhtml/config')->getSections();
         $session = Mage::getSingleton('admin/session');
-        if (false !== strpos($sectionCode, 'mageworx')){
+        if (false !== strpos($sectionCode, 'mageworx')) {
             $groups = $this->_section->groups[0];
-            foreach ($groups as $group => $object){
-                if (!$session->isAllowed("system/config/$sectionCode/$group")){
+            foreach ($groups as $group => $object) {
+                if (!$session->isAllowed("system/config/$sectionCode/$group")) {
                     $sections->$sectionCode->groups->$group = null;
                 }
             }

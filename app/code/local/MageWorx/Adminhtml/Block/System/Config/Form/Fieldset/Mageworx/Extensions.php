@@ -35,26 +35,26 @@
  */
 
 class MageWorx_Adminhtml_Block_System_Config_Form_Fieldset_Mageworx_Extensions
-	extends MageWorx_Adminhtml_Block_System_Config_Form_Fieldset_Mageworx_Abstract
+    extends MageWorx_Adminhtml_Block_System_Config_Form_Fieldset_Mageworx_Abstract
 {
-	protected $_dummyElement;
-	protected $_fieldRenderer;
-	protected $_values;
+    protected $_dummyElement;
+    protected $_fieldRenderer;
+    protected $_values;
 
     public function render(Varien_Data_Form_Element_Abstract $element)
     {
-		$html = $this->_getHeaderHtml($element);
+        $html = $this->_getHeaderHtml($element);
 
-		$modules = array_keys((array)Mage::getConfig()->getNode('modules')->children());
+        $modules = array_keys((array)Mage::getConfig()->getNode('modules')->children());
 
-		sort($modules);
+        sort($modules);
 
         foreach ($modules as $moduleName) {
-            $name = explode('_', $moduleName, 2);
-        	if (!isset($name) || $name[0] != 'MageWorx') {
-        		continue;
-        	}
-        	$html.= $this->_getFieldHtml($element, $moduleName);
+            list($namespace, $extension) = explode('_', $moduleName, 2);
+            if ($namespace != 'MageWorx') {
+                continue;
+            }
+            $html .= $this->_getFieldHtml($element, $moduleName);
         }
         $html .= $this->_getFooterHtml($element);
 
@@ -63,10 +63,10 @@ class MageWorx_Adminhtml_Block_System_Config_Form_Fieldset_Mageworx_Extensions
 
     protected function _getFieldRenderer()
     {
-    	if (empty($this->_fieldRenderer)) {
-    		$this->_fieldRenderer = Mage::getBlockSingleton('adminhtml/system_config_form_field');
-    	}
-    	return $this->_fieldRenderer;
+        if (empty($this->_fieldRenderer)) {
+            $this->_fieldRenderer = Mage::getBlockSingleton('adminhtml/system_config_form_field');
+        }
+        return $this->_fieldRenderer;
     }
 
     protected function _getFooterHtml($element)
@@ -79,15 +79,15 @@ class MageWorx_Adminhtml_Block_System_Config_Form_Fieldset_Mageworx_Extensions
 
     protected function _getFieldHtml($fieldset, $moduleName)
     {
-    	$moduleConfig = Mage::getConfig()->getNode('modules/' . $moduleName);
+        $moduleConfig = Mage::getConfig()->getNode('modules/' . $moduleName);
 
         $field = $fieldset->addField($moduleName, 'label',
             array(
-                'name'          => $moduleName,
-                'label'         => $moduleConfig->extension_name,
-                'value'         => 'v' . $moduleConfig->version,
+                'name' => $moduleName,
+                'label' => $moduleConfig->extension_name,
+                'value' => 'v' . $moduleConfig->version,
             ))->setRenderer($this->_getFieldRenderer());
 
-		return $field->toHtml();
+        return $field->toHtml();
     }
 }

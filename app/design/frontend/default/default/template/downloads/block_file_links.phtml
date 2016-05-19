@@ -1,0 +1,79 @@
+<?php
+/**
+ * MageWorx
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MageWorx EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.mageworx.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@mageworx.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.mageworx.com/ for more information
+ * or send an email to sales@mageworx.com
+ *
+ * @category   design_default
+ * @package    MageWorx_Downloads
+ * @copyright  Copyright (c) 2009 MageWorx (http://www.mageworx.com/)
+ * @license    http://www.mageworx.com/LICENSE-1.0.html
+ */
+
+/**
+ * Downloads extension
+ *
+ * @category   design_default
+ * @package    MageWorx_Downloads
+ * @author     MageWorx Dev Team <dev@mageworx.com>
+ */
+
+$items = $this->getItems();
+$_helper = Mage::helper('downloads');
+$showMessage = $_helper->showAccessNotice($items);
+?>
+
+<?php if ($items && $_helper->isEnabled()): ?>
+<?php if ($_helper->getGroupByCategory() || $_helper->checkCustomerAccess($items)): ?>
+
+<div class="downloads-links-block" <?php if(!$this->getIsGridMode() && !$this->getIsInTab()){ ?>style="margin-top: 35px;"<?php } ?>>
+    <?php if ($this->getTitle()): ?>
+        <div class="head">
+            <h4><?php echo $this->getTitle() ?></h4>
+        </div>
+    <?php endif; ?>
+
+
+    <?php if(!$_helper->getGroupByCategory()): ?>
+
+        <?php foreach ($items as $item): ?>
+            <?php echo Mage::helper('downloads')->getDownloadItemHtml($item, $this->getIsGridMode()); ?>
+        <?php endforeach; ?>
+
+    <?php else: ?>
+
+        <?php foreach($items as $category): ?>
+            <div class="category-title"><?php echo $category['title']; ?></div>
+            <div class="category-files">
+
+                <?php foreach($category['files'] as $item): ?>
+                    <?php echo Mage::helper('downloads')->getDownloadItemHtml($item, $this->getIsGridMode()); ?>
+                <?php endforeach; ?>
+
+            </div>
+        <?php endforeach; ?>
+
+    <?php  endif; ?>
+
+    <?php if($showMessage): ?>
+        <div class="access-notice"><span>* <?php echo $_helper->getHowToDownloadMessage() ?></span></div>
+    <?php endif; ?>
+</div>
+<?php endif; ?>
+<?php endif; ?>

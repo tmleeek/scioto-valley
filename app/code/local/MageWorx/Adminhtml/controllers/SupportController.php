@@ -34,7 +34,7 @@
  * @author     MageWorx Dev Team <dev@mageworx.com>
  */
 
-class MageWorx_Adminhtml_SupportController extends  Mage_Adminhtml_Controller_Action
+class MageWorx_Adminhtml_SupportController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction()
     {
@@ -44,7 +44,7 @@ class MageWorx_Adminhtml_SupportController extends  Mage_Adminhtml_Controller_Ac
             ->setName($data['name'])
             ->setEmail($data['email'])
             ->setSubject($data['subject'])
-            ->setReason(isset($data['other_reason'])?$data['other_reason']:$data['reason'])
+            ->setReason(isset($data['other_reason']) ? $data['other_reason'] : $data['reason'])
             ->setMessage($data['message']);
         try {
             $support->send();
