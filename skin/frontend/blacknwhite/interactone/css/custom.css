@@ -148,7 +148,7 @@ li.level1.parent:after {
 .nav-container li.level-top > a {
     background-color: transparent;
 }
-header#header, header#header .welcome-msg {color: #152024; text-transform: uppercase; font-weight: bold; }
+header#header, header#header .welcome-msg .links a {color: #152024; text-transform: uppercase; font-weight: bold; }
 header#header .customer-name, header#header .links li a {color: #152024;}
 header#header .customer-name, header#header .links li a:hover {color: #e31837;}
 header#header .quick-access-bss {font-size: .750em; padding: 0;}
@@ -239,7 +239,7 @@ header.page-title.category-title {
 /* main navigation */
 .topline .grid_12 {border: none;}
 .topline .container_12 {padding: 0;}
-.nav-container li.level-top > a span {color: #2b3e45 !important; font-weight: 700; font-family: 'Lato', sans-serif; font-size: .750em; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px;}
+.nav-container li.level-top > a span {color: #2b3e45 !important; font-weight: 700; font-family: 'Lato', sans-serif; font-size: .725em; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px;}
 .nav-container li.level-top > a:hover span {color: #e61937;}
 .nav-container li.level-top.active > a, .nav-container li.level-top > a:hover {padding: 0; margin: 0; background: none; color: #e31837 !important;}
 .nav-container li.level-top.active > a {color: #e31837;}
@@ -1455,6 +1455,14 @@ aside.sidebar .block.block-layered-nav dl dd ol li a:hover{
         margin: 10px 0;
     }
 }
+
+@media only screen and (max-width: 601px) {
+
+    .mo-12-wrapper h5 {
+        /*font-size: 10px;*/
+        display: none;
+    }
+}
 /*/////////// EXPLORE LOWEST PRICE SECTION HOMEPAGE ////////*/
 
 .home-box .price-box{
@@ -2318,4 +2326,3 @@ button{
         line-height: 21px;
     }
 }
-
