@@ -3606,7 +3606,11 @@ body.hover-effect.hover-scale .products-grid li.item:hover .product-image.hover-
 
 .product-collateral .box-collateral ul,
 .product-collateral .box-collateral ol{
+	/* Original code
 	padding:1em 0;
+	*/
+	list-style-type: initial;
+	padding:30px;
 }
 .product-collateral .box-collateral ul li,
 .product-collateral .box-collateral ol li{
@@ -3616,7 +3620,7 @@ body.hover-effect.hover-scale .products-grid li.item:hover .product-image.hover-
 .product-collateral .box-collateral ul li,
 .product-collateral .box-collateral ol li,
 .product-collateral .box-collateral ul a,
-.product-collateral .box-collateral ol a{color:#888;}
+/*.product-collateral .box-collateral ol a{color:#888;} */
 .product-collateral .box-collateral .product-name {padding: 0; margin: 0;}
 .product-collateral .box-collateral .price-box {border: none; padding: 0;}
 .review-product-list .product-image{border: 1px solid #DADADA;}
