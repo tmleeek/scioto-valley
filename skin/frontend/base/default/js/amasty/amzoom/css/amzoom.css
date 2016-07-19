@@ -1,0 +1,134 @@
+.product-image img#amasty_zoom:nth-child(2){
+    display: none;
+} 
+
+#amasty_gallery img{
+    display: inline !important;
+}
+
+.amasty-main-spinner{
+    top: 0;
+}
+
+.zoomLens {
+    background-color: white;
+}
+
+#amasty_zoom{
+    position: relative !important;
+}
+
+.zoomContainer {
+    z-index: 10;
+}
+
+.zoomWindow {
+    z-index: 70000 !important;
+}
+
+.zoomWrapper {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image {
+    overflow: visible;
+    text-align: center;
+    position: relative;
+}
+
+
+.MagicScrollArrows {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+}
+
+.MagicScrollArrowPrev { 
+    width: 35px;
+    height: 35px;
+    background: url(../images/miscellaneous_sprite_sm.png) 0 -35px no-repeat transparent;
+    left:0;
+}
+
+.MagicScrollArrowNext {
+    width: 35px;
+    height: 35px; 
+    background: url(../images/miscellaneous_sprite_sm.png) -35px -35px no-repeat transparent;
+    right:0;
+}
+
+#nextGallery.disabled, #prevGallery.disabled {
+    opacity: 0.4;
+    filter: alpha(opacity = 40);
+    cursor: default;
+}
+
+.caroufredsel_wrapper {
+    margin:0 auto !important;    
+}
+
+#amasty_gallery a{
+     text-decoration: none;
+}
+
+#ampagination {
+    text-align: center;
+}
+#ampagination a {
+    background: url(../images/miscellaneous_sprite.png) 0 -300px no-repeat transparent;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px 0 0;
+    display: inline-block;
+}
+#ampagination a.selected {
+    background-position: -25px -300px;
+    cursor: default;
+}
+#ampagination a span {
+    display: none;
+}
+
+/*
+vertical thumbnail start
+*/
+@media screen and (max-width: 760px) {
+    .more-views.amvertical{
+        margin-top: 80px;
+    }
+}
+.more-views.amvertical{
+    position: absolute;
+    top: 35px;
+    left:0;
+
+}
+
+.more-views.amvertical h2{
+    display: none;
+}
+
+.product-img-box{
+    position: relative;
+}
+
+.more-views.amvertical #amasty_gallery a{
+    display: block;
+}
+
+.MagicScrollArrowPrev.amvertical {
+    width: 35px;
+    height: 35px;
+    background: url(../images/miscellaneous_sprite_sm.png) -74px -250px no-repeat transparent;
+    top:-35px;
+}
+
+.MagicScrollArrowNext.amvertical {
+    width: 35px;
+    height: 35px;
+    background: url(../images/miscellaneous_sprite_sm.png) -75px -280px no-repeat transparent;
+    bottom: -35px;
+}
+

@@ -1,0 +1,21 @@
+<?php 
+    /**
+    * @author Amasty Team
+    * @copyright Copyright (c) 2013 Amasty (http://www.amasty.com)
+    * @package Amasty_Zoom
+    */
+
+    $data = $this->getProductInformation();
+    $setting = $this->getSetting()? $this->getSetting(): '[]';
+?>
+
+<script type="text/javascript">
+    var AmZoomergridObj = new AmZoomergrid(<?php echo $data;?>, <?php echo $setting;?>);
+
+    Event.observe(window, 'load', function() {
+        if('undefined' != typeof(AmZoomergridObj)){
+            AmZoomergridObj.loadZoom();
+        }
+    })
+</script>
+         

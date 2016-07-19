@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+    <catalog_product_view>
+        <reference name="head">       
+            <!-- module sourse -->
+            <action method="addItem"  ifconfig="amzoom/general/enable"><type>skin_css</type><name>js/amasty/amzoom/css/amzoom.css</name><params/></action>
+            <action method="addItem" ifconfig="amzoom/general/enable"><type>skin_js</type><name>js/amasty/amzoom/zoomer.js</name><params/></action>
+            <!-- include jQuery plugins -->
+            <action method="addItem"><type>skin_js</type><name>js/amasty/plugins/jquery-1.9.1.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/amasty/plugins/jquery.elevatezoom.js</name><params/></action>
+            <action method="addItem" ifconfig="amzoom/carousel/swipe"> <type>skin_js</type><name>js/amasty/plugins/jquery.touchSwipe.min.js</name><params/></action>
+            <action method="addItem" ifconfig="amzoom/carousel/enable"><type>skin_js</type><name>js/amasty/plugins/jquery.carouFredSel-6.2.1.js</name><params/></action>
+            <action method="addItem" ifconfig="amzoom/lightbox/enable"><type>skin_css</type><name>js/amasty/plugins/fancybox/jquery.fancybox.css</name><params/></action>
+            <action method="addItem" ifconfig="amzoom/lightbox/enable"><type>skin_js</type><name>js/amasty/plugins/fancybox/jquery.fancybox.js</name><params/></action>
+        </reference>
+	    <reference name="product.info">
+            <action ifconfig="amzoom/general/enable" method="unsetChild"><name>product.info.media</name></action>
+            <block type="amzoom/catalog_product_view_media"  name="product.info.media" as="media">
+				<action method="setTemplate">
+                    <template>catalog/product/view/media.phtml</template> 
+                </action>
+                <action method="setTemplate" ifconfig="amzoom/general/enable">
+                    <template>amasty/amzoom/media.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </catalog_product_view>
+    
+    <catalog_category_view>
+        <reference name="head"> 
+			<action method="addItem" ifconfig="amzoom/zoom_on_category_grid/enable"><type>skin_js</type><name>js/amasty/amzoom/zoomer_grid.js</name><params/></action>
+			<action method="addItem" ifconfig="amzoom/zoom_on_category_grid/enable"><type>skin_js</type><name>js/amasty/plugins/jquery-1.9.1.min.js</name><params/></action>
+            <action method="addItem" ifconfig="amzoom/zoom_on_category_grid/enable"><type>skin_js</type><name>js/amasty/plugins/jquery.elevatezoom_grid.js</name><params/></action>
+            <action method="addItem" ifconfig="amzoom/zoom_on_category_grid/enable"><type>skin_css</type><name>js/amasty/amzoom/css/amzoom.css</name><params/></action>
+        </reference>
+        <reference name="content">
+            <block type="amzoom/grid" ifconfig="amzoom/zoom_on_category_grid/enable" name="amzoom_grid" after="category.products" />
+        </reference>
+    </catalog_category_view>
+
+    <catalogsearch_result_index>
+        <reference name="head">
+            <action method="addItem" ifconfig="amzoom/zoom_on_category_grid/enable"><type>skin_js</type><name>js/amasty/amzoom/zoomer_grid.js</name><params/></action>
+            <action method="addItem" ifconfig="amzoom/zoom_on_category_grid/enable"><type>skin_js</type><name>js/amasty/plugins/jquery-1.9.1.min.js</name><params/></action>
+            <action method="addItem" ifconfig="amzoom/zoom_on_category_grid/enable"><type>skin_js</type><name>js/amasty/plugins/jquery.elevatezoom_grid.js</name><params/></action>
+            <action method="addItem" ifconfig="amzoom/zoom_on_category_grid/enable"><type>skin_css</type><name>js/amasty/amzoom/css/amzoom.css</name><params/></action>
+        </reference>
+        <reference name="content">
+            <block type="amzoom/grid" ifconfig="amzoom/zoom_on_category_grid/enable" name="amzoom_grid" after="category.products" />
+        </reference>
+    </catalogsearch_result_index>
+
+
+</layout>

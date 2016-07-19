@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+    <catalog_product_view>
+        <reference name="head">
+			 <!-- include jQuery plugins -->
+	    <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery-1.9.1.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery-ui.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.carouFredSel-6.2.1.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.mousewheel.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.touchSwipe.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.transit.min.js</name><params/></action>
+            <!-- fancyBox -->            
+            <action method="addItem"><type>skin_css</type><name>z_amasty/plugins/fancybox/jquery.fancybox.css</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/fancybox/jquery.fancybox.js</name><params/></action> 
+			
+            <!-- module sourse -->
+			<action method="addItem"><type>skin_js</type><name>amasty/amzoom/zoomer.js</name><params/></action>
+			<action method="addItem"><type>skin_css</type><name>amasty/amzoom/css/zoomer.css</name><params/></action>
+        </reference>
+        <reference name="product.info.media">
+            <action method="setTemplate"><template>amzoom/media.phtml</template></action>
+        </reference>
+    </catalog_product_view>
+    <catalog_category_view>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery-1.9.1.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery-ui.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.carouFredSel-6.2.1.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.mousewheel.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.touchSwipe.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.transit.min.js</name><params/></action>
+            
+            <!-- module sourse -->
+            <action method="addItem"><type>skin_js</type><name>amasty/amzoom/zoomer.js</name><params/></action>
+			<action method="addItem"><type>skin_css</type><name>amasty/amzoom/css/zoomer.css</name><params/></action>
+            
+            <block type="amzoom/grid" name="amzoom.grid" before="-"/>
+        </reference>
+    </catalog_category_view>
+	<catalogsearch_result_index>
+        <reference name="head">
+             <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery-1.9.1.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery-ui.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.carouFredSel-6.2.1.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.mousewheel.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.touchSwipe.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>z_amasty/plugins/jquery.transit.min.js</name><params/></action>
+            
+            <!-- module sourse -->
+            <action method="addItem"><type>skin_js</type><name>amasty/amzoom/zoomer.js</name><params/></action>
+			<action method="addItem"><type>skin_css</type><name>amasty/amzoom/css/zoomer.css</name><params/></action>
+            
+            <block type="amzoom/grid" name="amzoom.grid" before="-"/>
+        </reference>
+    </catalogsearch_result_index>
+</layout>

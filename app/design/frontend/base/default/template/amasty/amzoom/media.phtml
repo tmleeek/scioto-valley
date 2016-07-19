@@ -1,0 +1,92 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @package Amasty_Zoom
+ */
+    $_product = $this->getProduct();
+    $_helper = $this->helper('catalog/output');
+
+    $imageWidth = (int)Mage::getStoreConfig('amzoom/size/preview_width');
+    $imageHeight = (int)Mage::getStoreConfig('amzoom/size/preview_height');
+    $smallImageSize = (int)Mage::getStoreConfig('amzoom/size/thumb');
+    $itemCount = (int)Mage::getStoreConfig('amzoom/carousel/visible_items');
+
+    $thumbDirection = Mage::getStoreConfig('amzoom/carousel/direction');
+    $verticalClass = $thumbDirection? 'amvertical':  "";
+?>
+
+
+<?php if ('true' == (string) Mage::getConfig()->getNode('modules/Amasty_Label/active')): ?>
+                <div class="amlabel-div">
+                <?php echo Mage::helper('amlabel')->getLabels($_product, 'product') ?>
+ <?php endif; ?>
+<?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
+<div class="product-image  <?php echo $verticalClass;?>">
+    <?php
+        $_img = '<img id="amasty_zoom" 
+					width="'. $imageWidth .'"
+					data-zoom-image="'.$this->helper('catalog/image')->init($_product, 'image').'" src="'.$this->helper('catalog/image')->init($_product, 'image')->resize($imageWidth, $imageHeight).'" 
+					alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'"
+				/>';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+</div>
+
+<?php else: ?>
+<div class="product-image <?php echo $verticalClass;?>">
+    <?php
+        $_img = '<img id="amasty_zoom" data-zoom-image="'.$this->helper('catalog/image')->init($_product, 'image').'" src="'.$this->helper('catalog/image')->init($_product, 'image')->resize($imageWidth, $imageHeight).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+</div>
+
+<?php endif; ?>
+<?php if ('true' == (string)Mage::getConfig()->getNode('modules/Amasty_Label/active')): ?>
+                </div>
+            <?php endif; ?>
+
+<?php if (count($this->getGalleryImages()) > 0):
+    if($thumbDirection):
+?>
+        <style>
+            .more-views.amvertical{
+                max-width: <?php echo $smallImageSize +5;?>px;
+            }
+
+            .product-image.amvertical{
+                margin-left: <?php echo $smallImageSize +5;?>px !important;
+            }
+        </style>
+    <?php
+        endif;
+    ?>
+
+<div class="more-views <?php echo $verticalClass;?>">
+    <h2><?php echo $this->__('More Views') ?></h2>
+    <div style="position: relative;">
+        <div id="amasty_gallery">
+             <?php foreach ($this->getGalleryImages() as $_image): ?>
+                <a rel="group" <?php echo Mage::getStoreConfig('amzoom/lightbox/thumbnail_lignhtbox')?  ' class="fancybox" href="' . $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile()) . '"':""; ?> data-image="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($imageWidth, $imageHeight); ?>" data-zoom-image="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile()); ?>"  >
+                    <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($smallImageSize); ?>" width="<?php echo $smallImageSize;?>" height="<?php echo $smallImageSize;?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>"  title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+                </a>
+             <?php endforeach; ?>
+             
+        </div> 
+        <?php if (count($this->getGalleryImages()) > $itemCount && Mage::getStoreConfig('amzoom/carousel/enable')):
+            $topLeftStyle = $thumbDirection? 'left': 'top';
+            ?>
+
+            <div id="prevGallery" style="<?php echo $topLeftStyle;?>:<?php echo $smallImageSize/2 - 17;?>px" class="MagicScrollArrows MagicScrollArrowPrev <?php echo $verticalClass;?>"></div>
+            <div id="nextGallery" style="<?php echo $topLeftStyle;?>:<?php echo $smallImageSize/2 - 17;?>px" class="MagicScrollArrows MagicScrollArrowNext <?php echo $verticalClass;?>"></div>
+             <?php if (Mage::getStoreConfig('amzoom/carousel/pagination') && !$thumbDirection): ?>
+                <div id="ampagination" style="margin-top: 10px;"></div>
+             <?php endif; ?>
+        <?php endif; ?>
+     </div>
+</div>
+<?php endif;?>
+<script type="text/javascript" >
+    AmZoomerObj = new AmZoomer(<?php echo Mage::helper('amzoom')->jsParam()?>);
+    AmZoomerObj.loadCarousel();
+</script>
