@@ -3,15 +3,17 @@
 /**
  * @author Amasty Team
  * @copyright Copyright (c) 2016 Amasty (https://www.amasty.com)
- * @package Amasty_Base
+ * @package Amasty_Paction
  */
--->
+ -->
 <config>
     <modules>
-        <Amasty_Base>
+        <Amasty_Paction>
             <active>true</active>
             <codePool>local</codePool>
             <edition>community</edition>
-        </Amasty_Base>
+            <name>Mass Product Actions</name>
+            <url>https://amasty.com/mass-product-actions.html</url>
+        </Amasty_Paction>
     </modules>
 </config>
