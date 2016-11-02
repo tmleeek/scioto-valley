@@ -18,41 +18,41 @@ class Watsons_TrackingPixels_Block_Pixel extends Mage_Core_Block_Template
 
         switch ($path){
             //Injects re-targeting math-pixel into the /pools-and-spas/above-ground-pools page below the opening body tag
-            case '/pools-and-spas/above-ground-pools':
+            case '/contact-us':
                 /*($path == '');*/
-                $mtId = 932713;
+                $mtId = 1089182;
                 break;
             //Injects re-targeting math-pixel into the home-page page below the opening body tag
             case '/':
-                $mtId = 932712;
+                $mtId = 1089183;
                 break;
             //Injects re-targeting math-pixel into the home-page page below the opening body tag
-            case '/pools-and-spas/hot-tubs-spas':
-                $mtId = 932714;
+            case '/current-sale':
+                $mtId = 1089178;
                 break;
             //Injects re-targeting math-pixel into the /indoor-entertaining page below the opening body tag
             case '/indoor-entertaining':
                 $mtId = 932715;
                 break;
             //Injects re-targeting math-pixel into the /indoor-entertaining/living-rooms page below the opening body tag
-            case '/indoor-entertaining/living-rooms':
-                $mtId = 932716;
+            case '/email_registration':
+                $mtId = 1089180;
                 break;
             //Injects re-targeting math-pixel into the /indoor-entertaining/fireplaces-and-gas-logs page below the opening body tag
-            case '/indoor-entertaining/fireplaces-and-gas-logs':
-                $mtId = 932717;
+            case '/financing':
+                $mtId = 1089179;
                 break;
             //Injects re-targeting math-pixel into the /indoor-entertaining/pool-tables-and-billiards page below the opening body tag
-            case '/indoor-entertaining/pool-tables-and-billiards':
-                $mtId = 932718;
+            case '/locations':
+                $mtId = 1089175;
                 break;
             //Injects re-targeting math-pixel into the /outdoor-entertaining page below the opening body tag
-            case '/outdoor-entertaining':
-                $mtId = 932719;
+            case '/lowest-price':
+                $mtId = 1089181;
                 break;
             //Injects re-targeting math-pixel into the /financing page below the opening body tag
-            case '/financing':
-                $mtId = 932720;
+            case '/checkout/cart':
+                $mtId = 1089176;
                 break;
 
 
