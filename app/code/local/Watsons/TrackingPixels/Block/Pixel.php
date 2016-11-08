@@ -30,10 +30,6 @@ class Watsons_TrackingPixels_Block_Pixel extends Mage_Core_Block_Template
             case '/current-sale':
                 $mtId = 1089178;
                 break;
-            //Injects re-targeting math-pixel into the /indoor-entertaining page below the opening body tag
-            case '/indoor-entertaining':
-                $mtId = 932715;
-                break;
             //Injects re-targeting math-pixel into the /indoor-entertaining/living-rooms page below the opening body tag
             case '/email_registration':
                 $mtId = 1089180;
