@@ -55,7 +55,7 @@ class Watsons_TrackingPixels_Block_Pixel extends Mage_Core_Block_Template
                 }
 
         if( isset( $mtId ) ) {
-            return '<script language=\'JavaScript1.1\'"src=\'//pixel.mathtag.com/event/js?mt_id=' . $mtId . '&mt_adid=158227&v1=&v2=&v3=&s1=&s2=&s3=\'></script>';
+            return '<script language=\'JavaScript1.1\'src=\'//pixel.mathtag.com/event/js?mt_id=' . $mtId . '&mt_adid=158227&v1=&v2=&v3=&s1=&s2=&s3=\'></script>';
         }
 
         return '';
