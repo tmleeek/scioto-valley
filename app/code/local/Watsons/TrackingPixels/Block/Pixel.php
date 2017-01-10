@@ -12,10 +12,7 @@ class Watsons_TrackingPixels_Block_Pixel extends Mage_Core_Block_Template
         $url       = Mage::getSingleton('core/url')->parseUrl($urlString);
         $path      = $url->getPath();
 
-
-
         //Injects re-targeting math-pixel into pages
-
         switch ($path){
             //Injects re-targeting math-pixel into the /pools-and-spas/above-ground-pools page below the opening body tag
             case '/contact-us':
@@ -55,10 +52,33 @@ class Watsons_TrackingPixels_Block_Pixel extends Mage_Core_Block_Template
                 }
 
         if( isset( $mtId ) ) {
-            return '<script language=\'JavaScript1.1\'src=\'//pixel.mathtag.com/event/js?mt_id=' . $mtId . '&mt_adid=158227&v1=&v2=&v3=&s1=&s2=&s3=\'></script>';
+            $mathTag = '<script language=\'JavaScript1.1\'src=\'//pixel.mathtag.com/event/js?mt_id=' . $mtId . '&mt_adid=158227&v1=&v2=&v3=&s1=&s2=&s3=\'></script>';
+        } else {
+            $mathTag ='';
         }
-
-        return '';
-
+        $googleRemarketing = '
+                <!-- Google Code for Remarketing Tag -->
+                <script type="text/javascript">
+                /* <![CDATA[ */
+                var google_conversion_id = 982616289;
+                var google_custom_params = window.google_tag_params; var google_remarketing_only
+                = true;
+                /* ]]> */
+                </script>
+                <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+                </script>
+                <noscript>
+                <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt=""
+                src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/982616289/?guid=O
+                N&amp;s cript=0"/>
+                </div>
+                </noscript>';
+        $segmentPixel = '
+            <!-- Segment Pixel - Sciotto Valley-Retargeting - DO NOT MODIFY -->
+            <img src="https://secure.adnxs.com/seg?add=7447462&t=2" width="1" height="1" />
+            <!-- End of Segment Pixel -->';
+        $trackingCode = $mathTag . $googleRemarketing . $segmentPixel;
+        return $trackingCode;
     }
 }
