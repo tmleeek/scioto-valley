@@ -78,7 +78,8 @@ class Watsons_TrackingPixels_Block_Pixel extends Mage_Core_Block_Template
             <!-- Segment Pixel - Sciotto Valley-Retargeting - DO NOT MODIFY -->
             <img src="https://secure.adnxs.com/seg?add=7447462&t=2" width="1" height="1" />
             <!-- End of Segment Pixel -->';
-        $trackingCode = $mathTag . $googleRemarketing . $segmentPixel;
+        $trackingCode = $mathTag;
+        //$trackingCode = $mathTag . $googleRemarketing . $segmentPixel;
         return $trackingCode;
     }
 }
