@@ -47,8 +47,6 @@ class Watsons_TrackingPixels_Block_Pixel extends Mage_Core_Block_Template
             case '/checkout/cart':
                 $mtId = 1089176;
                 break;
-
-
                 }
 
         if( isset( $mtId ) ) {
