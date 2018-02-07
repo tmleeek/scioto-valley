@@ -72,12 +72,24 @@ class Watsons_TrackingPixels_Block_Pixel extends Mage_Core_Block_Template
                 <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/823553192/?guid=ON&amp;script=0"/>
                 </div>
                 </noscript>';
+        $DMGPixel='
+            <!-- Activity name for this tag: Whole Site -->
+            <!-- URL of the webpage where the tag will be placed: https://sciotovalley.com/ -->
+            <script type=\'text/javascript\'>
+            var axel = Math.random()+"";
+            var a = axel * 10000000000000;
+            document.write(\'<img src="https://pubads.g.doubleclick.net/activity;xsp=4364491;ord=\'+ a +\'?" width=1 height=1 border=0/>\');
+            </script>
+            <noscript>
+            <img src="https://pubads.g.doubleclick.net/activity;xsp=4364491;ord=1?" width=1 height=1 border=0/>
+            </noscript>
+            ';
         $segmentPixel = '
             <!-- Segment Pixel - Sciotto Valley-Retargeting - DO NOT MODIFY -->
             <img src="https://secure.adnxs.com/seg?add=7447462&t=2" width="1" height="1" />
             <!-- End of Segment Pixel -->';
         //$trackingCode = $mathTag;
-        $trackingCode = $mathTag . $googleRemarketing;
+        $trackingCode = $mathTag . $googleRemarketing.$DMGPixel;
         //$trackingCode = $mathTag . $googleRemarketing . $segmentPixel;
         return $trackingCode;
     }
