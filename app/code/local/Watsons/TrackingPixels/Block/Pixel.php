@@ -89,7 +89,7 @@ class Watsons_TrackingPixels_Block_Pixel extends Mage_Core_Block_Template
             <img src="https://secure.adnxs.com/seg?add=7447462&t=2" width="1" height="1" />
             <!-- End of Segment Pixel -->';
         //$trackingCode = $mathTag;
-        $trackingCode = $mathTag . $googleRemarketing.$DMGPixel;
+        $trackingCode = $googleRemarketing.$DMGPixel;
         //$trackingCode = $mathTag . $googleRemarketing . $segmentPixel;
         return $trackingCode;
     }
