@@ -82,12 +82,13 @@ class Watsons_TrackingPixels_Block_Pixel extends Mage_Core_Block_Template
             <img src="https://pubads.g.doubleclick.net/activity;xsp=4364491;ord=1?" width=1 height=1 border=0/>
             </noscript>
             ';
+        $spectrumPixel='<script type="text/javascript" src="//tag.brandcdn.com/autoscript/watsonsdirect_vfzsqmvvmxfaek09/WatsonsDirect_SciotoValley.js"></script>';
         $segmentPixel = '
             <!-- Segment Pixel - Sciotto Valley-Retargeting - DO NOT MODIFY -->
             <img src="https://secure.adnxs.com/seg?add=7447462&t=2" width="1" height="1" />
             <!-- End of Segment Pixel -->';
         //$trackingCode = $mathTag;
-        $trackingCode = $googleRemarketing.$DMGPixel;
+        $trackingCode = $googleRemarketing.$DMGPixel.$spectrumPixel;
         //$trackingCode = $mathTag . $googleRemarketing . $segmentPixel;
         return $trackingCode;
     }
